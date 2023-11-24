@@ -127,12 +127,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Autor.cpp" />
+    <ClCompile Include="Bibliotekarz.cpp" />
+    <ClCompile Include="Czytelnik.cpp" />
+    <ClCompile Include="Dlug.cpp" />
+    <ClCompile Include="Egzemplarz.cpp" />
+    <ClCompile Include="KartaBiblioteczna.cpp" />
+    <ClCompile Include="KatalogUzytkownikow.cpp" />
+    <ClCompile Include="Ksiazka.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Osoba.cpp" />
+    <ClCompile Include="Wypozyczenia.cpp" />
+    <ClCompile Include="Zbior.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Autor.h" />
+    <ClInclude Include="Bibliotekarz.h" />
+    <ClInclude Include="Czytelnik.h" />
+    <ClInclude Include="Dlug.h" />
+    <ClInclude Include="Egzemplarz.h" />
     <ClInclude Include="Includy.h" />
+    <ClInclude Include="KartaBiblioteczna.h" />
+    <ClInclude Include="KatalogUzytkownikow.h" />
+    <ClInclude Include="Ksiazka.h" />
     <ClInclude Include="Osoba.h" />
+    <ClInclude Include="Wypozyczenia.h" />
+    <ClInclude Include="Zbior.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

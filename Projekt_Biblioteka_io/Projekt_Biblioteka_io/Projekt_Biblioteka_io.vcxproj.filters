@@ -21,12 +21,72 @@
     <ClCompile Include="Osoba.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Bibliotekarz.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Czytelnik.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KatalogUzytkownikow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KartaBiblioteczna.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Dlug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Wypozyczenia.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Egzemplarz.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ksiazka.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Zbior.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Autor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Includy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Osoba.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bibliotekarz.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Czytelnik.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KatalogUzytkownikow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KartaBiblioteczna.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Dlug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Wypozyczenia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Egzemplarz.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ksiazka.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Zbior.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Autor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
