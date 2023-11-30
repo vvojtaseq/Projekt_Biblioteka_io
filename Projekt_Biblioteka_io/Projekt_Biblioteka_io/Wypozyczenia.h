@@ -1,3 +1,4 @@
+// cd /c/Users/mania/Biblioteka
 #pragma once
 #include "Includy.h"
 class Wypozyczenia
@@ -30,7 +31,7 @@ public:
 			// Format the date as day/month/year
 			if (std::strftime(buffer, bufferSize, "%d/%m/%Y", &StrukturaCzasu) != 0) // robimy dzien/miesiac/rok
 			{
-				std::cout << "Twoj dlug to: " << buffer << std::endl;
+				std::cout << "Data zwrotu ksi¹¿ki to : " << buffer << std::endl; // to do - z klasy wypozyczone pobrac wypozyczone przez nas ksiazki i w tym coucie dodac nazwe ksiazki, oraz dodac petle zeby sie powtarzalo dla kazdej ksiazki
 			}
 		}
 	}

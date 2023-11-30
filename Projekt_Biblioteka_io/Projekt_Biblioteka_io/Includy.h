@@ -5,6 +5,8 @@
 #include <chrono> //ta biblioteka daje nam mozliwosc zapisywania dat
 #include <sstream>
 #include <ctime> //do czasu
+#include <stdlib.h> // do system("CLS") czyli czyszczenia konsoli
+#include <locale.h> // do polskich liter
 
 //klasy
 
