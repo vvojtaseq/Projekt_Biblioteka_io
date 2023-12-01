@@ -9,7 +9,7 @@ private:
 	std::string Nazwisko;
 	std::string Adres;
 	std::string DataUrodzenia;
-	int Telefon;
+	unsigned int Telefon; 
 	long long PESEL;
 	
 public:
@@ -22,6 +22,9 @@ public:
 	std::string getAdres() { return Adres; }
 	void setAdres(std::string nowyAdres) { Adres = nowyAdres; }
 	std::string getDataUrodzenia() { return DataUrodzenia; }
+	void setDataUrodzenia(std::string nowaDataUrodzenia) { DataUrodzenia = nowaDataUrodzenia; }
+	unsigned int getTelefon() { return Telefon; }
+	void setTelefon(unsigned int nowyTelefon) { Telefon = nowyTelefon; }
 	long long getPESEL() { return PESEL; }
 	void setPESEL(long long nowyPESEL) 
 	{
@@ -31,6 +34,10 @@ public:
 			nowyPESEL = 0;
 				std::cin >> nowyPESEL;
 				setPESEL(nowyPESEL);
+		}
+		else
+		{
+			PESEL = nowyPESEL;
 		}
 	}
 };
