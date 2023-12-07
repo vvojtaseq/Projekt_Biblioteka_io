@@ -6,6 +6,8 @@
 #include <sstream>
 #include <ctime> //do czasu
 #include <stdlib.h> // do system("CLS") czyli czyszczenia konsoli
+#include <algorithm>
+#include <cctype> // te dwa do std::all_of
 #include <locale.h> // do polskich liter
 
 //klasy
@@ -22,3 +24,7 @@
 #include "Zbior.h"
 #include "KartaBiblioteczna.h"
 #include "Dlug.h"
+
+// inne pliki
+
+#include "UI.h"

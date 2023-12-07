@@ -137,6 +137,7 @@
     <ClCompile Include="Ksiazka.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Osoba.cpp" />
+    <ClCompile Include="UI.cpp" />
     <ClCompile Include="Wypozyczenia.cpp" />
     <ClCompile Include="Zbior.cpp" />
   </ItemGroup>
@@ -151,6 +152,7 @@
     <ClInclude Include="KatalogUzytkownikow.h" />
     <ClInclude Include="Ksiazka.h" />
     <ClInclude Include="Osoba.h" />
+    <ClInclude Include="UI.h" />
     <ClInclude Include="Wypozyczenia.h" />
     <ClInclude Include="Zbior.h" />
   </ItemGroup>
