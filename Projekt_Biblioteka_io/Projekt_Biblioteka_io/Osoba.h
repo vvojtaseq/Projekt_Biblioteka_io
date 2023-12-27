@@ -10,7 +10,7 @@ private:
 	std::string Nazwisko;
 	std::string Adres;
 	std::string DataUrodzenia;
-	std::string Telefon; 
+	unsigned int Telefon; 
 	std::string PESEL;
 	
 public:
@@ -24,7 +24,7 @@ public:
 	void setAdres(std::string nowyAdres) { Adres = nowyAdres; }
 	std::string getDataUrodzenia() { return DataUrodzenia; }
 	void setDataUrodzenia(std::string nowaDataUrodzenia) { DataUrodzenia = nowaDataUrodzenia; }
-	std::string getTelefon() { return Telefon; }
+	unsigned int getTelefon() { return Telefon; }
 	void setTelefon(unsigned int nowyTelefon) { Telefon = nowyTelefon; }
 	std::string getPESEL() { return PESEL; }
 	void setPESEL(std::string nowyPESEL) {
