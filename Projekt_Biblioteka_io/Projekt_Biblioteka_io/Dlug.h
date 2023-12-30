@@ -1,4 +1,5 @@
 #pragma once
+#include "includy.h"
 class Dlug
 {
 	float WartoscDlugu;

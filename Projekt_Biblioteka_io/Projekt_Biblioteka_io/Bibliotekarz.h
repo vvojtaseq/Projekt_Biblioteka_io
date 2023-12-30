@@ -1,5 +1,6 @@
 #pragma once
-class Bibliotekarz
+#include "Osoba.h"
+class Bibliotekarz : public Osoba
 {
 public:
 	int PowerLevel;

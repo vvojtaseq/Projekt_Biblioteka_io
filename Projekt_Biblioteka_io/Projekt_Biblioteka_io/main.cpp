@@ -1,4 +1,5 @@
-#include "includy.h"
+#include "Includy.h"
+#include "IncludyKlasy.h"
 
 
 

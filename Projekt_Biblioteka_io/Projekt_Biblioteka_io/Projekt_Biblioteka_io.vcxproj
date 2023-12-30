@@ -148,6 +148,7 @@
     <ClInclude Include="Dlug.h" />
     <ClInclude Include="Egzemplarz.h" />
     <ClInclude Include="Includy.h" />
+    <ClInclude Include="IncludyKlasy.h" />
     <ClInclude Include="KartaBiblioteczna.h" />
     <ClInclude Include="KatalogUzytkownikow.h" />
     <ClInclude Include="Ksiazka.h" />
