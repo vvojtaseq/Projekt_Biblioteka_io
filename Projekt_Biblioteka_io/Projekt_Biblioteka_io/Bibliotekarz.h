@@ -1,4 +1,5 @@
 #pragma once
+#include "Includy.h"
 #include "Osoba.h"
 class Bibliotekarz : public Osoba
 {

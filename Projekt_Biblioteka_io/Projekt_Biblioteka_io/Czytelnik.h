@@ -1,5 +1,7 @@
 #pragma once
-class Czytelnik
+#include "Includy.h"
+#include "Osoba.h"
+class Czytelnik : public Osoba
 {
 };
 

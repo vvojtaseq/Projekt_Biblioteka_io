@@ -1,5 +1,6 @@
 #pragma once
 //biblioteki
+//do cpp i do plikow headerow klas
 #include <iostream>
 #include <string>
 #include <chrono> //ta biblioteka daje nam mozliwosc zapisywania dat

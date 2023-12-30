@@ -1,4 +1,6 @@
 #pragma once
+// to jest tylko do cpp gdzie musimy miec dostep do wszystkich klas
+// NIE DODAJEMY DO KLAS
 #include "Osoba.h"
 #include "Bibliotekarz.h"
 #include "Czytelnik.h"

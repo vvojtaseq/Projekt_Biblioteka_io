@@ -3,16 +3,17 @@
 class Ksiazka
 {
 private:
-	std::string tytul;
-	std::string rokWydania;
-	int iloscStron;
-	int iloscEgzemplarzy;
+	std::string Tytul;
+	std::string RokWydania;
+	int IloscStron;
+	int IloscEgzemplarzy;
 public:
-	std::string getTytul() { return tytul; }
-	void setTytul(std::string nowyTytul) { tytul = nowyTytul; }
-	std::string getRokWydania() { return rokWydania; }
-	void setRokWydania(std::string nowyRokWydania) { rokWydania = nowyRokWydania; }
-	int getIloscStron() { return iloscStron; }
+	std::string getTytul() { return Tytul; }
+	void setTytul(std::string nowyTytul) { Tytul = nowyTytul; }
+	std::string getRokWydania() { return RokWydania; }
+	void setRokWydania(std::string nowyRokWydania) { RokWydania = nowyRokWydania; }
+	int getIloscStron() { return IloscStron; }
+	void setIloscStron(int nowaIloscStron) { IloscStron = nowaIloscStron; }
 
 };
 
