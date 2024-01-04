@@ -1,6 +1,7 @@
 #pragma once
 #include "includy.h"
-class Ksiazka
+#include "Autor.h"
+class Ksiazka : public Autor 
 {
 private:
 	std::string Tytul;
