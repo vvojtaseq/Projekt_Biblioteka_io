@@ -1,24 +1,24 @@
 #include "KatalogUzytkownikow.h"
 #include "IncludyKlasy.h"
 
+//dodawanie uzytkownika do pliku
 void addCzytelnik (Czytelnik czytelnik)
 {
-	//dodawanie uzytkownika do pliku
 	std::fstream plik;
 	plik.open("czytelnicy.txt", std::ios::out | std::ios::app);
 	plik << czytelnik.getID() << "|" << czytelnik.getImie() << "|" << czytelnik.getNazwisko() << "|" << czytelnik.getEmail() << "|" << czytelnik.getAdres() << "|" << czytelnik.getTelefon() << "|" << czytelnik.getPESEL() << "|" << czytelnik.getPowerLevel() << std::endl;
 	plik.close();
 }
-
+//dodawanie uzytkownika do pliku
 void addBibliotekarz (Bibliotekarz bibliotekarz)
 {
-	//dodawanie uzytkownika do pliku
 	std::fstream plik;
 	plik.open("bibliotekarze.txt", std::ios::out | std::ios::app);
 	plik << bibliotekarz.getID() << "|" << bibliotekarz.getImie() << "|" << bibliotekarz.getNazwisko() << "|" << bibliotekarz.getEmail() << "|" << bibliotekarz.getAdres() << "|" << bibliotekarz.getTelefon() << "|" << bibliotekarz.getPESEL() << "|" << bibliotekarz.getPowerLevel() << std::endl;
 	plik.close();
 }
 
+//dodawanie hasla do pliku
 void addHaslo(std::string haslo, unsigned int ID)
 {
 	std::fstream plik;
@@ -27,6 +27,7 @@ void addHaslo(std::string haslo, unsigned int ID)
 	plik.close();
 }
 
+//zmiana hasla w pliku
 void changeHaslo(std::string noweHaslo, unsigned int ID)
 {
 	std::fstream plik;
@@ -58,6 +59,26 @@ void changeHaslo(std::string noweHaslo, unsigned int ID)
 	plik.close();
 }
 
+//pobieranie hasla z pliku
+unsigned int getLastIDFromFile(std::string nazwaPliku)
+{
+	std::fstream plik;
+	plik.open(nazwaPliku, std::ios::in);
+	std::string linia;
+	std::string idString;
+	std::string haslo;
+	std::vector<std::string> hasla;
+	while (getline(plik, linia))
+	{
+		std::stringstream ss(linia);
+		getline(ss, idString, '|');
+		getline(ss, haslo, '|');
+	}
+	plik.close();
+	return std::stoi(idString);
+}
+
+//pobieranie imienia z pliku
 std::string getImieFromFiles(unsigned int id)
 {
 	std::fstream plik;
@@ -90,6 +111,75 @@ std::string getImieFromFiles(unsigned int id)
 	plik.close();
 	return "Nie znaleziono imienia";
 }
+
+//pobieranie nazwiska z pliku
+std::string getNazwiskoFromFiles(unsigned int id)
+{
+	std::fstream plik;
+	plik.open("czytelnicy.txt", std::ios::in);
+	std::string linia;
+	std::string idString;
+	std::string nazwisko;
+	while (getline(plik, linia))
+	{
+		std::stringstream ss(linia);
+		getline(ss, idString, '|');
+		getline(ss, nazwisko, '|');
+		if (id == std::stoi(idString))
+		{
+			return nazwisko;
+		}
+	}
+	plik.close();
+	plik.open("bibliotekarze.txt", std::ios::in);
+	while (getline(plik, linia))
+	{
+		std::stringstream ss(linia);
+		getline(ss, idString, '|');
+		getline(ss, nazwisko, '|');
+		if (id == std::stoi(idString))
+		{
+			return nazwisko;
+		}
+	}
+	plik.close();
+	return "Nie znaleziono nazwiska";
+}
+
+std::string getEmailFromFiles(unsigned int id)
+{
+	std::fstream plik;
+	plik.open("czytelnicy.txt", std::ios::in);
+	std::string linia;
+	std::string idString;
+	std::string email;
+	while (getline(plik, linia))
+	{
+		std::stringstream ss(linia);
+		getline(ss, idString, '|');
+		getline(ss, email, '|');
+		if (id == std::stoi(idString))
+		{
+			return email;
+		}
+	}
+	plik.close();
+	plik.open("bibliotekarze.txt", std::ios::in);
+	while (getline(plik, linia))
+	{
+		std::stringstream ss(linia);
+		getline(ss, idString, '|');
+		getline(ss, email, '|');
+		if (id == std::stoi(idString))
+		{
+			return email;
+		}
+	}
+	plik.close();
+	return "Nie znaleziono emaila";
+}
+
+
 
 
 
