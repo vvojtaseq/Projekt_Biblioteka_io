@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  Bibliotekarz.cpp
 C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Czytelnik.h(5,26): error C2504: „Osoba”: klasa bazowa niezdefiniowana
   (kompilowanie pliku źródłowego „Bibliotekarz.cpp”)
@@ -72,3 +73,10 @@ C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Bibliot
   
 C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\UI.cpp(109,2): error C2064: funkcja przyjmująca 1 argumentów nie jest wynikiem przetworzenia termu
   Generowanie kodu...
+=======
+﻿  UI.cpp
+C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Osoba.h(60,18): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+  (kompilowanie pliku źródłowego „UI.cpp”)
+  
+  Projekt_Biblioteka_io.vcxproj -> C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\x64\Debug\Projekt_Biblioteka_io.exe
+>>>>>>> dc8a578c3a174e8aabda258310b8671fec0aab27
