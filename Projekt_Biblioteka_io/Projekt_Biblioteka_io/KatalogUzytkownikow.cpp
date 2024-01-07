@@ -225,5 +225,70 @@ std::string getTelefonFromFiles(unsigned int id)
 	return "Nie znaleziono telefonu";
 }
 
+std::string getPESELFromFiles(unsigned int id)
+{
+	std::fstream plik;
+	plik.open("czytelnicy.txt", std::ios::in);
+	std::string linia;
+	std::string idString;
+	std::string pesel;
+	while (getline(plik, linia))
+	{
+		std::stringstream ss(linia);
+		getline(ss, idString, '|');
+		getline(ss, pesel, '|');
+		if (id == std::stoi(idString))
+		{
+			return pesel;
+		}
+	}
+	plik.close();
+	plik.open("bibliotekarze.txt", std::ios::in);
+	while (getline(plik, linia))
+	{
+		std::stringstream ss(linia);
+		getline(ss, idString, '|');
+		getline(ss, pesel, '|');
+		if (id == std::stoi(idString))
+		{
+			return pesel;
+		}
+	}
+	plik.close();
+	return "Nie znaleziono peselu";
+}
+
+int getPowerLevelFromFiles(unsigned int id)
+{
+	std::fstream plik;
+	plik.open("czytelnicy.txt", std::ios::in);
+	std::string linia;
+	std::string idString;
+	std::string powerlevel;
+	while (getline(plik, linia))
+	{
+		std::stringstream ss(linia);
+		getline(ss, idString, '|');
+		getline(ss, powerlevel, '|');
+		if (id == std::stoi(idString))
+		{
+			return std::stoi(powerlevel);
+		}
+	}
+	plik.close();
+	plik.open("bibliotekarze.txt", std::ios::in);
+	while (getline(plik, linia))
+	{
+		std::stringstream ss(linia);
+		getline(ss, idString, '|');
+		getline(ss, powerlevel, '|');
+		if (id == std::stoi(idString))
+		{
+			return std::stoi(powerlevel);
+		}
+	}
+	plik.close();
+	return -1;
+}
 
 
