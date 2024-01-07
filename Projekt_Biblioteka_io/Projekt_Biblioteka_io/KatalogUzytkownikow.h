@@ -14,5 +14,5 @@ void addHaslo(std::string haslo, unsigned int id);
 unsigned int getLastIDFromFile(std::string nazwaPliku);
 std::string getImieFromFiles(unsigned int id);
 std::string getNazwiskoFromFiles(unsigned int id);
-std::string getEmailFromFiles(unsigned int id)
+std::string getEmailFromFiles(unsigned int id);
 

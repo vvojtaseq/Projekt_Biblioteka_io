@@ -3,5 +3,7 @@
 #include "Osoba.h"
 class Czytelnik : public Osoba
 {
+private:
+	unsigned int ID;
 };
 

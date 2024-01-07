@@ -13,7 +13,7 @@ private:
 	std::string Telefon;
 	std::string PESEL;
 	std::string Email;
-	unsigned int ID;
+	
 	std::string Haslo;
 	int PowerLevel; //0 - czytelnik, 1 - pracownik, 2 - menadzer
 
@@ -54,12 +54,7 @@ public:
 			std::cin >> nowyPESEL;
 		}
 	}
-	unsigned int getID() { return ID; }
-	void setID(unsigned int noweID) {
-		//losowanie ID uzytkownika
-		std::srand(time(NULL));
-		ID = rand() % 8888888 + 1000000;
-	}
+
 	std::string getHaslo() { return Haslo; }
 	void setHaslo(std::string noweHaslo) { Haslo = noweHaslo; }
 
