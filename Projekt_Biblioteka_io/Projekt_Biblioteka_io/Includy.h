@@ -10,6 +10,8 @@
 #include <algorithm>
 #include <cctype> // te dwa do std::all_of
 #include <locale.h> // do polskich liter
+#include <fstream> //do plikow
+#include <cstdlib> //do generowania ID
 
 //klasy
 

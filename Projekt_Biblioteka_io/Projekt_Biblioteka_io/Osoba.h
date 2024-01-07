@@ -12,7 +12,10 @@ private:
 	std::string DataUrodzenia;
 	std::string Telefon; 
 	std::string PESEL;
-	
+	unsigned int ID;
+	std::string Haslo;
+	int PowerLevel; //0 - czytelnik, 1 - pracownik, 2 - menadzer
+
 public:
 	//metody 
 	//trzeba zrobic metody get i set, set potrzebne do tworzenia uzytkownika, get do logowania i innych klas 
@@ -25,7 +28,7 @@ public:
 	std::string getDataUrodzenia() { return DataUrodzenia; }
 	void setDataUrodzenia(std::string nowaDataUrodzenia) { DataUrodzenia = nowaDataUrodzenia; }
 	std::string getTelefon() { return Telefon; }
-	void setTelefon(unsigned int nowyTelefon) { Telefon = nowyTelefon; }
+	void setTelefon(std::string nowyTelefon) { Telefon = nowyTelefon; }
 	std::string getPESEL() { return PESEL; }
 	void setPESEL(std::string nowyPESEL) {
 		while (true) {
@@ -42,7 +45,7 @@ public:
 				}
 				else {
 					PESEL = nowyPESEL;
-					std::cout << "Nowy pesel to: " << PESEL << std::endl;
+					//std::cout << "Nowy pesel to: " << PESEL << std::endl; wyœwietla podczas wprowadzania
 					break; // Exit the loop after setting the valid PESEL
 				}
 			}
@@ -50,6 +53,17 @@ public:
 			std::cin >> nowyPESEL;
 		}
 	}
+	unsigned int getID() { return ID; }
+	void setID(unsigned int noweID) { 
+	//losowanie ID uzytkownika
+		std::srand(time(NULL));
+		ID = rand() % 8888888 + 1000000;
+	}
+	std::string getHaslo() { return Haslo; }
+	void setHaslo(std::string noweHaslo) { Haslo = noweHaslo; }
+
+	void setPowerLevel(int powerlevel) { PowerLevel = powerlevel; };
+	int getPowerLevel() { return PowerLevel; };
 
 	/*
 	void setPESEL( std::string nowyPESEL) {

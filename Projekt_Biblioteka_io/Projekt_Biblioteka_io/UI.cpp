@@ -38,7 +38,7 @@ void userInterfaceUzytkownik()
 		
 		break;
 	case 2:
-		
+		userInterfaceZarejestrujSie();
 		break;
 	default:
 		std::cout << "Niepoprawne dane, spróbuj jeszcze raz" << std::endl;
@@ -52,7 +52,7 @@ void userInterfacePracownik()
 	std::cout << "**<< Biblioteka dla Studentów >>**" << std::endl << std::endl << std::endl;
 	std::cout << "Opcje :\n";
 	std::cout << "1 - Zaloguj siê		2 - Zarejestruj siê (potrzebny kod) >> std::endl";
-	//tutaj taki pomysl zeby miec jakies set haslo ktore trzeba podac zanim ci da mozliwosc stworzenia konta
+
 	
 	int decide;
 	std::cin >> decide;
@@ -70,3 +70,80 @@ void userInterfacePracownik()
 		userInterfacePracownik();
 	}
 }
+
+void userInterfaceZarejestrujSie()
+{
+	Czytelnik czytelnik;
+	system("CLS");
+	std::cout << "**<< Biblioteka dla Studentów >>**" << std::endl << std::endl << std::endl;
+	std::cout << "Podaj Imiê:";
+	std::string imie;
+	std::cin >> imie;
+	czytelnik.setImie(imie);
+	std::cout << "Podaj Nazwisko:";
+	std::string nazwisko;
+	std::cin >> nazwisko;
+	czytelnik.setNazwisko(nazwisko);
+	std::cout << "Podaj Adres:";
+	std::string adres;
+	std::cin >> adres;
+	czytelnik.setAdres(adres);
+	std::cout << "Podaj Datê Urodzenia:";
+	std::string dataUrodzenia;
+	std::cin >> dataUrodzenia;
+	//std::cout << dataUrodzenia;
+	czytelnik.setDataUrodzenia(dataUrodzenia); //jeœli wprowadzi siê adres z numerem to przeskakuje wprowadzanie daty urodzenia
+	std::cout << "Podaj Telefon:";
+	std::string telefon;
+	std::cin >> telefon;
+	czytelnik.setTelefon(telefon);
+	std::cout << "Podaj PESEL:";
+	std::string pesel;
+	std::cin >> pesel;
+	czytelnik.setPESEL(pesel);
+	std::cout << "Podaj Has³o:";
+	std::string haslo;
+	std::cin >> haslo;
+	czytelnik.setHaslo(haslo);
+	addCzytelnik(czytelnik);
+
+}
+
+void userInterfaceUzytkownikZalogowany()
+{
+	system("CLS");
+	std::cout << "**<< Biblioteka dla Studentów >>**" << std::endl << std::endl << std::endl;
+	std::cout << "Opcje :\n";
+	std::cout << "1 - Wyszukaj ksi¹¿kê		2 - Wypo¿ycz ksi¹¿kê " << std::endl;
+	std::cout << "3 - Zwróæ ksi¹¿kê		4 - Zobacz swoje ksi¹¿ki " << std::endl;
+	std::cout << "5 - Zobacz swoje dane		6 - Wyloguj siê " << std::endl;
+	int decide;
+	std::cin >> decide;
+	switch (decide)
+	{
+	case 1:
+		
+		break;
+	case 2:
+		
+		break;
+	case 3:
+		
+		break;
+	case 4:
+		
+		break;
+	case 5:
+		
+		break;
+	case 6:
+		
+		break;
+	default:
+		std::cout << "Niepoprawne dane, spróbuj jeszcze raz" << std::endl;
+		system("pause");
+		userInterfaceUzytkownikZalogowany();
+	}
+}
+
+//
