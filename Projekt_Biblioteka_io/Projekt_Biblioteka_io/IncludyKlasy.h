@@ -12,7 +12,6 @@
 #include "Zbior.h"
 #include "KartaBiblioteczna.h"
 #include "Dlug.h"
-
 // inne pliki
 
 #include "UI.h"

@@ -1,6 +1,4 @@
 #include "KatalogUzytkownikow.h"
-#include "IncludyKlasy.h"
-
 //dodawanie uzytkownika do pliku
 void addCzytelnik (Czytelnik czytelnik)
 {
@@ -59,24 +57,6 @@ void changeHaslo(std::string noweHaslo, unsigned int ID)
 	plik.close();
 }
 
-//pobieranie hasla z pliku
-unsigned int getLastIDFromFile(std::string nazwaPliku)
-{
-	std::fstream plik;
-	plik.open(nazwaPliku, std::ios::in);
-	std::string linia;
-	std::string idString;
-	std::string haslo;
-	std::vector<std::string> hasla;
-	while (getline(plik, linia))
-	{
-		std::stringstream ss(linia);
-		getline(ss, idString, '|');
-		getline(ss, haslo, '|');
-	}
-	plik.close();
-	return std::stoi(idString);
-}
 
 //pobieranie imienia z pliku
 std::string getImieFromFiles(unsigned int id)

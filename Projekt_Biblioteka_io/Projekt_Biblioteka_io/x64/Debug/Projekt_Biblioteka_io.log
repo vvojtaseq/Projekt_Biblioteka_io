@@ -1,14 +1,74 @@
-﻿  KatalogUzytkownikow.cpp
-C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.cpp(9,20): error C2039: „getID”: nie jest składową elementu „Czytelnik”
-  C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Czytelnik.h(4,7):
-  zobacz deklarację „Czytelnik”
+﻿  Bibliotekarz.cpp
+C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Czytelnik.h(5,26): error C2504: „Osoba”: klasa bazowa niezdefiniowana
+  (kompilowanie pliku źródłowego „Bibliotekarz.cpp”)
   
-C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.cpp(17,23): error C2039: „getID”: nie jest składową elementu „Bibliotekarz”
-  C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Bibliotekarz.h(4,7):
-  zobacz deklarację „Bibliotekarz”
+C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(10,6): error C2182: „addBibliotekarz“: to użycie elementu „void“ jest nieprawidłowe
+  (kompilowanie pliku źródłowego „Bibliotekarz.cpp”)
   
+C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(10,22): error C2065: "Bibliotekarz": niezadeklarowany identyfikator
+  (kompilowanie pliku źródłowego „Bibliotekarz.cpp”)
+  
+C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(10,35): error C2146: błąd składniowy: brakuje „)” przed identyfikatorem „bibliotekarz”
+  (kompilowanie pliku źródłowego „Bibliotekarz.cpp”)
+  
+  Czytelnik.cpp
+C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Bibliotekarz.h(5,29): error C2504: „Osoba”: klasa bazowa niezdefiniowana
+  (kompilowanie pliku źródłowego „Czytelnik.cpp”)
+  
+C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(9,6): error C2182: „addCzytelnik“: to użycie elementu „void“ jest nieprawidłowe
+  (kompilowanie pliku źródłowego „Czytelnik.cpp”)
+  
+C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(9,19): error C2065: "Czytelnik": niezadeklarowany identyfikator
+  (kompilowanie pliku źródłowego „Czytelnik.cpp”)
+  
+C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(9,29): error C2146: błąd składniowy: brakuje „)” przed identyfikatorem „czytelnik”
+  (kompilowanie pliku źródłowego „Czytelnik.cpp”)
+  
+  KatalogUzytkownikow.cpp
   main.cpp
+C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(9,6): error C2182: „addCzytelnik“: to użycie elementu „void“ jest nieprawidłowe
+  (kompilowanie pliku źródłowego „main.cpp”)
+  
+C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(9,19): error C2065: "Czytelnik": niezadeklarowany identyfikator
+  (kompilowanie pliku źródłowego „main.cpp”)
+  
+C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(9,29): error C2146: błąd składniowy: brakuje „)” przed identyfikatorem „czytelnik”
+  (kompilowanie pliku źródłowego „main.cpp”)
+  
+C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(10,6): error C2182: „addBibliotekarz“: to użycie elementu „void“ jest nieprawidłowe
+  (kompilowanie pliku źródłowego „main.cpp”)
+  
+C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(10,22): error C2065: "Bibliotekarz": niezadeklarowany identyfikator
+  (kompilowanie pliku źródłowego „main.cpp”)
+  
+C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(10,35): error C2146: błąd składniowy: brakuje „)” przed identyfikatorem „bibliotekarz”
+  (kompilowanie pliku źródłowego „main.cpp”)
+  
   Osoba.cpp
+C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Bibliotekarz.h(5,29): error C2504: „Osoba”: klasa bazowa niezdefiniowana
+  (kompilowanie pliku źródłowego „Osoba.cpp”)
+  
+C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Czytelnik.h(5,26): error C2504: „Osoba”: klasa bazowa niezdefiniowana
+  (kompilowanie pliku źródłowego „Osoba.cpp”)
+  
   UI.cpp
-C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\UI.cpp(77,7): warning C4101: "input": lokalna zmienna, do której nie istnieje odwołanie
+C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(9,6): error C2182: „addCzytelnik“: to użycie elementu „void“ jest nieprawidłowe
+  (kompilowanie pliku źródłowego „UI.cpp”)
+  
+C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(9,19): error C2065: "Czytelnik": niezadeklarowany identyfikator
+  (kompilowanie pliku źródłowego „UI.cpp”)
+  
+C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(9,29): error C2146: błąd składniowy: brakuje „)” przed identyfikatorem „czytelnik”
+  (kompilowanie pliku źródłowego „UI.cpp”)
+  
+C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(10,6): error C2182: „addBibliotekarz“: to użycie elementu „void“ jest nieprawidłowe
+  (kompilowanie pliku źródłowego „UI.cpp”)
+  
+C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(10,22): error C2065: "Bibliotekarz": niezadeklarowany identyfikator
+  (kompilowanie pliku źródłowego „UI.cpp”)
+  
+C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(10,35): error C2146: błąd składniowy: brakuje „)” przed identyfikatorem „bibliotekarz”
+  (kompilowanie pliku źródłowego „UI.cpp”)
+  
+C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\UI.cpp(109,2): error C2064: funkcja przyjmująca 1 argumentów nie jest wynikiem przetworzenia termu
   Generowanie kodu...
