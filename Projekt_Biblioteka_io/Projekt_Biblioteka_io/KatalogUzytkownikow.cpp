@@ -28,47 +28,32 @@ void addHaslo(std::string haslo, Osoba osoba)
 	plik.close();
 }
 
-void changeHaslo(std::string noweHaslo, unsigned int ID)
+void changeHaslo(std::string noweHaslo, Osoba osoba)
 {
-	//zmiana hasla uzytkownika
+
 	std::fstream plik;
-	plik.open("czytelnicy.txt", std::ios::in);
+	plik.open("hasla.txt", std::ios::in);
 	std::string linia;
-	std::string nowaLinia;
+	std::string id;
+	std::string haslo;
+	std::string nowyPlik;
 	while (getline(plik, linia))
 	{
 		std::stringstream ss(linia);
-		std::string IDString;
-		getline(ss, IDString, '|');
-		if (std::stoi(IDString) == ID)
+		getline(ss, id, '|');
+		getline(ss, haslo, '|');
+		if (id == std::to_string(osoba.getID()))
 		{
-			std::string Imie;
-			getline(ss, Imie, '|');
-			std::string Nazwisko;
-			getline(ss, Nazwisko, '|');
-			std::string Adres;
-			getline(ss, Adres, '|');
-			std::string Telefon;
-			getline(ss, Telefon, '|');
-			std::string PESEL;
-			getline(ss, PESEL, '|');
-			nowaLinia = IDString + "|" + Imie + "|" + Nazwisko + "|" + Adres + "|" + Telefon + "|" + PESEL + "|" + noweHaslo;
+			haslo = noweHaslo;
 		}
+		nowyPlik += id + "|" + haslo + "\n";
 	}
 	plik.close();
-	plik.open("czytelnicy.txt", std::ios::out);
-	while (getline(plik, linia))
-	{
-		if (linia != nowaLinia)
-		{
-			plik << linia << std::endl;
-		}
-		else
-		{
-			plik << nowaLinia << std::endl;
-		}
-	}
+	plik.open("hasla.txt", std::ios::out);
+	plik << nowyPlik;
 	plik.close();
 }
+
+
 
 
