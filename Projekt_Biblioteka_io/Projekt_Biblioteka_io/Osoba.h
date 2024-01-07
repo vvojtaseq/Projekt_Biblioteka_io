@@ -79,6 +79,7 @@ public:
 			Email = email;
 		}
 	}
+	std::string getEmail() { return Email; }
 };
 	/*
 	void setPESEL( std::string nowyPESEL) {
