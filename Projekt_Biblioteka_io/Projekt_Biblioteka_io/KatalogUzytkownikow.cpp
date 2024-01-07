@@ -6,7 +6,7 @@ void addCzytelnik (Czytelnik czytelnik)
 	//dodawanie uzytkownika do pliku
 	std::fstream plik;
 	plik.open("czytelnicy.txt", std::ios::out | std::ios::app);
-	plik << czytelnik.getID() << "|" << czytelnik.getImie() << "|" << czytelnik.getNazwisko() << "|" << czytelnik.getAdres() << "|" << czytelnik.getTelefon() << "|" << czytelnik.getPESEL() << "|" << czytelnik.getPowerLevel() << std::endl;
+	plik << czytelnik.getID() << "|" << czytelnik.getImie() << "|" << czytelnik.getNazwisko() << "|" << czytelnik.getEmail() << "|" << czytelnik.getAdres() << "|" << czytelnik.getTelefon() << "|" << czytelnik.getPESEL() << "|" << czytelnik.getPowerLevel() << std::endl;
 	plik.close();
 }
 
@@ -15,10 +15,18 @@ void addBibliotekarz (Bibliotekarz bibliotekarz)
 	//dodawanie uzytkownika do pliku
 	std::fstream plik;
 	plik.open("bibliotekarze.txt", std::ios::out | std::ios::app);
-	plik << bibliotekarz.getID() << "|" << bibliotekarz.getImie() << "|" << bibliotekarz.getNazwisko() << "|" << bibliotekarz.getAdres() << "|" << bibliotekarz.getTelefon() << "|" << bibliotekarz.getPESEL() << "|" << bibliotekarz.getPowerLevel() << std::endl;
+	plik << bibliotekarz.getID() << "|" << bibliotekarz.getImie() << "|" << bibliotekarz.getNazwisko() << "|" << bibliotekarz.getEmail() << "|" << bibliotekarz.getAdres() << "|" << bibliotekarz.getTelefon() << "|" << bibliotekarz.getPESEL() << "|" << bibliotekarz.getPowerLevel() << std::endl;
 	plik.close();
 }
 
+void addHaslo(std::string haslo, Osoba osoba)
+{
+	//dodawanie hasla do pliku
+	std::fstream plik;
+	plik.open("hasla.txt", std::ios::out | std::ios::app);
+	plik << osoba.getID() << "|" << haslo << std::endl;
+	plik.close();
+}
 
 void changeHaslo(std::string noweHaslo, unsigned int ID)
 {
@@ -62,3 +70,5 @@ void changeHaslo(std::string noweHaslo, unsigned int ID)
 	}
 	plik.close();
 }
+
+

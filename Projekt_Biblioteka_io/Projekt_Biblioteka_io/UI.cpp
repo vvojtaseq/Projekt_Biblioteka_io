@@ -79,7 +79,6 @@ void userInterfaceZarejestrujSie()
 	std::cout << "**<< Biblioteka dla Studentów >>**" << std::endl << std::endl << std::endl;
 	std::cout << "Podaj Imiê:" << std::endl;
 	std::string imie;
-	std::cout << std::endl;
 	std::getline(std::cin, imie);
 	czytelnik.setImie(imie);
 	std::cout << "Podaj Nazwisko:";

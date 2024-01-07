@@ -77,9 +77,9 @@ public:
 		else
 		{
 			Email = email;
-		}	
+		}
 	}
-}
+};
 	/*
 	void setPESEL( std::string nowyPESEL) {
 		if (nowyPESEL.length() != PESELLENGTH) {
@@ -108,5 +108,4 @@ public:
 		}
 	}
 	*/
-};
 
