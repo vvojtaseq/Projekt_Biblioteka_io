@@ -9,4 +9,6 @@
 
 void addCzytelnik(Czytelnik czytelnik);
 void addBibliotekarz(Bibliotekarz bibliotekarz);
-void changeHaslo(std::string noweHaslo, unsigned int ID);
+void changeHaslo(std::string noweHaslo, Osoba osoba);
+void addHaslo(std::string haslo, Osoba osoba);
+
