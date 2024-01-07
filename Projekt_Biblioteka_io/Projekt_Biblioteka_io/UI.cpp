@@ -74,19 +74,21 @@ void userInterfacePracownik()
 void userInterfaceZarejestrujSie()
 {
 	Czytelnik czytelnik;
+	char input[256];
 	system("CLS");
 	std::cout << "**<< Biblioteka dla Studentów >>**" << std::endl << std::endl << std::endl;
-	std::cout << "Podaj Imiê:";
+	std::cout << "Podaj Imiê:" << std::endl;
 	std::string imie;
-	std::cin >> imie;
+	std::cout << std::endl;
+	std::getline(std::cin, imie);
 	czytelnik.setImie(imie);
 	std::cout << "Podaj Nazwisko:";
 	std::string nazwisko;
-	std::cin >> nazwisko;
+	std::getline(std::cin, nazwisko);
 	czytelnik.setNazwisko(nazwisko);
 	std::cout << "Podaj Adres:";
 	std::string adres;
-	std::cin >> adres;
+	std::getline(std::cin, adres);
 	czytelnik.setAdres(adres);
 	std::cout << "Podaj Datê Urodzenia:";
 	std::string dataUrodzenia;

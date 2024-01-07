@@ -10,8 +10,9 @@ private:
 	std::string Nazwisko;
 	std::string Adres;
 	std::string DataUrodzenia;
-	std::string Telefon; 
+	std::string Telefon;
 	std::string PESEL;
+	std::string Email;
 	unsigned int ID;
 	std::string Haslo;
 	int PowerLevel; //0 - czytelnik, 1 - pracownik, 2 - menadzer
@@ -54,8 +55,8 @@ public:
 		}
 	}
 	unsigned int getID() { return ID; }
-	void setID(unsigned int noweID) { 
-	//losowanie ID uzytkownika
+	void setID(unsigned int noweID) {
+		//losowanie ID uzytkownika
 		std::srand(time(NULL));
 		ID = rand() % 8888888 + 1000000;
 	}
@@ -65,6 +66,20 @@ public:
 	void setPowerLevel(int powerlevel) { PowerLevel = powerlevel; };
 	int getPowerLevel() { return PowerLevel; };
 
+	void setEmail(std::string email) {
+		if (email.find("@") == std::string::npos || email.find(".") == std::string::npos)
+		{
+			std::cout << "Niepoprawny adres email. Wprowadz ponownie." << std::endl;
+			std::cin >> email;
+			setEmail(email);
+
+		}
+		else
+		{
+			Email = email;
+		}	
+	}
+}
 	/*
 	void setPESEL( std::string nowyPESEL) {
 		if (nowyPESEL.length() != PESELLENGTH) {
