@@ -159,7 +159,71 @@ std::string getEmailFromFiles(unsigned int id)
 	return "Nie znaleziono emaila";
 }
 
+std::string getAdresFromFiles(unsigned int id)
+{
+	std::fstream plik;
+	plik.open("czytelnicy.txt", std::ios::in);
+	std::string linia;
+	std::string idString;
+	std::string adres;
+	while (getline(plik, linia))
+	{
+		std::stringstream ss(linia);
+		getline(ss, idString, '|');
+		getline(ss, adres, '|');
+		if (id == std::stoi(idString))
+		{
+			return adres;
+		}
+	}
+	plik.close();
+	plik.open("bibliotekarze.txt", std::ios::in);
+	while (getline(plik, linia))
+	{
+		std::stringstream ss(linia);
+		getline(ss, idString, '|');
+		getline(ss, adres, '|');
+		if (id == std::stoi(idString))
+		{
+			return adres;
+		}
+	}
+	plik.close();
+	return "Nie znaleziono adresu";
+}
 
+std::string getTelefonFromFiles(unsigned int id)
+{
+	std::fstream plik;
+	plik.open("czytelnicy.txt", std::ios::in);
+	std::string linia;
+	std::string idString;
+	std::string telefon;
+	while (getline(plik, linia))
+	{
+		std::stringstream ss(linia);
+		getline(ss, idString, '|');
+		getline(ss, telefon, '|');
+		if (id == std::stoi(idString))
+		{
+			return telefon;
+		}
+	}
+	plik.close();
+	plik.open("bibliotekarze.txt", std::ios::in);
+	while (getline(plik, linia))
+	{
+		std::stringstream ss(linia);
+		getline(ss, idString, '|');
+		getline(ss, telefon, '|');
+		if (id == std::stoi(idString))
+		{
+			return telefon;
+		}
+	}
+	plik.close();
+	return "Nie znaleziono telefonu";
+}
 
 
 
