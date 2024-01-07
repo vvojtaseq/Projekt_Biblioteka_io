@@ -291,4 +291,48 @@ int getPowerLevelFromFiles(unsigned int id)
 	return -1;
 }
 
+//funkcja do pobierania wszystkich danych uzytkownika z pliku
+Osoba getWszystkieDaneFromFiles(unsigned int id, std::string nazwaPliku)
+{
+	Osoba osoba;
+	std::fstream plik;
+	plik.open(nazwaPliku, std::ios::in);
+	std::string linia;
+	std::string idString;
+	std::string imie;
+	std::string nazwisko;
+	std::string email;
+	std::string adres;
+	std::string telefon;
+	std::string pesel;
+	std::string powerlevel;
+
+	while (getline(plik, linia))
+	{
+		std::stringstream ss(linia);
+		getline(ss, idString, '|');
+		getline(ss, imie, '|');
+		getline(ss, nazwisko, '|');
+		getline(ss, email, '|');
+		getline(ss, adres, '|');
+		getline(ss, telefon, '|');
+		getline(ss, pesel, '|');
+		getline(ss, powerlevel, '|');
+		if (id == std::stoi(idString))
+		{
+			osoba.setID(id);
+			osoba.setImie(imie);
+			osoba.setNazwisko(nazwisko);
+			osoba.setEmail(email);
+			osoba.setAdres(adres);
+			osoba.setTelefon(telefon);
+			osoba.setPESEL(pesel);
+			osoba.setPowerLevel(std::stoi(powerlevel));
+			return osoba;
+		}
+	}
+
+}
+
+
 

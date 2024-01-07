@@ -106,7 +106,7 @@ void userInterfaceZarejestrujSie()
 	std::string haslo;
 	std::cin >> haslo;
 	czytelnik.setHaslo(haslo);
-	czytelnik.setID("czytelnicy.txt");
+	czytelnik.setIDFromFile("czytelnicy.txt");
 	addCzytelnik(czytelnik);
 
 }

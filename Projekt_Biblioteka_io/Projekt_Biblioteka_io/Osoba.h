@@ -56,14 +56,15 @@ public:
 	}
 
 	unsigned int getID() { return ID; }
-	void setID(std::string nazwaPliku) { 
+	void setID(unsigned int noweID) { ID = noweID; }
+	void setIDFromFile(std::string nazwaPliku) { 
 	
 		//pobieranie ostatniego ID z pliku
 		std::fstream plik;
 		plik.open(nazwaPliku, std::ios::in);
 		std::string linia;
 		std::string obecneID = "0";
-		std::string najwiekszeID = "1";
+		std::string najwiekszeID = "1"; //visual pokazuje jakiœ problem ale dzia³a
 		while (getline(plik, linia))
 		{
 			std::stringstream ss(linia);

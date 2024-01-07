@@ -12,10 +12,13 @@ void addBibliotekarz(Bibliotekarz bibliotekarz);
 void changeHaslo(std::string noweHaslo, unsigned int ID);
 void addHaslo(std::string haslo, unsigned int id);
 
+//funkcje do pobierania danych z plikow
 std::string getImieFromFiles(unsigned int id);
 std::string getNazwiskoFromFiles(unsigned int id);
 std::string getEmailFromFiles(unsigned int id);
 std::string getAdresFromFiles(unsigned int id);
 std::string getTelefonFromFiles(unsigned int id);
 std::string getPESELFromFiles(unsigned int id);
+int getPowerLevelFromFiles(unsigned int id);
 
+Osoba getWszystkieDaneFromFiles(unsigned int id, std::string nazwaPliku);
