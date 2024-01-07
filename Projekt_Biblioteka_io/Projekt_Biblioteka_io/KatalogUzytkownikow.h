@@ -21,4 +21,5 @@ std::string getTelefonFromFiles(unsigned int id);
 std::string getPESELFromFiles(unsigned int id);
 int getPowerLevelFromFiles(unsigned int id);
 
+//funkcja zwracaj¹ca obiekt ze wszytskimi danymi
 Osoba getWszystkieDaneFromFiles(unsigned int id, std::string nazwaPliku);
