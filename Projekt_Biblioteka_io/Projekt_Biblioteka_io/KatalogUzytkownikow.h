@@ -16,4 +16,6 @@ std::string getImieFromFiles(unsigned int id);
 std::string getNazwiskoFromFiles(unsigned int id);
 std::string getEmailFromFiles(unsigned int id);
 std::string getAdresFromFiles(unsigned int id);
+std::string getTelefonFromFiles(unsigned int id);
+std::string getPESELFromFiles(unsigned int id);
 
