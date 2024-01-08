@@ -168,7 +168,7 @@ BEGIN:
 		}
 		goto BEGIN;
 	}
->>>>>>> dc8a578c3a174e8aabda258310b8671fec0aab27
+>>>>>>> a8a6e5661541d35a4d8f7c56f13cdfb5f0f2b9a7
 	std::cout << "Podaj Adres:";
 	std::cin.ignore();
 	std::string adres;
