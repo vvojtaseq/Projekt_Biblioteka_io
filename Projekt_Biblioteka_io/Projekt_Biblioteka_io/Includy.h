@@ -12,6 +12,7 @@
 #include <locale.h> // do polskich liter
 #include <fstream> //do plikow
 #include <cstdlib> //do generowania ID
+#include <vector> //do vectorow
 
 //klasy
 

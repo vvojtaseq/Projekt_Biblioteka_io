@@ -75,6 +75,19 @@ void userInterfacePracownik()
 void userInterfaceZarejestrujSie()
 {
 	Czytelnik czytelnik;
+<<<<<<< HEAD
+	char input[256];
+	system("CLS");
+	std::cout << "**<< Biblioteka dla Studentów >>**" << std::endl << std::endl << std::endl;
+	std::cout << "Podaj Imiê:" << std::endl;
+	std::string imie;
+	std::getline(std::cin, imie);
+	czytelnik.setImie(imie);
+	std::cout << "Podaj Nazwisko:";
+	std::string nazwisko;
+	std::getline(std::cin, nazwisko);
+	czytelnik.setNazwisko(nazwisko);
+=======
 	bool zawieraSpacje;
 	bool wlasciweDane;
 	int decyzja;
@@ -155,6 +168,7 @@ BEGIN:
 		}
 		goto BEGIN;
 	}
+>>>>>>> a8a6e5661541d35a4d8f7c56f13cdfb5f0f2b9a7
 	std::cout << "Podaj Adres:";
 	std::cin.ignore();
 	std::string adres;
@@ -195,6 +209,7 @@ BEGIN:
 	std::string haslo;
 	std::cin >> haslo;
 	czytelnik.setHaslo(haslo);
+	czytelnik.setIDFromFile("czytelnicy.txt");
 	addCzytelnik(czytelnik);
 
 }

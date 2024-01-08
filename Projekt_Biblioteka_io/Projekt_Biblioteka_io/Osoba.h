@@ -10,8 +10,9 @@ private:
 	std::string Nazwisko;
 	std::string Adres;
 	std::string DataUrodzenia;
-	std::string Telefon; 
+	std::string Telefon;
 	std::string PESEL;
+	std::string Email;
 	unsigned int ID;
 	std::string Haslo;
 	int PowerLevel; //0 - czytelnik, 1 - pracownik, 2 - menadzer
@@ -54,18 +55,52 @@ public:
 	{
 		PESEL = nowyPESEL;
 	}
+
 	unsigned int getID() { return ID; }
-	void setID(unsigned int noweID) { 
-	//losowanie ID uzytkownika
-		std::srand(time(NULL));
-		ID = rand() % 8888888 + 1000000;
+	void setID(unsigned int noweID) { ID = noweID; }
+	void setIDFromFile(std::string nazwaPliku) { 
+	
+		//pobieranie ostatniego ID z pliku
+		std::fstream plik;
+		plik.open(nazwaPliku, std::ios::in);
+		std::string linia;
+		std::string obecneID = "0";
+		std::string najwiekszeID = "1"; //visual pokazuje jakiœ problem ale dzia³a
+		while (getline(plik, linia))
+		{
+			std::stringstream ss(linia);
+			getline(ss, obecneID, '|');
+			if (std::stoi(obecneID) > std::stoi(najwiekszeID))
+			{
+				najwiekszeID = obecneID;
+			}
+		}
+		ID = std::stoi(najwiekszeID) + 1;
+
+		plik.close();
 	}
+
 	std::string getHaslo() { return Haslo; }
 	void setHaslo(std::string noweHaslo) { Haslo = noweHaslo; }
 
 	void setPowerLevel(int powerlevel) { PowerLevel = powerlevel; };
 	int getPowerLevel() { return PowerLevel; };
 
+	void setEmail(std::string email) {
+		if (email.find("@") == std::string::npos || email.find(".") == std::string::npos)
+		{
+			std::cout << "Niepoprawny adres email. Wprowadz ponownie." << std::endl;
+			std::cin >> email;
+			setEmail(email);
+
+		}
+		else
+		{
+			Email = email;
+		}
+	}
+	std::string getEmail() { return Email; }
+};
 	/*
 	void setPESEL( std::string nowyPESEL) {
 		if (nowyPESEL.length() != PESELLENGTH) {
@@ -94,5 +129,4 @@ public:
 		}
 	}
 	*/
-};
 
