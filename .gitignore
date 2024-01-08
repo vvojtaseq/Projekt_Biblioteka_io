@@ -22,6 +22,11 @@
 
 # Compiled Static libraries
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> master
 =======
 
 
@@ -36,11 +41,14 @@
 *.out
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 *.app
 =======
 *.app
 >>>>>>> a8a6e5661541d35a4d8f7c56f13cdfb5f0f2b9a7
 =======
+=======
+>>>>>>> master
 *.app
 
 ## Ignore Visual Studio temporary files, build results, and
@@ -440,5 +448,10 @@ FodyWeavers.xsd
 *.msp
 
 # JetBrains Rider
+<<<<<<< HEAD
 *.sln.iml
 >>>>>>> master
+=======
+*.sln.iml
+>>>>>>> master
+
