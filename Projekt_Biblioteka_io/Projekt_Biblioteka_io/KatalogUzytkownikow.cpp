@@ -16,13 +16,35 @@ void addBibliotekarz (Bibliotekarz bibliotekarz)
 	plik.close();
 }
 
-//dodawanie hasla do pliku
-void addHaslo(std::string haslo, unsigned int ID)
+//dodawanie id, hasla i ID do pliku
+void setPaswordFiles( unsigned int id, std::string haslo, std::string email)
 {
 	std::fstream plik;
 	plik.open("hasla.txt", std::ios::out | std::ios::app);
-	plik << ID << "|" << haslo << std::endl;
+	plik << id << "|" << haslo << "|" << email << std::endl;
 	plik.close();
+}
+
+//pobieranie hasla z pliku
+std::string getHasloFromProtectedFiles(unsigned int id)
+{
+	std::fstream plik;
+	plik.open("hasla.txt", std::ios::in);
+	std::string linia;
+	std::string idString;
+	std::string haslo;
+	while (getline(plik, linia))
+	{
+		std::stringstream ss(linia);
+		getline(ss, idString, '|');
+		getline(ss, haslo, '|');
+		if (id == std::stoi(idString))
+		{
+			return haslo;
+		}
+	}
+	plik.close();
+	return "Nie znaleziono hasla";
 }
 
 //zmiana hasla w pliku
@@ -57,8 +79,56 @@ void changeHaslo(std::string noweHaslo, unsigned int ID)
 	plik.close();
 }
 
+//Autoryzacja zwraca 1 gdy zgadza siê mail i has³o 
+bool Autoryzacja(std::string email, std::string haslo)
+{
+	std::fstream plik;
+	plik.open("hasla.txt", std::ios::in);
+	std::string linia;
+	std::string idString;
+	std::string hasloString;
+	std::string emailString;
+	while (getline(plik, linia))
+	{
+		std::stringstream ss(linia);
+		getline(ss, idString, '|');
+		getline(ss, hasloString, '|');
+		getline(ss, emailString, '|');
+		if (email == emailString && haslo == hasloString)
+		{
+			return true;
+		}
+	}
+	plik.close();
+	return false;
+}
 
-//pobieranie imienia z pliku
+//pobieranie id z pliku za pomoc¹ maila 
+unsigned int getIDFromFiles(std::string email)
+{
+	std::fstream plik;
+	plik.open("hasla.txt", std::ios::in);
+	std::string linia;
+	std::string idString;
+	std::string hasloString;
+	std::string emailString;
+	while (getline(plik, linia))
+	{
+		std::stringstream ss(linia);
+		getline(ss, idString, '|');
+		getline(ss, hasloString, '|');
+		getline(ss, emailString, '|');
+		if (email == emailString)
+		{
+			return std::stoi(idString);
+		}
+	}
+	plik.close();
+	return -1;
+}
+
+
+//pobieranie imienia z pliku 
 std::string getImieFromFiles(unsigned int id)
 {
 	std::fstream plik;
@@ -333,6 +403,8 @@ Osoba getWszystkieDaneFromFiles(unsigned int id, std::string nazwaPliku)
 	}
 
 }
+
+
 
 
 
