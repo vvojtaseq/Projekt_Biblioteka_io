@@ -22,6 +22,15 @@ public:
 	std::string getDataZwrotu() { return dataZwrotu; }
 	void setDataZwrotu(std::string nowaData) { dataZwrotu = nowaData; }
 
+	//zapisywanie karty bibliotecznej do pliku
+	void addKartaBibliotecznToFiles(KartaBiblioteczna kartaBiblioteczna)
+	{
+					std::fstream plik;
+			plik.open("kartabiblioteczne.txt", std::ios::out | std::ios::app);
+			plik << kartaBiblioteczna.getIDuzytkownika() << "|" << kartaBiblioteczna.getIDksiazki() << "|" << kartaBiblioteczna.getDataWypozyczenia() << "|" << kartaBiblioteczna.getDataZwrotu() << std::endl;
+			plik.close();
+	}
 
+	
 };
 
