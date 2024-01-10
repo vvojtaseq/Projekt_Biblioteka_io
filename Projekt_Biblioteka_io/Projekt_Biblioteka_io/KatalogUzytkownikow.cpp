@@ -336,3 +336,5 @@ Osoba getWszystkieDaneFromFiles(unsigned int id, std::string nazwaPliku)
 
 
 
+
+
