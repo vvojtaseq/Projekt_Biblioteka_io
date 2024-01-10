@@ -33,3 +33,25 @@ std::string getTytulFromFiles(unsigned int id)
 	plik.close();
 	return "Nie znaleziono tytulu";
 }
+
+//pobieranie autora z pliku
+std::string getAutorFromFiles(unsigned int id)
+{
+	std::fstream plik;
+	plik.open("ksiazki.txt", std::ios::in);
+	std::string linia;
+	std::string idString;
+	std::string autor;
+	while (getline(plik, linia))
+	{
+		std::stringstream ss(linia);
+		getline(ss, idString, '|');
+		getline(ss, autor, '|');
+		if (id == std::stoi(idString))
+		{
+			return autor;
+		}
+	}
+	plik.close();
+	return "Nie znaleziono autora";
+}
