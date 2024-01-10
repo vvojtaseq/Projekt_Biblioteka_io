@@ -26,7 +26,7 @@ void addProtectionToFiles( unsigned int id, std::string haslo, std::string Email
 }
 
 //pobieranie hasla z pliku
-std::string getHasloFromFiles(unsigned int id)
+std::string getHasloFromProtectedFiles(unsigned int id)
 {
 	std::fstream plik;
 	plik.open("hasla.txt", std::ios::in);
@@ -77,6 +77,30 @@ void changeHaslo(std::string noweHaslo, unsigned int ID)
 		plik << hasla[i] << std::endl;
 	}
 	plik.close();
+}
+
+//Autoryzacja zwraca 1 gdy zgadza siê mail i has³o 
+bool Autoryzacja(std::string email, std::string haslo)
+{
+	std::fstream plik;
+	plik.open("hasla.txt", std::ios::in);
+	std::string linia;
+	std::string idString;
+	std::string hasloString;
+	std::string emailString;
+	while (getline(plik, linia))
+	{
+		std::stringstream ss(linia);
+		getline(ss, idString, '|');
+		getline(ss, hasloString, '|');
+		getline(ss, emailString, '|');
+		if (email == emailString && haslo == hasloString)
+		{
+			return true;
+		}
+	}
+	plik.close();
+	return false;
 }
 
 

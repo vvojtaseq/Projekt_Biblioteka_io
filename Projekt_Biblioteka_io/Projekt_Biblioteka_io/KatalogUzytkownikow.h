@@ -13,7 +13,8 @@ void addBibliotekarz(Bibliotekarz bibliotekarz);
 //funkcje do pobierania danych z plikow z has³ami
 void changeHaslo(std::string noweHaslo, unsigned int ID);
 void addProtectiontoFiles(unsigned int id, std::string haslo, std::string Email);
-std::string getHasloFromFiles(unsigned int id)
+std::string getHasloFromProtectedFiles(unsigned int id);
+bool Autoryzacja(std::string email, std::string haslo);
  
 //funkcje do pobierania danych z plikow z czytelnikami 
 std::string getImieFromFiles(unsigned int id);
