@@ -1,0 +1,49 @@
+﻿  Autor.cpp
+  Bibliotekarz.cpp
+  Czytelnik.cpp
+  Dlug.cpp
+  Egzemplarz.cpp
+  KartaBiblioteczna.cpp
+  Ksiazka.cpp
+  main.cpp
+/Autor.cpp(1,1): error C1083: Nie można otworzyć pliku źródło: 'Autor.cpp': No such file or directory
+  (kompilowanie pliku źródłowego „/Autor.cpp”)
+  
+/Bibliotekarz.cpp(1,1): error C1083: Nie można otworzyć pliku źródło: 'Bibliotekarz.cpp': No such file or directory
+  (kompilowanie pliku źródłowego „/Bibliotekarz.cpp”)
+  
+/Czytelnik.cpp(1,1): error C1083: Nie można otworzyć pliku źródło: 'Czytelnik.cpp': No such file or directory
+  (kompilowanie pliku źródłowego „/Czytelnik.cpp”)
+  
+/Dlug.cpp(1,1): error C1083: Nie można otworzyć pliku źródło: 'Dlug.cpp': No such file or directory
+  (kompilowanie pliku źródłowego „/Dlug.cpp”)
+  
+/Egzemplarz.cpp(1,1): error C1083: Nie można otworzyć pliku źródło: 'Egzemplarz.cpp': No such file or directory
+  (kompilowanie pliku źródłowego „/Egzemplarz.cpp”)
+  
+/KartaBiblioteczna.cpp(1,1): error C1083: Nie można otworzyć pliku źródło: 'KartaBiblioteczna.cpp': No such file or directory
+  (kompilowanie pliku źródłowego „/KartaBiblioteczna.cpp”)
+  
+/Ksiazka.cpp(1,1): error C1083: Nie można otworzyć pliku źródło: 'Ksiazka.cpp': No such file or directory
+  (kompilowanie pliku źródłowego „/Ksiazka.cpp”)
+  
+C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Osoba.h(60,18): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+  (kompilowanie pliku źródłowego „main.cpp”)
+  
+  Osoba.cpp
+/Osoba.cpp(1,1): error C1083: Nie można otworzyć pliku źródło: 'Osoba.cpp': No such file or directory
+  (kompilowanie pliku źródłowego „/Osoba.cpp”)
+  
+  UI.cpp
+C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Osoba.h(60,18): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+  (kompilowanie pliku źródłowego „UI.cpp”)
+  
+  Wypozyczenia.cpp
+/Wypozyczenia.cpp(1,1): error C1083: Nie można otworzyć pliku źródło: 'Wypozyczenia.cpp': No such file or directory
+  (kompilowanie pliku źródłowego „/Wypozyczenia.cpp”)
+  
+  Zbior.cpp
+/Zbior.cpp(1,1): error C1083: Nie można otworzyć pliku źródło: 'Zbior.cpp': No such file or directory
+  (kompilowanie pliku źródłowego „/Zbior.cpp”)
+  
+  Generowanie kodu...
