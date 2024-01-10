@@ -5,10 +5,10 @@
 void userInterface()
 {
 	system("CLS");
-	std::cout << "**<< Biblioteka dla Studentów >>**" << std::endl << std::endl << std::endl;
+	std::cout << "**<< Biblioteka dla StudentÃ³w >>**" << std::endl << std::endl << std::endl;
 	std::cout << "Opcje :"<<std::endl;
-	std::cout << "[1] - U¿ytkownik\t\t[2] - Pracownik " << std::endl;
-	// to bêdzie po wybraniu jakis if czy cos, i beda dwie rozne opcje , jedna dla uzytkownika, druga dla pracownika
+	std::cout << "[1] - UÅ¼ytkownik\t\t[2] - Pracownik " << std::endl;
+	// to bÄ™dzie po wybraniu jakis if czy cos, i beda dwie rozne opcje , jedna dla uzytkownika, druga dla pracownika
 	int decide;
 	std::cin >> decide;
 	switch (decide)
@@ -20,7 +20,7 @@ void userInterface()
 		userInterfacePracownik();
 		break;
 	default:
-		std::cout << "Opcja o id: "<<decide<<" nie istnieje! Spróbuj ponownie!" << std::endl;
+		std::cout << "Opcja o id: "<<decide<<" nie istnieje! SprÃ³buj ponownie!" << std::endl;
 		system("pause");
 		userInterfaceUzytkownik();
 	}
@@ -28,9 +28,9 @@ void userInterface()
 void userInterfaceUzytkownik()
 {
 	system("CLS");
-	std::cout << "**<< Biblioteka dla Studentów >>**" << std::endl << std::endl << std::endl;
+	std::cout << "**<< Biblioteka dla StudentÃ³w >>**" << std::endl << std::endl << std::endl;
 	std::cout << "Opcje :" << std::endl;
-	std::cout << "[1] - Zaloguj siê\t\t[2] - Zarejestruj siê " << std::endl;
+	std::cout << "[1] - Zaloguj siÄ™\t\t[2] - Zarejestruj siÄ™ " << std::endl;
 	int decide;
 	std::cin >> decide;
 	switch (decide)
@@ -42,7 +42,7 @@ void userInterfaceUzytkownik()
 		userInterfaceZarejestrujSie();
 		break;
 	default:
-		std::cout << "Opcja o id: " << decide << " nie istnieje! Podaj w³aœciw¹ opcjê!" << std::endl;
+		std::cout << "Opcja o id: " << decide << " nie istnieje! Podaj wÅ‚aÅ›ciwÄ… opcjÄ™!" << std::endl;
 		system("pause");
 		userInterfaceUzytkownik();
 	}
@@ -50,9 +50,9 @@ void userInterfaceUzytkownik()
 void userInterfacePracownik()
 {
 	system("CLS");
-	std::cout << "**<< Biblioteka dla Studentów >>**" << std::endl << std::endl << std::endl;
+	std::cout << "**<< Biblioteka dla StudentÃ³w >>**" << std::endl << std::endl << std::endl;
 	std::cout << "Opcje :\n";
-	std::cout << "1 - Zaloguj siê		2 - Zarejestruj siê (potrzebny kod) >> std::endl";
+	std::cout << "1 - Zaloguj siÄ™		2 - Zarejestruj siÄ™ (potrzebny kod) >> std::endl";
 
 	
 	int decide;
@@ -66,7 +66,7 @@ void userInterfacePracownik()
 		
 		break;
 	default:
-		std::cout << "Opcja o id: " << decide << " nie istnieje! Podaj w³aœciw¹ opcjê!" << std::endl;
+		std::cout << "Opcja o id: " << decide << " nie istnieje! Podaj wÅ‚aÅ›ciwÄ… opcjÄ™!" << std::endl;
 		system("pause");
 		userInterfacePracownik();
 	}
@@ -75,30 +75,19 @@ void userInterfacePracownik()
 void userInterfaceZarejestrujSie()
 {
 	Czytelnik czytelnik;
-<<<<<<< HEAD
-	char input[256];
-	system("CLS");
-	std::cout << "**<< Biblioteka dla Studentów >>**" << std::endl << std::endl << std::endl;
-	std::cout << "Podaj Imiê:" << std::endl;
-	std::string imie;
-	std::getline(std::cin, imie);
-	czytelnik.setImie(imie);
-	std::cout << "Podaj Nazwisko:";
-	std::string nazwisko;
-	std::getline(std::cin, nazwisko);
-	czytelnik.setNazwisko(nazwisko);
-=======
 	bool zawieraSpacje;
+	bool zawieraLiczbÄ™;
 	bool wlasciweDane;
 	int decyzja;
 	std::string imie;
 	std::string nazwisko;
+	std::string nazwaUlicy;
 BEGIN:
 	system("CLS");
-	std::cout << "**<< Biblioteka dla Studentów >>**" << std::endl << std::endl << std::endl;
+	std::cout << "**<< Biblioteka dla StudentÃ³w >>**" << std::endl << std::endl << std::endl;
 	if (imie.empty())
 	{
-		std::cout << "Podaj Imiê: ";
+		std::cout << "Podaj ImiÄ™: ";
 		std::cin.ignore();
 		std::getline(std::cin, imie);
 		zawieraSpacje = false;
@@ -110,7 +99,7 @@ BEGIN:
 		}
 		if (zawieraSpacje)
 		{
-			std::cout << "Imiê które poda³eœ jest niepoprawne! Nie mo¿esz u¿ywaæ spacji!" << std::endl;
+			std::cout << "ImiÄ™ ktÃ³re podaÅ‚eÅ› jest niepoprawne! Nie moÅ¼esz uÅ¼ywaÄ‡ spacji!" << std::endl;
 			system("pause");
 			imie = "";
 		}
@@ -125,7 +114,7 @@ BEGIN:
 				{
 				case 1: czytelnik.setImie(imie); wlasciweDane = true; break;
 				case 2: imie = "";  wlasciweDane = true; break;
-				default: std::cout << "Opcja o id: " << decyzja << " nie istnieje! Podaj w³aœciw¹ opcjê!" << std::endl;
+				default: std::cout << "Opcja o id: " << decyzja << " nie istnieje! Podaj wÅ‚aÅ›ciwÄ… opcjÄ™!" << std::endl;
 				}
 			}
 			
@@ -147,7 +136,7 @@ BEGIN:
 		}
 		if (zawieraSpacje)
 		{
-			std::cout << "Nazwisko które poda³eœ jest niepoprawne! Nie mo¿esz u¿ywaæ spacji!" << std::endl;
+			std::cout << "Nazwisko ktÃ³re podaÅ‚eÅ› jest niepoprawne! Nie moÅ¼esz uÅ¼ywaÄ‡ spacji!" << std::endl;
 			system("pause");
 			nazwisko = "";
 		}
@@ -162,22 +151,39 @@ BEGIN:
 				{
 				case 1: czytelnik.setNazwisko(nazwisko); wlasciweDane = true; break;
 				case 2: nazwisko = "";  wlasciweDane = true; break;
-				default: std::cout << "Opcja o id: " << decyzja << " nie istnieje! Podaj w³aœciw¹ opcjê!" << std::endl;
+				default: std::cout << "Opcja o id: " << decyzja << " nie istnieje! Podaj wÅ‚aÅ›ciwÄ… opcjÄ™!" << std::endl;
 				}
 			}
 		}
 		goto BEGIN;
 	}
->>>>>>> a8a6e5661541d35a4d8f7c56f13cdfb5f0f2b9a7
+	if (nazwaUlicy.empty())
+	{
+		std::cout << "{Adres} Podaj nazwÄ™ ulicy: ";
+		std::cin.ignore();
+		std::getline(std::cin, nazwaUlicy);
+		zawieraLiczbÄ™ = false;
+		for (char c : nazwaUlicy) {
+			if (c == '0', '1', '2', '3', '4', '5', '6', '7', '8', '9') {
+				zawieraLiczbÄ™ = true;
+				break;
+			}
+		}
+		if (zawieraLiczbÄ™)
+		{
+			std::cout << "Nazwa ulicy ktÃ³rÄ… podaÅ‚eÅ› jest niepoprawna! Nie moÅ¼esz uÅ¼ywaÄ‡ liczb!" << std::endl;
+			system("pause");
+			nazwaUlicy = "";
+		}
+		goto BEGIN;
+	}
 	std::cout << "Podaj Adres:";
 	std::cin.ignore();
-	std::string adres;
-	std::getline(std::cin, adres);
-	czytelnik.setAdres(adres);
-	std::cout << "Podaj Datê Urodzenia:";
+	//czytelnik.setAdres(adres);
+	std::cout << "Podaj DatÄ™ Urodzenia:";
 	std::string dataUrodzenia;
 	std::getline(std::cin, dataUrodzenia);
-	czytelnik.setDataUrodzenia(dataUrodzenia); //jeœli wprowadzi siê adres z numerem to przeskakuje wprowadzanie daty urodzenia
+	czytelnik.setDataUrodzenia(dataUrodzenia); //jeÅ›li wprowadzi siÄ™ adres z numerem to przeskakuje wprowadzanie daty urodzenia
 	std::cout << "Podaj Telefon:";
 	std::string telefon;
 	std::getline(std::cin, telefon);
@@ -205,11 +211,10 @@ BEGIN:
 		std::cout << "Wprowadz nowy PESEL: ";
 	}
 	czytelnik.setPESEL(pesel);
-	std::cout << "Podaj Has³o:";
+	std::cout << "Podaj HasÅ‚o:";
 	std::string haslo;
 	std::cin >> haslo;
 	czytelnik.setHaslo(haslo);
-	czytelnik.setIDFromFile("czytelnicy.txt");
 	addCzytelnik(czytelnik);
 
 }
@@ -217,11 +222,11 @@ BEGIN:
 void userInterfaceUzytkownikZalogowany()
 {
 	system("CLS");
-	std::cout << "**<< Biblioteka dla Studentów >>**" << std::endl << std::endl << std::endl;
+	std::cout << "**<< Biblioteka dla StudentÃ³w >>**" << std::endl << std::endl << std::endl;
 	std::cout << "Opcje :\n";
-	std::cout << "1 - Wyszukaj ksi¹¿kê		2 - Wypo¿ycz ksi¹¿kê " << std::endl;
-	std::cout << "3 - Zwróæ ksi¹¿kê		4 - Zobacz swoje ksi¹¿ki " << std::endl;
-	std::cout << "5 - Zobacz swoje dane		6 - Wyloguj siê " << std::endl;
+	std::cout << "1 - Wyszukaj ksiÄ…Å¼kÄ™		2 - WypoÅ¼ycz ksiÄ…Å¼kÄ™ " << std::endl;
+	std::cout << "3 - ZwrÃ³Ä‡ ksiÄ…Å¼kÄ™		4 - Zobacz swoje ksiÄ…Å¼ki " << std::endl;
+	std::cout << "5 - Zobacz swoje dane		6 - Wyloguj siÄ™ " << std::endl;
 	int decide;
 	std::cin >> decide;
 	switch (decide)
@@ -245,7 +250,7 @@ void userInterfaceUzytkownikZalogowany()
 		
 		break;
 	default:
-		std::cout << "Niepoprawne dane, spróbuj jeszcze raz" << std::endl;
+		std::cout << "Niepoprawne dane, sprÃ³buj jeszcze raz" << std::endl;
 		system("pause");
 		userInterfaceUzytkownikZalogowany();
 	}
