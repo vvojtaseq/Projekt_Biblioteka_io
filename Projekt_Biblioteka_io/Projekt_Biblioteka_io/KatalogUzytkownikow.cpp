@@ -17,11 +17,11 @@ void addBibliotekarz (Bibliotekarz bibliotekarz)
 }
 
 //dodawanie id, hasla i ID do pliku
-void addProtectionToFiles( unsigned int id, std::string haslo, std::string Email)
+void setPaswordFiles( unsigned int id, std::string haslo, std::string email)
 {
 	std::fstream plik;
 	plik.open("hasla.txt", std::ios::out | std::ios::app);
-	plik << id << "|" << haslo << "|" << Email << std::endl;
+	plik << id << "|" << haslo << "|" << email << std::endl;
 	plik.close();
 }
 
@@ -103,8 +103,32 @@ bool Autoryzacja(std::string email, std::string haslo)
 	return false;
 }
 
+//pobieranie id z pliku za pomoc¹ maila 
+unsigned int getIDFromFiles(std::string email)
+{
+	std::fstream plik;
+	plik.open("hasla.txt", std::ios::in);
+	std::string linia;
+	std::string idString;
+	std::string hasloString;
+	std::string emailString;
+	while (getline(plik, linia))
+	{
+		std::stringstream ss(linia);
+		getline(ss, idString, '|');
+		getline(ss, hasloString, '|');
+		getline(ss, emailString, '|');
+		if (email == emailString)
+		{
+			return std::stoi(idString);
+		}
+	}
+	plik.close();
+	return -1;
+}
 
-//pobieranie imienia z pliku
+
+//pobieranie imienia z pliku 
 std::string getImieFromFiles(unsigned int id)
 {
 	std::fstream plik;

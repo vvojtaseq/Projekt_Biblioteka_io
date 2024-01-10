@@ -6,15 +6,15 @@
 class KartaBiblioteczna
 {
 private:
-	int IDurzytkownika;
+	int IDuzytkownika;
 	int IDksiazki;
 	std::string dataWypozyczenia;
 	std::string dataZwrotu;
 
 public:
 
-	int getIDuzytkownika() { return IDurzytkownika; }
-	void setIDuzytkownika(int noweID) { IDurzytkownika = noweID; }
+	int getIDuzytkownika() { return IDuzytkownika; }
+	void setIDuzytkownika(int noweID) { IDuzytkownika = noweID; }
 	int getIDksiazki() { return IDksiazki; }
 	void setIDksiazki(int noweID) { IDksiazki = noweID; }
 	std::string getDataWypozyczenia() { return dataWypozyczenia; }
@@ -29,6 +29,14 @@ public:
 			plik.open("kartabiblioteczne.txt", std::ios::out | std::ios::app);
 			plik << kartaBiblioteczna.getIDuzytkownika() << "|" << kartaBiblioteczna.getIDksiazki() << "|" << kartaBiblioteczna.getDataWypozyczenia() << "|" << kartaBiblioteczna.getDataZwrotu() << std::endl;
 			plik.close();
+	}
+
+	void setKartaBibliotecznToFiles(int IDuzytkownika, int IDksiazki, std::string dataWypozyczenia, std::string dataZwrotu)
+	{
+		std::fstream plik;
+		plik.open("kartabiblioteczne.txt", std::ios::out | std::ios::app);
+		plik << IDuzytkownika << "|" << IDksiazki << "|" << dataWypozyczenia << "|" << dataZwrotu << std::endl;
+		plik.close();
 	}
 
 	//pobieranie kart bibliotecznych z pliku
