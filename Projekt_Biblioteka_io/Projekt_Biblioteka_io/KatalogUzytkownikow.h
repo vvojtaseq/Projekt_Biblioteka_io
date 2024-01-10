@@ -9,10 +9,13 @@
 
 void addCzytelnik(Czytelnik czytelnik);
 void addBibliotekarz(Bibliotekarz bibliotekarz);
+
+//funkcje do pobierania danych z plikow z has³ami
 void changeHaslo(std::string noweHaslo, unsigned int ID);
 void addProtectiontoFiles(unsigned int id, std::string haslo, std::string Email);
-
-//funkcje do pobierania danych z plikow
+std::string getHasloFromFiles(unsigned int id)
+ 
+//funkcje do pobierania danych z plikow z czytelnikami 
 std::string getImieFromFiles(unsigned int id);
 std::string getNazwiskoFromFiles(unsigned int id);
 std::string getEmailFromFiles(unsigned int id);
@@ -21,5 +24,5 @@ std::string getTelefonFromFiles(unsigned int id);
 std::string getPESELFromFiles(unsigned int id);
 int getPowerLevelFromFiles(unsigned int id);
 
-//funkcja zwracaj¹ca obiekt ze wszytskimi danymi
+//funkcja zwracaj¹ca obiekt ze wszytskimi danymi z plików z czytelnikami 
 Osoba getWszystkieDaneFromFiles(unsigned int id, std::string nazwaPliku);

@@ -25,6 +25,28 @@ void addProtectionToFiles( unsigned int id, std::string haslo, std::string Email
 	plik.close();
 }
 
+//pobieranie hasla z pliku
+std::string getHasloFromFiles(unsigned int id)
+{
+	std::fstream plik;
+	plik.open("hasla.txt", std::ios::in);
+	std::string linia;
+	std::string idString;
+	std::string haslo;
+	while (getline(plik, linia))
+	{
+		std::stringstream ss(linia);
+		getline(ss, idString, '|');
+		getline(ss, haslo, '|');
+		if (id == std::stoi(idString))
+		{
+			return haslo;
+		}
+	}
+	plik.close();
+	return "Nie znaleziono hasla";
+}
+
 //zmiana hasla w pliku
 void changeHaslo(std::string noweHaslo, unsigned int ID)
 {
