@@ -55,3 +55,4 @@ std::string getAutorFromFiles(unsigned int id)
 	plik.close();
 	return "Nie znaleziono autora";
 }
+
