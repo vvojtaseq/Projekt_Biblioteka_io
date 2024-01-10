@@ -10,7 +10,7 @@
 void addCzytelnik(Czytelnik czytelnik);
 void addBibliotekarz(Bibliotekarz bibliotekarz);
 void changeHaslo(std::string noweHaslo, unsigned int ID);
-void addHaslo(std::string haslo, unsigned int id);
+void addProtectiontoFiles(unsigned int id, std::string haslo, std::string Email);
 
 //funkcje do pobierania danych z plikow
 std::string getImieFromFiles(unsigned int id);

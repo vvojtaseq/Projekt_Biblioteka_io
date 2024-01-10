@@ -16,12 +16,12 @@ void addBibliotekarz (Bibliotekarz bibliotekarz)
 	plik.close();
 }
 
-//dodawanie hasla do pliku
-void addHaslo(std::string haslo, unsigned int ID)
+//dodawanie id, hasla i ID do pliku
+void addProtectionToFiles( unsigned int id, std::string haslo, std::string Email)
 {
 	std::fstream plik;
 	plik.open("hasla.txt", std::ios::out | std::ios::app);
-	plik << ID << "|" << haslo << std::endl;
+	plik << id << "|" << haslo << "|" << Email << std::endl;
 	plik.close();
 }
 
