@@ -1,7 +1,9 @@
-#pragma once
 //biblioteki
 //do cpp i do plikow headerow klas
 #include <iostream>
+#include <cctype>
+#include <regex>
+#include <windows.h>
 #include <string>
 #include <chrono> //ta biblioteka daje nam mozliwosc zapisywania dat
 #include <sstream>
@@ -15,5 +17,3 @@
 #include <vector> //do vectorow
 
 //klasy
-
-
