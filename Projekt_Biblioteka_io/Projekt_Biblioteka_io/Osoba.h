@@ -58,6 +58,29 @@ public:
 
 	unsigned int getID() { return ID; }
 	void setID(unsigned int noweID) { ID = noweID; }
+	void setID() {
+		std::ifstream plik("czytelnicy.txt");
+		std::string linia;
+		int ostatnieId = 0;
+
+		while (std::getline(plik, linia)) {
+			std::istringstream strumien(linia);
+			std::string token;
+
+			// Pobierz id (pierwszy token) z każdej linii
+			std::getline(strumien, token, '|');
+			int id = std::stoi(token);
+
+			// Aktualizuj ostatnieId, jeśli bieżące id jest większe
+			if (id > ostatnieId) {
+				ostatnieId = id;
+			}
+		}
+
+		plik.close();
+
+		ID = ostatnieId + 1;
+	}
 	void setIDFromFile(std::string nazwaPliku) { 
 	
 		//pobieranie ostatniego ID z pliku
@@ -65,7 +88,7 @@ public:
 		plik.open(nazwaPliku, std::ios::in);
 		std::string linia;
 		std::string obecneID = "0";
-		std::string najwiekszeID = "1"; //visual pokazuje jaki� problem ale dzia�a
+		std::string najwiekszeID = "1"; //visual pokazuje jakiœ problem ale dzia³a
 		while (getline(plik, linia))
 		{
 			std::stringstream ss(linia);
