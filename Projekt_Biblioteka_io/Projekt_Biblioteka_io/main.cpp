@@ -5,6 +5,9 @@
 
 int main()
 {
-	setlocale(LC_CTYPE, "Polish");  // robi nam polskie litery w coutach
+	std::locale::global(std::locale("pl_PL.utf8"));
+	std::wcout.imbue(std::locale());  // robi nam polskie litery w coutach
+	SetConsoleOutputCP(CP_UTF8);
+	SetConsoleCP(CP_UTF8);
 	userInterface();
 }
