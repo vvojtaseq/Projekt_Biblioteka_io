@@ -6,36 +6,32 @@
 class KatalogUzytkownikow
 {
 public:
-	//Tutaj ma byc baza danych wszystkich uzytkownikow, mysle ze tu powinni byc i bibliotekarze i uzytkownicy
-	//mozna tu uzyc power level i np osoba z power level 2 ma dostep do uzytkownikow z level 1 i 0
-	//uzytkownicy czyli power level 0 nie powinni miec do niczego dostepu
+//  **Metody do dodawania uzytkownikow do plikow**
 
-//funkcje do dodawania uzytkownikow do plikow
-/*	void addCzytelnik(Czytelnik czytelnik);
-	void addBibliotekarz(Bibliotekarz bibliotekarz);
-
-	//funkcje do dodawania i pobierania danych z pliku ,,hasla.txt"
-	void changeHaslo(std::string noweHaslo, unsigned int ID);
-	void setHaslo(unsigned int id, std::string haslo, std::string Email);
-	std::string getHaslo(unsigned int id);
-	bool Autoryzacja(std::string email, std::string haslo);
-	unsigned int getIDFromFiles(std::string email);
-
-	//funkcje do pobierania danych z pliku ,,czytelnicy.txt"
-	std::string getImie(unsigned int id);
-	std::string getNazwisko(unsigned int id);
-	std::string getEmail(unsigned int id);
-	std::string getAdres(unsigned int id);
-	std::string getTelefon(unsigned int id);
-	std::string getPESEL(unsigned int id);
-	int getPowerLevel(unsigned int id);
-
-	//funkcja zwracaj¹ca obiekt ze wszytskimi danymi z plików z czytelnikami 
-	Osoba getWszystkieDane(unsigned int id, std::string nazwaPliku);
-	*/
-	//konstruktor domyslny
+//  void addCzytelnik(Czytelnik czytelnik);
+//	void addBibliotekarz(Bibliotekarz bibliotekarz);
+//
+//	**Metody do dodawania i pobierania danych z pliku ,,hasla.txt"**
+//	void changeHaslo(std::string noweHaslo, unsigned int ID);
+//	void setHaslo(unsigned int id, std::string haslo, std::string Email);
+//	std::string getHaslo(unsigned int id);
+//	bool Autoryzacja(std::string email, std::string haslo);
+//	unsigned int getIDFromFiles(std::string email);
+//
+//	**Metody do pobierania danych z pliku ,,czytelnicy.txt"**
+//	std::string getImie(unsigned int id);
+//	std::string getNazwisko(unsigned int id);
+//	std::string getEmail(unsigned int id);
+//	std::string getAdres(unsigned int id);
+//	std::string getTelefon(unsigned int id);
+//	std::string getPESEL(unsigned int id);
+//	int getPowerLevel(unsigned int id);
+//
+//	**Metody zwracaj¹ca obiekt ze wszytskimi danymi z plików z czytelnikami**
+//	Osoba getWszystkieDane(unsigned int id, std::string nazwaPliku);
+//	
+//	//konstruktor domyslny
 	KatalogUzytkownikow() {};
-	
 
 	//dodawanie uzytkownika do pliku
 	void addCzytelnik(Czytelnik czytelnik)
