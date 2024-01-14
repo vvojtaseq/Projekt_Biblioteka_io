@@ -1,17 +1,15 @@
 ﻿  KatalogUzytkownikow.cpp
-D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(114,21): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(109,21): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
   (kompilowanie pliku źródłowego „KatalogUzytkownikow.cpp”)
   
-D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.cpp(75,20): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
   UI.cpp
-D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(114,21): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(109,21): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
   (kompilowanie pliku źródłowego „UI.cpp”)
   
   Zbior.cpp
   main.cpp
-D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(114,21): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(109,21): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
   (kompilowanie pliku źródłowego „main.cpp”)
   
   Generowanie kodu...
-D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.cpp(405): warning C4715: "getWszystkieDane”: niewszystkie ścieżki kodu zwracają wartość
   Projekt_Biblioteka_io.vcxproj -> D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Debug\Projekt_Biblioteka_io.exe
