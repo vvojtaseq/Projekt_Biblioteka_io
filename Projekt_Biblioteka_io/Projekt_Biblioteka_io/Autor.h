@@ -20,5 +20,6 @@ public:
 		Nazwisko = nazwisko;
 		Opis = opis;
 	}
+	Autor() {};
 };
 

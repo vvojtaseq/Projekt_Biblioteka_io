@@ -23,7 +23,7 @@ public:
 	int getIloscEgzemplarzy() { return IloscEgzemplarzy; }
 	void setIloscEgzemplarzy(int nowaIloscEgzemplarzy) { IloscEgzemplarzy = nowaIloscEgzemplarzy; }
 
-	int setID (int noweID) { ID = noweID; }
+	void setID (int noweID) { ID = noweID; }
 	int getID() { return ID; }
 
 	std::string getAutor() { return Autor; }
@@ -38,6 +38,6 @@ public:
 		IloscEgzemplarzy = iloscEgzemplarzy;
 		ID = id;
 	}
-	Ksiazka() {}
+	Ksiazka() {};
 };
 
