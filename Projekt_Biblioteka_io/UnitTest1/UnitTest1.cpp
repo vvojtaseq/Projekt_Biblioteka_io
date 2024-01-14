@@ -45,7 +45,7 @@ namespace UnitTest1
 		TEST_METHOD(getTelefon)
 		{
 			//zmiana typu Telefon ze string na unsigned int
-			test.setTelefon("123456789"q);
+			test.setTelefon("123456789");
 			std::string telefon ="123456789";
 			Assert::AreEqual(test.getTelefon(), telefon);
 		}

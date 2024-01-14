@@ -1,8 +1,18 @@
-﻿  KatalogUzytkownikow.cpp
-C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.cpp(53,20): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+﻿  Bibliotekarz.cpp
+  Czytelnik.cpp
+  KartaBiblioteczna.cpp
+  KatalogUzytkownikow.cpp
+D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(109,21): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+  (kompilowanie pliku źródłowego „KatalogUzytkownikow.cpp”)
+  
+  Osoba.cpp
   UI.cpp
-C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\UI.cpp(77,7): warning C4101: "input": lokalna zmienna, do której nie istnieje odwołanie
+D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(109,21): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+  (kompilowanie pliku źródłowego „UI.cpp”)
+  
   main.cpp
+D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(109,21): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+  (kompilowanie pliku źródłowego „main.cpp”)
+  
   Generowanie kodu...
-C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.cpp(335): warning C4715: "getWszystkieDaneFromFiles”: niewszystkie ścieżki kodu zwracają wartość
-  Projekt_Biblioteka_io.vcxproj -> C:\Users\User\Desktop\Biblioteka\TextFiles\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Debug\Projekt_Biblioteka_io.exe
+  Projekt_Biblioteka_io.vcxproj -> D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Debug\Projekt_Biblioteka_io.exe
