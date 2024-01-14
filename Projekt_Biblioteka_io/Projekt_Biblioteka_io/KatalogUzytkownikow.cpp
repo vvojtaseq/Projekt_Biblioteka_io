@@ -17,7 +17,7 @@ void addBibliotekarz (Bibliotekarz bibliotekarz)
 }
 
 //dodawanie id, hasla i ID do pliku
-void setPaswordFiles( unsigned int id, std::string haslo, std::string email)
+void setHaslo( unsigned int id, std::string haslo, std::string email)
 {
 	std::fstream plik;
 	plik.open("hasla.txt", std::ios::out | std::ios::app);
@@ -26,7 +26,7 @@ void setPaswordFiles( unsigned int id, std::string haslo, std::string email)
 }
 
 //pobieranie hasla z pliku
-std::string getHasloFromProtectedFiles(unsigned int id)
+std::string getHaslo(unsigned int id)
 {
 	std::fstream plik;
 	plik.open("hasla.txt", std::ios::in);
@@ -104,7 +104,7 @@ bool Autoryzacja(std::string email, std::string haslo)
 }
 
 //pobieranie id z pliku za pomoc¹ maila 
-unsigned int getIDFromFiles(std::string email)
+unsigned int getID(std::string email)
 {
 	std::fstream plik;
 	plik.open("hasla.txt", std::ios::in);
@@ -129,7 +129,7 @@ unsigned int getIDFromFiles(std::string email)
 
 
 //pobieranie imienia z pliku 
-std::string getImieFromFiles(unsigned int id)
+std::string getImie(unsigned int id)
 {
 	std::fstream plik;
 	plik.open("czytelnicy.txt", std::ios::in);
@@ -163,7 +163,7 @@ std::string getImieFromFiles(unsigned int id)
 }
 
 //pobieranie nazwiska z pliku
-std::string getNazwiskoFromFiles(unsigned int id)
+std::string getNazwisko(unsigned int id)
 {
 	std::fstream plik;
 	plik.open("czytelnicy.txt", std::ios::in);
@@ -196,7 +196,7 @@ std::string getNazwiskoFromFiles(unsigned int id)
 	return "Nie znaleziono nazwiska";
 }
 
-std::string getEmailFromFiles(unsigned int id)
+std::string getEmail(unsigned int id)
 {
 	std::fstream plik;
 	plik.open("czytelnicy.txt", std::ios::in);
@@ -229,7 +229,7 @@ std::string getEmailFromFiles(unsigned int id)
 	return "Nie znaleziono emaila";
 }
 
-std::string getAdresFromFiles(unsigned int id)
+std::string getAdres(unsigned int id)
 {
 	std::fstream plik;
 	plik.open("czytelnicy.txt", std::ios::in);
@@ -262,7 +262,7 @@ std::string getAdresFromFiles(unsigned int id)
 	return "Nie znaleziono adresu";
 }
 
-std::string getTelefonFromFiles(unsigned int id)
+std::string getTelefon(unsigned int id)
 {
 	std::fstream plik;
 	plik.open("czytelnicy.txt", std::ios::in);
@@ -295,7 +295,7 @@ std::string getTelefonFromFiles(unsigned int id)
 	return "Nie znaleziono telefonu";
 }
 
-std::string getPESELFromFiles(unsigned int id)
+std::string getPESEL(unsigned int id)
 {
 	std::fstream plik;
 	plik.open("czytelnicy.txt", std::ios::in);
@@ -328,7 +328,7 @@ std::string getPESELFromFiles(unsigned int id)
 	return "Nie znaleziono peselu";
 }
 
-int getPowerLevelFromFiles(unsigned int id)
+int getPowerLevel(unsigned int id)
 {
 	std::fstream plik;
 	plik.open("czytelnicy.txt", std::ios::in);
@@ -362,7 +362,7 @@ int getPowerLevelFromFiles(unsigned int id)
 }
 
 //funkcja do pobierania wszystkich danych uzytkownika z pliku
-Osoba getWszystkieDaneFromFiles(unsigned int id, std::string nazwaPliku)
+Osoba getWszystkieDane(unsigned int id, std::string nazwaPliku)
 {
 	Osoba osoba;
 	std::fstream plik;

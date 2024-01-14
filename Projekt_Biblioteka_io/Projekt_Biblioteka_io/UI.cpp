@@ -1,5 +1,7 @@
 #include "Includy.h"
 #include "IncludyKlasy.h"
+
+
 #define HASLOPRACOWNIKOW = 88987
 
 void userInterface()
@@ -459,9 +461,10 @@ void userInterfaceZarejestrujSie()
 		}
 		else
 		{
+			KatalogUzytkownikow katalog;
 			czytelnik.setPowerLevel(0);
 			czytelnik.setID();
-			addCzytelnik(czytelnik);
+			katalog.addCzytelnik(czytelnik);
 			break;
 		}
 		
