@@ -1,12 +1,9 @@
-﻿  KatalogUzytkownikow.cpp
-D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(109,21): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
-  (kompilowanie pliku źródłowego „KatalogUzytkownikow.cpp”)
-  
+﻿  Dlug.cpp
+  KartaBiblioteczna.cpp
   UI.cpp
 D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(109,21): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
   (kompilowanie pliku źródłowego „UI.cpp”)
   
-  Zbior.cpp
   main.cpp
 D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(109,21): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
   (kompilowanie pliku źródłowego „main.cpp”)

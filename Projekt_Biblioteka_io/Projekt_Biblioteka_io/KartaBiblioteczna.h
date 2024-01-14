@@ -23,7 +23,7 @@ public:
 	void setDataZwrotu(std::string nowaData) { dataZwrotu = nowaData; }
 
 	//zapisywanie karty bibliotecznej do pliku
-	void addKartaBibliotecznToFiles(KartaBiblioteczna kartaBiblioteczna)
+	void addKartaBiblioteczna(KartaBiblioteczna kartaBiblioteczna)
 	{
 					std::fstream plik;
 			plik.open("kartabiblioteczne.txt", std::ios::out | std::ios::app);
@@ -31,7 +31,7 @@ public:
 			plik.close();
 	}
 
-	void setKartaBibliotecznToFiles(int IDuzytkownika, int IDksiazki, std::string dataWypozyczenia, std::string dataZwrotu)
+	void setKartaBiblioteczna(int IDuzytkownika, int IDksiazki, std::string dataWypozyczenia, std::string dataZwrotu)
 	{
 		std::fstream plik;
 		plik.open("kartabiblioteczne.txt", std::ios::out | std::ios::app);
@@ -40,7 +40,7 @@ public:
 	}
 
 	//pobieranie kart bibliotecznych z pliku
-	KartaBiblioteczna getKartaBibliotecznaFromFiles(int id)
+	KartaBiblioteczna getKartaBiblioteczna(int id)
 	{
 		std::fstream plik;
 		plik.open("kartabiblioteczne.txt", std::ios::in);

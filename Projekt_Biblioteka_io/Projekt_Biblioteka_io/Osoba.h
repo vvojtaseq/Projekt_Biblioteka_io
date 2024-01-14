@@ -81,7 +81,9 @@ public:
 
 		ID = ostatnieId + 1;
 	}
-	void setIDFromFile(std::string nazwaPliku) { 
+
+	//metoda do zapisu uzytkownika do pliku
+	void setIDToFile(std::string nazwaPliku) { 
 	
 		//pobieranie ostatniego ID z pliku
 		std::fstream plik;
