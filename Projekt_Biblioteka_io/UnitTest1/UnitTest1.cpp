@@ -17,6 +17,7 @@ namespace UnitTest1
 	Ksiazka testKsiazka;
 	Czytelnik testCzytelnik;
 	Dlug testDlug;
+	Egzemplarz testEgzemplarz;
 	//Wypozyczenie testWypozyczenie;
 
 
@@ -136,6 +137,16 @@ namespace UnitTest1
 			float wartosc = 100;
 			Assert::AreEqual(testDlug.getWartoscDlugu(), wartosc);
 		}
+	};
+	TEST_CLASS(Egzemplarz)
+	{
+		public:
+			TEST_METHOD(getIdentyfikator)
+			{
+				testEgzemplarz.setIdentyfikator(1);
+				int id = 1;
+				Assert::AreEqual(testEgzemplarz.getIdentyfikator(), id);
+			}
 	};
 	
 }
