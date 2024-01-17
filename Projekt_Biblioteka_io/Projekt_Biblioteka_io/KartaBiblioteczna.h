@@ -31,7 +31,7 @@ public:
 //	void editKartaBiblioteczna(const std::string& imie, const std::string& nazwisko, int iduzytkownika,
 // 
 // 	**Sprawdzanie wszystkich wypo¿yczonych tytu³ów przez danego u¿ytkownika**
-// 	void checkWypozyczenia(const KartaBiblioteczna karta[]) const
+// 	void checkWypozyczenia(int IDuzytkownika) 
 //
 //	**Zapisywanie danych z karty bibliotecznej do pliku**
 //	void saveKartaBiblioteczna() const
@@ -172,16 +172,29 @@ public:
 		return kartaBiblioteczna;
 	}
 
-	// Metoda do sprawdzania wszystkich wypo¿yczonych tytu³ów przez danego u¿ytkownika
-	void checkWypozyczenia(const KartaBiblioteczna karta[]) const {
-		int ilosc = getIloscWpisow();
-		std::cout << "Wypo¿yczone tytu³y przez " << Imie << " " << Nazwisko << " (ID: " << IDuzytkownika << "):\n";
-
-		for (int i = 0; i < ilosc; i++) {
-			if (karta[i].getIDuzytkownika() == getIDuzytkownika()) {
-				std::cout << karta[i].getTytul() << " (ID: " << karta[i].getIDksiazki()<< ")\n";
+	// Metoda do sprawdzania wszystkich wypo¿yczonych tytu³ów przez danego u¿ytkownika z pliku
+	void checkWypozyczenia(int IDuzytkownika)  {
+		std::ifstream file(PLIK_KARTA_BIBLIOTECZNA);
+		std::string line;
+		std::string idString;
+		std::string idKsiazkiString;
+		std::string dataWypozyczenia;
+		std::string dataZwrotu;
+		std::string Tytul;
+		while (std::getline(file, line))
+		{
+			idString = ZnajdzSubstring(3, line, "|");
+			if (IDuzytkownika == std::stoi(idString))
+			{
+				//idKsiazkiString = ZnajdzSubstring(5, line, "|");
+				Tytul = ZnajdzSubstring(4, line, "|");
+				dataWypozyczenia = ZnajdzSubstring(6, line, "|");
+				dataZwrotu = ZnajdzSubstring(7, line, "|");
+				std::cout << "Tytyl: " << Tytul << " Data wypozyczenia: " << dataWypozyczenia << " Data zwrotu: " << dataZwrotu << std::endl;
 			}
 		}
+		file.close();
+
 	}
 
 	int getIloscWpisow() const
