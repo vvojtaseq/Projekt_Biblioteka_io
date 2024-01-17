@@ -3,7 +3,6 @@
 //#include "main.cpp"
 #include "Includy.h"
 #include "IncludyKlasy.h"
-#include "Autor.h"
 
 //Jeœli nie dzia³a to w zak³adce 
 //Projekt / W³aœciwoœci UnitTest1 / C/C++ / Ogólne / Dodatkowe Plki Katalogów nag³owkowych
@@ -13,7 +12,13 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTest1
 {
-	Osoba test;
+	Osoba testOsoba;
+	Autor testAutor;
+	Ksiazka testKsiazka;
+	Czytelnik testCzytelnik;
+	//Wypozyczenie testWypozyczenie;
+
+
 	TEST_CLASS(Osoba)
 	{
 
@@ -21,61 +26,91 @@ namespace UnitTest1
 
 		TEST_METHOD(getImie)
 		{
-			test.setImie("Adam");
+			testOsoba.setImie("Adam");
 			std::string name = "Adam";
-			Assert::AreEqual(test.getImie(), name);
+			Assert::AreEqual(testOsoba.getImie(), name);
 		}
 		TEST_METHOD(getNazwisko)
 		{
-			test.setNazwisko("Kowalski");
+			testOsoba.setNazwisko("Kowalski");
 			std::string surename = "Kowalski";
-			Assert::AreEqual(test.getNazwisko(), surename);
+			Assert::AreEqual(testOsoba.getNazwisko(), surename);
 		}
 		TEST_METHOD(getAdres)
 		{
-			test.setAdres("Prosta 4");
+			testOsoba.setAdres("Prosta 4");
 			std::string adres = "Prosta 4";
-			Assert::AreEqual(test.getAdres(), adres);
+			Assert::AreEqual(testOsoba.getAdres(), adres);
 		}
 		TEST_METHOD(getDataUrodzenia)
 		{
-			test.setDataUrodzenia("11.12.1994");
+			testOsoba.setDataUrodzenia("11.12.1994");
 			std::string data = "11.12.1994";
-			Assert::AreEqual(test.getDataUrodzenia(), data);
+			Assert::AreEqual(testOsoba.getDataUrodzenia(), data);
 		}
 		TEST_METHOD(getTelefon)
 		{
 			//zmiana typu Telefon ze string na unsigned int
-			test.setTelefon("123456789");
+			testOsoba.setTelefon("123456789");
 			std::string telefon ="123456789";
-			Assert::AreEqual(test.getTelefon(), telefon);
+			Assert::AreEqual(testOsoba.getTelefon(), telefon);
 		}
 		TEST_METHOD(getPesel)
 		{
-			test.setPESEL("99999999999");
+			testOsoba.setPESEL("99999999999");
 			std::string pesel = "99999999999";
-			Assert::AreEqual(test.getPESEL(), pesel);
+			Assert::AreEqual(testOsoba.getPESEL(), pesel);
 		}
 	};
-	TEST_CLASS(Czytelnik)
-	{};
 	TEST_CLASS(Ksiazka)
 	{
-	
-	};
-	TEST_CLASS(Wypozyczenie)
-	{
+		public:
+			TEST_METHOD(getTytul)
+			{
+			testKsiazka.setTytul("Pan Tadeusz");
+			std::string tytul = "Pan Tadeusz";
+			Assert::AreEqual(testKsiazka.getTytul(), tytul);
+		}
+			TEST_METHOD(getRokWydania)
+			{
+			testKsiazka.setRokWydania("1999");
+			std::string rok = "1999";
+			Assert::AreEqual(testKsiazka.getRokWydania(), rok);
+		}
+			TEST_METHOD(getIloscStron)
+			{
+			testKsiazka.setIloscStron(100);
+			int strony = 100;
+			Assert::AreEqual(testKsiazka.getIloscStron(), strony);
+		}
+			TEST_METHOD(getIloscEgzemplarzy)
+			{
+			testKsiazka.setIloscEgzemplarzy(10);
+			int egzemplarze = 10;
+			Assert::AreEqual(testKsiazka.getIloscEgzemplarzy(), egzemplarze);
+		}
+			TEST_METHOD(getID)
+			{
+			testKsiazka.setID(1);
+			int id = 1;
+			Assert::AreEqual(testKsiazka.getID(), id);
+		}
+			TEST_METHOD(getAutor)
+			{
+			testKsiazka.setAutor("Adam Kowalski");
+			std::string autor = "Adam Kowalski";
+			Assert::AreEqual(testKsiazka.getAutor(), autor);
+		}
 	
 	};
 	TEST_CLASS(Autor)
 	{
-		Autor autor;
+		
 		public:
 			TEST_METHOD(getImie)
 			{
-			testAutor.setImie("Adam");
-			std::string name = "Adam";
-			Assert::AreEqual(testAutor.getImie(), name);
+			Autor autor;
+			
 		}
 	
 	};
