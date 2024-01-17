@@ -1,6 +1,9 @@
 #pragma once
 #include "Autor.h"
 #include "Ksiazka.h"
+
+#define PLIK_KSIAZKI "ksiazki.txt"
+
 class Zbior
 {
 public:
@@ -34,7 +37,7 @@ public:
 	void addKsiazka(Ksiazka ksiazka, Autor autor)
 	{
 		std::fstream plik;
-		plik.open("ksiazki.txt", std::ios::out | std::ios::app);
+		plik.open(PLIK_KSIAZKI, std::ios::out | std::ios::app);
 		plik << ksiazka.getID() << "|" << ksiazka.getTytul() << "|" << autor.getImie() << "|" << autor.getNazwisko() << "|" << ksiazka.getRokWydania() << "|" << ksiazka.getIloscStron() << "|" << ksiazka.getIloscEgzemplarzy() << std::endl;
 		plik.close();
 
@@ -62,7 +65,7 @@ public:
 	std::string getTytul(unsigned int IDksiazki)
 	{
 		std::fstream plik;
-		plik.open("ksiazki.txt", std::ios::in);
+		plik.open(PLIK_KSIAZKI, std::ios::in);
 		std::string linia;
 		std::string IDksiazkiString;
 		std::string tytul;
@@ -83,7 +86,7 @@ public:
 	std::string getImieAutora(unsigned int IDksiazki)
 	{
 		std::fstream plik;
-		plik.open("ksiazki.txt", std::ios::in);
+		plik.open(PLIK_KSIAZKI, std::ios::in);
 		std::string linia;
 		std::string IDksiazkiString;
 		std::string autorImie;
@@ -104,7 +107,7 @@ public:
 	std::string getNazwiskoAutora(unsigned int IDksiazki)
 	{
 			std::fstream plik;
-		plik.open("ksiazki.txt", std::ios::in);
+		plik.open(PLIK_KSIAZKI, std::ios::in);
 		std::string linia;
 		std::string IDksiazkiString;
 		std::string autorNazwisko;
@@ -125,7 +128,7 @@ public:
 	std::string getRokWydania(unsigned int IDksiazki)
 	{
 		std::fstream plik;
-		plik.open("ksiazki.txt", std::ios::in);
+		plik.open(PLIK_KSIAZKI, std::ios::in);
 		std::string linia;
 		std::string IDksiazkiString;
 		std::string rokWydania;
@@ -146,7 +149,7 @@ public:
 	std::string getIloscStron(unsigned int IDksiazki)
 	{
 		std::fstream plik;
-		plik.open("ksiazki.txt", std::ios::in);
+		plik.open(PLIK_KSIAZKI, std::ios::in);
 		std::string linia;
 		std::string IDksiazkiString;
 		std::string iloscStron;
@@ -167,7 +170,7 @@ public:
 	std::string getIloscEgzemplarzy(unsigned int IDksiazki)
 	{
 		std::fstream plik;
-		plik.open("ksiazki.txt", std::ios::in);
+		plik.open(PLIK_KSIAZKI, std::ios::in);
 		std::string linia;
 		std::string IDksiazkiString;
 		std::string iloscEgzemplarzy;
@@ -189,7 +192,7 @@ public:
 	Ksiazka getKsiazka(unsigned int IDksiazki)
 	{
 		std::fstream plik;
-		plik.open("ksiazki.txt", std::ios::in);
+		plik.open(PLIK_KSIAZKI, std::ios::in);
 		std::string linia;
 		std::string IDksiazkiString;
 		std::string tytul;
@@ -221,7 +224,7 @@ public:
 	std::string getIDbyTytul(std::string tytul)
 	{
 		std::fstream plik;
-		plik.open("ksiazki.txt", std::ios::in);
+		plik.open(PLIK_KSIAZKI, std::ios::in);
 		std::string linia;
 		std::string tytulString;
 		std::string IDksiazkiString;
@@ -241,7 +244,7 @@ public:
 	Ksiazka getKsiazkabyTytul(std::string tytul)
 	{
 		std::fstream plik;
-		plik.open("ksiazki.txt", std::ios::in);
+		plik.open(PLIK_KSIAZKI, std::ios::in);
 		std::string linia;
 		std::string tytulString;
 		std::string IDksiazkiString;
@@ -273,7 +276,7 @@ public:
 	void deleteKsiazka(unsigned int IDksiazki)
 	{
 		std::fstream plik;
-		plik.open("ksiazki.txt", std::ios::in);
+		plik.open(PLIK_KSIAZKI, std::ios::in);
 		std::ofstream temp;
 		temp.open("temp.txt", std::ios::out);
 		std::string linia;
@@ -288,8 +291,8 @@ public:
 		}
 		plik.close();
 		temp.close();
-		remove("ksiazki.txt");
-		rename("temp.txt", "ksiazki.txt");
+		remove(PLIK_KSIAZKI);
+		rename("temp.txt", PLIK_KSIAZKI);
 	}
 
 };
