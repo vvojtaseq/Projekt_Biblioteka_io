@@ -13,13 +13,13 @@ public:
 	void setNazwisko(std::string noweNazwisko) { Nazwisko = noweNazwisko; }
 	std::string getOpis() { return Opis; }
 	void setOpis(std::string nowyOpis) { Opis = nowyOpis; }
-
-	Autor(std::string imie, std::string nazwisko, std::string opis)
+/*	Autor(std::string imie, std::string nazwisko, std::string opis)
 	{
 		Imie = imie;
 		Nazwisko = nazwisko;
 		Opis = opis;
 	}
+	*/
 	Autor() {};
 };
 

@@ -3,6 +3,7 @@
 //#include "main.cpp"
 #include "Includy.h"
 #include "IncludyKlasy.h"
+#include "Autor.h"
 
 //Jeœli nie dzia³a to w zak³adce 
 //Projekt / W³aœciwoœci UnitTest1 / C/C++ / Ogólne / Dodatkowe Plki Katalogów nag³owkowych
@@ -56,4 +57,27 @@ namespace UnitTest1
 			Assert::AreEqual(test.getPESEL(), pesel);
 		}
 	};
+	TEST_CLASS(Czytelnik)
+	{};
+	TEST_CLASS(Ksiazka)
+	{
+	
+	};
+	TEST_CLASS(Wypozyczenie)
+	{
+	
+	};
+	TEST_CLASS(Autor)
+	{
+		Autor autor;
+		public:
+			TEST_METHOD(getImie)
+			{
+			testAutor.setImie("Adam");
+			std::string name = "Adam";
+			Assert::AreEqual(testAutor.getImie(), name);
+		}
+	
+	};
+	
 }

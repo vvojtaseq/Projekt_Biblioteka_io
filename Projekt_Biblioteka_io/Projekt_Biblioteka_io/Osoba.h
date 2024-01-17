@@ -63,18 +63,13 @@ public:
 		std::string linia;
 		int ostatnieId = 0;
 
-		while (std::getline(plik, linia)) {
-			std::istringstream strumien(linia);
-			std::string token;
-
-			// Pobierz id (pierwszy token) z każdej linii
-			std::getline(strumien, token, '|');
-			int id = std::stoi(token);
-
-			// Aktualizuj ostatnieId, jeśli bieżące id jest większe
-			if (id > ostatnieId) {
-				ostatnieId = id;
-			}
+		//ostatnia linia w pliku to ostatni uzytkownik
+		while (getline(plik, linia))
+		{
+			std::stringstream ss(linia);
+			std::string id;
+			getline(ss, id, '|');
+			ostatnieId = std::stoi(id);
 		}
 
 		plik.close();
