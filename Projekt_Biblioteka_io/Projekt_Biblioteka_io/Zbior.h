@@ -4,11 +4,21 @@
 class Zbior
 {
 public:
-//	
+//	**Dodawanie ksiazki do pliku**
 //	void addKsiazka(Ksiazka ksiazka, Autor autor);
+// 
+// **Pobieranie danych ksiazek z pliku**
 //	std::string getTytul(unsigned int id);
-//	std::string getAutor(unsigned int id);
-//
+//	std::string getAutorImie(unsigned int id);
+//	std::string getAutorNazwisko(unsigned int id);
+//	std::string getRokWydania(unsigned int id);
+// 	
+// 	(poni¿sze metody w klasie Ksiazka s¹ podane jako int, ale tutaj zwracane s¹ w stringu - zalecane rzutowanie)
+// 	std::string getIloscStron(unsigned int id);
+// 	std::string getIloscEgzemplarzy(unsigned int id);
+// 	std::string getID(unsigned int id);
+// 	   	
+// 	**Pobieranie ca³ejk ksiazki do klasy z pliku**
 //	Ksiazka getKsiazka(unsigned int id);
 //
 // 
