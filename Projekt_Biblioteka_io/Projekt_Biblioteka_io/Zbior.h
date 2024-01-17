@@ -30,6 +30,9 @@ public:
 //	**Usuwanie ksiazki z pliku**
 //	void deleteKsiazka(unsigned int id);
 // 
+// 	**Wypisywanie tytulow ksiazek z zakresu**
+// 	  void WypiszTytuly(unsigned int od, unsigned int doo)
+// 
 //	konstruktor domyslny
 	Zbior() {};
 
@@ -293,6 +296,35 @@ public:
 		temp.close();
 		remove(PLIK_KSIAZKI);
 		rename("temp.txt", PLIK_KSIAZKI);
+	}
+
+	//wypisz ksi¹¿ki z zakresu 
+	void WypiszTytuly(unsigned int od, unsigned int doo)
+	{
+		std::fstream plik;
+		plik.open(PLIK_KSIAZKI, std::ios::in);
+		std::string linia;
+		std::string IDksiazkiString;
+		std::string tytul;
+		std::string autorImie;
+		std::string autorNazwisko;
+		unsigned int i;
+		while (getline(plik, linia))
+		{
+			IDksiazkiString = ZnajdzSubstring(1, linia, "|");
+			if (std::stoi(IDksiazkiString) >= od && std::stoi(IDksiazkiString) <= doo)
+			{
+				i = std::stoi(IDksiazkiString);
+				tytul = ZnajdzSubstring(2, linia, "|");
+				autorImie = ZnajdzSubstring(3, linia, "|");
+				autorNazwisko = ZnajdzSubstring(4, linia, "|");
+				std::cout << i << ". " << tytul << " " << autorImie << " " << autorNazwisko << std::endl;
+			
+			
+
+			}
+		}
+		plik.close();
 	}
 
 };
