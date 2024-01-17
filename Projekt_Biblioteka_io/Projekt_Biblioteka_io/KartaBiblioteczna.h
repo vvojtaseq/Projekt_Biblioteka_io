@@ -30,16 +30,16 @@ public:
 //	**Edycja danych na karcie bibliotecznej**
 //	void editKartaBiblioteczna(const std::string& imie, const std::string& nazwisko, int iduzytkownika,
 // 
-// 	  **Sprawdzanie wszystkich wypo¿yczonych tytu³ów przez danego u¿ytkownika**
-// 	 void checkWypozyczenia(const KartaBiblioteczna karta[]) const
+// 	**Sprawdzanie wszystkich wypo¿yczonych tytu³ów przez danego u¿ytkownika**
+// 	void checkWypozyczenia(const KartaBiblioteczna karta[]) const
 //
 //	**Zapisywanie danych z karty bibliotecznej do pliku**
 //	void saveKartaBiblioteczna() const
 // 
-// **Sprawdzanie ilosci wpisow na karcie bibliotecznej**
+//	**Sprawdzanie ilosci wpisow na karcie bibliotecznej**
 //	int getIloscWpisow() const
 // 
-// **Usuwanie wpisu**
+//	**Usuwanie wpisu**
 //	void deleteWpis(int IDuzytkownika, int IDksiazki)
 // 
 //	**Pobieranie pojedyñczych danych z wypo¿yczenia**
