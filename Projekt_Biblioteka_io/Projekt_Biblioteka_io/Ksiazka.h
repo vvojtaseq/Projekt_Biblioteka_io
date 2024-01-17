@@ -5,7 +5,8 @@ class Ksiazka : public Autor
 {
 private:
 	std::string Tytul;
-	std::string Autor;
+	std::string AutorImie;
+	std::string AutorNazwisko;
 	std::string RokWydania;
 	int IloscStron;
 	int IloscEgzemplarzy;
@@ -23,16 +24,36 @@ public:
 	int getIloscEgzemplarzy() { return IloscEgzemplarzy; }
 	void setIloscEgzemplarzy(int nowaIloscEgzemplarzy) { IloscEgzemplarzy = nowaIloscEgzemplarzy; }
 
-	void setID (int noweID) { ID = noweID; }
+	void setID (int noweID) { 
+		std::ifstream plik("ksiazki.txt");
+		std::string linia;
+		int ostatnieId = 0;
+
+		while (getline(plik, linia))
+		{
+			std::stringstream ss(linia);
+			std::string id;
+			getline(ss, id, '|');
+			ostatnieId = std::stoi(id);
+		}
+
+		plik.close();
+
+		ID = ostatnieId + 1;
+	}
 	int getID() { return ID; }
 
-	std::string getAutor() { return Autor; }
-	void setAutor(std::string nowyAutor) { Autor = nowyAutor; }
+	std::string getAutorImie() { return AutorImie; }
+	void setAutorImie(std::string noweAutorImie) { AutorImie = noweAutorImie; }
 
-	Ksiazka(std::string tytul, std::string autor, std::string rokWydania, int iloscStron, int iloscEgzemplarzy, int id)
+	std::string getAutorNazwisko() { return AutorNazwisko; }
+	void setAutorNazwisko(std::string noweAutorNazwisko) { AutorNazwisko = noweAutorNazwisko; }
+
+	Ksiazka(std::string tytul, std::string autorimie, std::string autornazwisko ,std::string rokWydania, int iloscStron, int iloscEgzemplarzy, int id)
 	{
 		Tytul = tytul;
-		Autor = autor;
+		AutorImie = autorimie;
+		AutorNazwisko = autornazwisko;
 		RokWydania = rokWydania;
 		IloscStron = iloscStron;
 		IloscEgzemplarzy = iloscEgzemplarzy;

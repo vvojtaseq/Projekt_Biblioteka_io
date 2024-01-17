@@ -1,0 +1,4 @@
+1|Adam|Kowalski|adam@gmail.com|Chłopska 4|999888777|12345678901|0
+2|Marek|Towarek|marektowarek@gmail.com|Abby 2, 23-123 Krosno|123123123|11111111111|0
+3|Wojtek|Zacharski|wojtek123@gmail.com|Motylowa 76, 81-231   d |889008772|88888888888|0
+4|Karol|Woda|kw@gmail.com|Pomorsa 87, 22-123 Krakow|227449123|99999999999|0

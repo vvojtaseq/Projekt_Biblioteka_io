@@ -1,2 +1,19 @@
+<<<<<<< HEAD
 1|Alicja|Nawracaj|Anawracaj@onet.pl|Górnicza 23, 87-890 Poleszajewo|345192753|75836582282|0
 2|Marek|Towarek|Mtowarek@gmail.com|Holnica 1, 45-543 Korczewo|108000506|34000002322|0
+=======
+1|Adam|Kowalski|adam@gmail.com|Chłopska 4|12.12.2001|999888777|12345678901|0
+2|Adam|Kowalski|adam@gmail.com|Chłopska 4|12.12.2001|999888777|12345678901|0
+3|Jan|Kowalski|Jan@op.pl|ul. Kowalska 1|01.01.2000|123456789|12345678901|1
+4|Jan|Kowalski|Jan@op.pl|ul. Kowalska 1|01.01.2000|123456789|12345678901|1
+5|Jan|Kowalski|Jan@op.pl|ul. Kowalska 1|01.01.2000|123456789|12345678901|1
+6|Jan|Kowalski|Jan@op.pl|ul. Kowalska 1|01.01.2000|123456789|12345678901|1
+7|Jan|Kowalski|Jan@op.pl|ul. Kowalska 1|01.01.2000|123456789|12345678901|1
+8|Jan|Kowalski|Jan@op.pl|ul. Kowalska 1|01.01.2000|123456789|12345678901|1
+9|Jan|Kowalski|Jan@op.pl|ul. Kowalska 1|01.01.2000|123456789|12345678901|1
+10|Jan|Kowalski|Jan@op.pl|ul. Kowalska 1|01.01.2000|123456789|12345678901|1
+11|Jan|Kowalski|Jan@op.pl|ul. Kowalska 1|01.01.2000|123456789|12345678901|1
+12|Jan|Kowalski|Jan@op.pl|ul. Kowalska 1|01.01.2000|123456789|12345678901|1
+13|Jan|Kowalski|Jan@op.pl|ul. Kowalska 1|01.01.2000|123456789|12345678901|1
+14|Jan|Kowalski|Jan@op.pl|ul. Kowalska 1|01.01.2000|123456789|12345678901|1
+>>>>>>> 8e1534dad4ffaa2a355793b5e7f3addff5526f96

@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 1|Anawracaj4|Anawracaj@onet.pl
 2|Mtowarek1|Mtowarek@gmail.com
+=======
+1|1234|jan@onet.pl
+1|1234|jan@onet.pl
+>>>>>>> 8e1534dad4ffaa2a355793b5e7f3addff5526f96
