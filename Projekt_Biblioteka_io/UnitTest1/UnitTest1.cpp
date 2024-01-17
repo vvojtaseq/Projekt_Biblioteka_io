@@ -20,6 +20,7 @@ namespace UnitTest1
 	Egzemplarz testEgzemplarz;
 	KartaBiblioteczna testKartaBiblioteczna;
 	KatalogUzytkownikow testKatalogUzytkownikow;
+	//Wypozyczenia testWypozyczenia;
 
 	TEST_CLASS(Osoba)
 	{
@@ -178,9 +179,15 @@ namespace UnitTest1
 				Assert::AreEqual(testKartaBiblioteczna.getDataZwrotu(), data);
 			}
 	};
+
+//	****************************************************************************************
+//	Pojawia siê problem gdy chcemy testowaæ funkcje zwi¹zane z plikami .txt
+// 	Pliki zosta³y za³¹czone i skonfigurowane, jednak unit test nie widzi ich
+//	*****************************************************************************************
 	TEST_CLASS(KatalogUzytkownikow)
 	{
 		public:
+			
 			TEST_METHOD(getID)
 			{
 				//testKatalogUzytkownikow.getID(1);
@@ -223,6 +230,14 @@ namespace UnitTest1
 				std::string pesel = "11111111111";
 				Assert::AreEqual(testKatalogUzytkownikow.getPESEL(2), pesel);
 			}
+			TEST_METHOD(czyIstniejePlik)
+			{
+				//testKatalogUzytkownikow.czyIstniejePlik();
+				std::string nazwaPliku = "czytelnicy.txt";
+				Assert::AreEqual( true, testKatalogUzytkownikow.czyIstniejePlik(nazwaPliku) );
+			}
 	};
+	
+
 	
 }

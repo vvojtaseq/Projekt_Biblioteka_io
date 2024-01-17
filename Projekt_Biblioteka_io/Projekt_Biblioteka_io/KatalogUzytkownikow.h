@@ -33,6 +33,23 @@ public:
 //	//konstruktor domyslny
 	KatalogUzytkownikow() {};
 
+	//sprawdza czy istnieje plik
+	bool czyIstniejePlik(std::string nazwaPliku)
+	{
+		std::fstream plik;
+		plik.open(nazwaPliku, std::ios::in);
+		if (plik.good() == true)
+		{
+			plik.close();
+			return true;
+		}
+		else
+		{
+			plik.close();
+			return false;
+		}
+	}
+
 	//dodawanie uzytkownika do pliku
 	void addCzytelnik(Czytelnik czytelnik)
 	{
