@@ -13,9 +13,10 @@ private:
 
 public:
 
-//  Zalecam pobieranie ca³ej karty bibliotecznej z pliku, nastêpnie modyfikacjê i ponowny zapis
+//	ZASADA DZIA£ANIA - plik posiada linie w formacie: IDuzytkownika|IDksiazki|dataWypozyczenia|dataZwrotu	
+//  Zalecam pobieranie danych z pliku do tablicy, w niej trzymane s¹ wszystkie dane, a nastêpnie operowanie na tablicy
 // 
-//	**Obs³uga karty bibliotecznej**
+//	**Obs³uga klasy karty bibliotecznej**
 //	int getIDuzytkownika() { return IDuzytkownika; }
 //	void setIDuzytkownika(int noweID) { IDuzytkownika = noweID; }
 //	int getIDksiazki() { return IDksiazki; }
@@ -24,12 +25,21 @@ public:
 //	void setDataWypozyczenia(std::string nowaData) { dataWypozyczenia = nowaData; }
 //	std::string getDataZwrotu() { return dataZwrotu; }
 //	void setDataZwrotu(std::string nowaData) { dataZwrotu = nowaData; }
-
-//	**Zapisywanie karty bibliotecznej do pliku**
+//
+//	**Dodanie karty bibliotecznej do pliku** (jedna pozycja, np jeœli czytelnik wypo¿yczy³ sobie ksi¹¿kê) 
 //	void addKartaBiblioteczna(KartaBiblioteczna kartaBiblioteczna)
-
+//
 //	**Pobieranie kart bibliotecznych z pliku**
-//	KartaBiblioteczna getKartaBiblioteczna(int IDuzytkownika)
+//	KartaBiblioteczna getKartaBiblioteczna(int IDuzytkownika, int IDksiazki)
+//	KartaBiblioteczna* getKartaBibliotecznaTab(int IDuzytkownika) - tworzy tablicê ze wszystkimi pozycjami danego uzytkownika
+//
+//	**Aktualizacja danych karty bibliotecznej*
+//	1. Pobieramy tablicê z wszystkimi pozycjami danego uzytkownika
+//	2. W tablicy zmieniamy dane
+//	3. Zapisujemy tablicê do pliku
+//	void updateKartaBiblioteczna(KartaBiblioteczna* kartaBiblioteczna)
+
+
 
 	int getIDuzytkownika() { return IDuzytkownika; }
 	void setIDuzytkownika(int noweID) { IDuzytkownika = noweID; }
@@ -61,6 +71,65 @@ public:
 		return requestedSubstring;
 	}
 
+	//tworzenie tablicy ze wszyskimi pozycjami danego uzytkownika
+	KartaBiblioteczna* getKartaBibliotecznaTab(int IDuzytkownika)
+	{
+		std::fstream plik;
+		plik.open("kartabiblioteczna.txt", std::ios::in);
+		std::string linia;
+		std::string idString;
+		std::string idKsiazkiString;
+		std::string dataWypozyczenia;
+		std::string dataZwrotu;
+		KartaBiblioteczna* kartaBiblioteczna = new KartaBiblioteczna[100];
+		int i = 0;
+		while (getline(plik, linia))
+		{
+			IDuzytkownika = std::stoi(ZnajdzSubstring(1, linia, "|"));
+			if (IDuzytkownika == std::stoi(idString))
+			{
+				kartaBiblioteczna[i].setIDuzytkownika(std::stoi(idString));
+				kartaBiblioteczna[i].setIDksiazki(std::stoi(idKsiazkiString));
+				kartaBiblioteczna[i].setDataWypozyczenia(dataWypozyczenia);
+				kartaBiblioteczna[i].setDataZwrotu(dataZwrotu);
+				i++;
+			}
+		}
+		plik.close();
+		return kartaBiblioteczna;
+	}
+
+	//iloœæ pozycji w tablicy Karta Biblioteczna
+	int getIloscPozycji(KartaBiblioteczna* kartaBiblioteczna)
+	{
+		int i = 0;
+		while (kartaBiblioteczna[i].getIDuzytkownika() != 0)
+		{
+			i++;
+		}
+		return i;
+	}
+
+	//nadpisanie pozycji konkretnego uzytkownika w pliku
+	void updateKartaBiblioteczna(KartaBiblioteczna* kartaBiblioteczna)
+	{
+		std::fstream plik;
+		plik.open("kartabiblioteczna.txt", std::ios::out);
+		std::string linia;
+		std::string idString;
+		while (getline(plik, linia))
+		{
+			if (kartaBiblioteczna->getIDuzytkownika() == std::stoi(ZnajdzSubstring(1, linia, "|")))
+			{
+				plik << kartaBiblioteczna->getIDuzytkownika() << "|" << kartaBiblioteczna->getIDksiazki() << "|" << kartaBiblioteczna->getDataWypozyczenia() << "|" << kartaBiblioteczna->getDataZwrotu() << std::endl;
+			}
+		
+		}
+
+		plik.close();
+	}
+
+
 	//zapisywanie karty bibliotecznej do pliku
 	void addKartaBiblioteczna(KartaBiblioteczna kartaBiblioteczna)
 	{
@@ -79,7 +148,7 @@ public:
 	}
 
 	//pobieranie kart bibliotecznych z pliku 
-	KartaBiblioteczna getKartaBiblioteczna(int IDuzytkownika)
+	KartaBiblioteczna getKartaBiblioteczna(int IDuzytkownika, int IDksiazki)
 	{
 		std::fstream plik;
 		plik.open("kartabiblioteczna.txt", std::ios::in);
@@ -88,16 +157,13 @@ public:
 		std::string idKsiazkiString;
 		std::string dataWypozyczenia;
 		std::string dataZwrotu;
-		KartaBiblioteczna kartaBiblioteczna;
 		while (getline(plik, linia))
 		{
-			std::stringstream ss(linia);
-			getline(ss, idString, '|');
-			getline(ss, idKsiazkiString, '|');
-			getline(ss, dataWypozyczenia, '|');
-			getline(ss, dataZwrotu, '|');
-			if (IDuzytkownika == std::stoi(idString))
+			IDuzytkownika = std::stoi(ZnajdzSubstring(1, linia, "|"));
+			IDksiazki = std::stoi(ZnajdzSubstring(2, linia, "|"));
+			if (IDuzytkownika == std::stoi(idString) && IDksiazki == std::stoi(idKsiazkiString))
 			{
+				KartaBiblioteczna kartaBiblioteczna;
 				kartaBiblioteczna.setIDuzytkownika(std::stoi(idString));
 				kartaBiblioteczna.setIDksiazki(std::stoi(idKsiazkiString));
 				kartaBiblioteczna.setDataWypozyczenia(dataWypozyczenia);
@@ -106,13 +172,12 @@ public:
 			}
 		}
 		plik.close();
+		KartaBiblioteczna kartaBiblioteczna;
 		return kartaBiblioteczna;
+		
 	}
 
-	//nadpisanie karty bibliotecznej w pliku
-
 	
-	//Konstruktor domyœlny
-	//KartaBiblioteczna ();
+	KartaBiblioteczna ();
 };
 
