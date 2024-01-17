@@ -12,7 +12,16 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTest1
 {
-	Osoba test;
+	Osoba testOsoba;
+	Autor testAutor;
+	Ksiazka testKsiazka;
+	Czytelnik testCzytelnik;
+	Dlug testDlug;
+	Egzemplarz testEgzemplarz;
+	KartaBiblioteczna testKartaBiblioteczna;
+	KatalogUzytkownikow testKatalogUzytkownikow;
+	//Wypozyczenia testWypozyczenia;
+
 	TEST_CLASS(Osoba)
 	{
 
@@ -20,40 +29,215 @@ namespace UnitTest1
 
 		TEST_METHOD(getImie)
 		{
-			test.setImie("Adam");
+			testOsoba.setImie("Adam");
 			std::string name = "Adam";
-			Assert::AreEqual(test.getImie(), name);
+			Assert::AreEqual(testOsoba.getImie(), name);
 		}
 		TEST_METHOD(getNazwisko)
 		{
-			test.setNazwisko("Kowalski");
+			testOsoba.setNazwisko("Kowalski");
 			std::string surename = "Kowalski";
-			Assert::AreEqual(test.getNazwisko(), surename);
+			Assert::AreEqual(testOsoba.getNazwisko(), surename);
 		}
 		TEST_METHOD(getAdres)
 		{
-			test.setAdres("Prosta 4");
+			testOsoba.setAdres("Prosta 4");
 			std::string adres = "Prosta 4";
-			Assert::AreEqual(test.getAdres(), adres);
+			Assert::AreEqual(testOsoba.getAdres(), adres);
 		}
 		TEST_METHOD(getDataUrodzenia)
 		{
-			test.setDataUrodzenia("11.12.1994");
+			testOsoba.setDataUrodzenia("11.12.1994");
 			std::string data = "11.12.1994";
-			Assert::AreEqual(test.getDataUrodzenia(), data);
+			Assert::AreEqual(testOsoba.getDataUrodzenia(), data);
 		}
 		TEST_METHOD(getTelefon)
 		{
 			//zmiana typu Telefon ze string na unsigned int
-			test.setTelefon("123456789");
+			testOsoba.setTelefon("123456789");
 			std::string telefon ="123456789";
-			Assert::AreEqual(test.getTelefon(), telefon);
+			Assert::AreEqual(testOsoba.getTelefon(), telefon);
 		}
 		TEST_METHOD(getPesel)
 		{
-			test.setPESEL("99999999999");
+			testOsoba.setPESEL("99999999999");
 			std::string pesel = "99999999999";
-			Assert::AreEqual(test.getPESEL(), pesel);
+			Assert::AreEqual(testOsoba.getPESEL(), pesel);
 		}
 	};
+	TEST_CLASS(Ksiazka)
+	{
+		public:
+			TEST_METHOD(getTytul)
+			{
+			testKsiazka.setTytul("Pan Tadeusz");
+			std::string tytul = "Pan Tadeusz";
+			Assert::AreEqual(testKsiazka.getTytul(), tytul);
+		}
+			TEST_METHOD(getRokWydania)
+			{
+			testKsiazka.setRokWydania("1999");
+			std::string rok = "1999";
+			Assert::AreEqual(testKsiazka.getRokWydania(), rok);
+		}
+			TEST_METHOD(getIloscStron)
+			{
+			testKsiazka.setIloscStron(100);
+			int strony = 100;
+			Assert::AreEqual(testKsiazka.getIloscStron(), strony);
+		}
+			TEST_METHOD(getIloscEgzemplarzy)
+			{
+			testKsiazka.setIloscEgzemplarzy(10);
+			int egzemplarze = 10;
+			Assert::AreEqual(testKsiazka.getIloscEgzemplarzy(), egzemplarze);
+		}
+			TEST_METHOD(getID)
+			{
+			testKsiazka.setID(1);
+			int id = 1;
+			Assert::AreEqual(testKsiazka.getID(), id);
+		}
+			TEST_METHOD(getAutor)
+			{
+			testKsiazka.setAutor("Adam Kowalski");
+			std::string autor = "Adam Kowalski";
+			Assert::AreEqual(testKsiazka.getAutor(), autor);
+		}
+	
+	};
+	TEST_CLASS(Autor)
+	{
+		public:
+			TEST_METHOD(getImie)
+			{
+			testAutor.setImie("Adam");
+			std::string imie = "Adam";
+			Assert::AreEqual(testAutor.getImie(), imie);
+		}
+			TEST_METHOD(getNazwisko)
+			{
+			testAutor.setNazwisko("Kowalski");
+			std::string nazwisko = "Kowalski";
+			Assert::AreEqual(testAutor.getNazwisko(), nazwisko);
+		}
+			TEST_METHOD(getOpis)
+			{
+			testAutor.setOpis("Opis");
+			std::string opis = "Opis";
+			Assert::AreEqual(testAutor.getOpis(), opis);
+		}
+			
+	};
+	TEST_CLASS(Dlug)
+	{
+		public:
+			TEST_METHOD(getWartoscDlugu)
+			{
+			testDlug.setWartoscDlugu(100);
+			float wartosc = 100;
+			Assert::AreEqual(testDlug.getWartoscDlugu(), wartosc);
+		}
+	};
+	TEST_CLASS(Egzemplarz)
+	{
+		public:
+			TEST_METHOD(getIdentyfikator)
+			{
+				testEgzemplarz.setIdentyfikator(1);
+				int id = 1;
+				Assert::AreEqual(testEgzemplarz.getIdentyfikator(), id);
+			}
+	};
+	TEST_CLASS(KartaBiblioteczna)
+	{
+		
+		public:
+			
+			TEST_METHOD(getIDuzytkownika)
+			{
+				testKartaBiblioteczna.setIDuzytkownika(1);
+				int id = 1;
+				Assert::AreEqual(testKartaBiblioteczna.getIDuzytkownika(), id);
+			}
+			TEST_METHOD(getIDksiazki)
+			{
+				testKartaBiblioteczna.setIDksiazki(1);
+				int id = 1;
+				Assert::AreEqual(testKartaBiblioteczna.getIDksiazki(), id);
+			}
+			TEST_METHOD(getDataWypozyczenia)
+			{
+				testKartaBiblioteczna.setDataWypozyczenia("11.12.1994");
+				std::string data = "11.12.1994";
+				Assert::AreEqual(testKartaBiblioteczna.getDataWypozyczenia(), data);
+			}
+			TEST_METHOD(getDataZwrotu)
+			{
+				testKartaBiblioteczna.setDataZwrotu("11.12.1994");
+				std::string data = "11.12.1994";
+				Assert::AreEqual(testKartaBiblioteczna.getDataZwrotu(), data);
+			}
+	};
+
+//	****************************************************************************************
+//	Pojawia siê problem gdy chcemy testowaæ funkcje zwi¹zane z plikami .txt
+// 	Pliki zosta³y za³¹czone i skonfigurowane, jednak unit test nie widzi ich
+//	*****************************************************************************************
+	TEST_CLASS(KatalogUzytkownikow)
+	{
+		public:
+			
+			TEST_METHOD(getID)
+			{
+				//testKatalogUzytkownikow.getID(1);
+				//int id = 1;
+				//Assert::AreEqual(testKatalogUzytkownikow.getID(), id);
+			}
+			TEST_METHOD(getImie)
+			{
+				//testKatalogUzytkownikow.getImie(2);
+				std::string imie = "Marek";
+				Assert::AreEqual(testKatalogUzytkownikow.getImie(2), imie);
+			}
+			TEST_METHOD(getNazwisko)
+			{
+				//testKatalogUzytkownikow.getNazwisko(2);
+				std::string nazwisko = "Towarek";
+				Assert::AreEqual(testKatalogUzytkownikow.getNazwisko(2), nazwisko);
+			}
+			TEST_METHOD(getAdres)
+			{
+				//testKatalogUzytkownikow.getAdres(1);
+				std::string adres = "Abby 2, 23-123 Krosno";
+				Assert::AreEqual(testKatalogUzytkownikow.getAdres(2), adres);
+			}
+			TEST_METHOD(getDataUrodzenia)
+			{
+				//testKatalogUzytkownikow.getDataUrodzenia("11.12.1994");
+				//std::string data = "11.12.1994";
+				//Assert::AreEqual(testKatalogUzytkownikow.getDataUrodzenia(), data);
+			}
+			TEST_METHOD(getTelefon)
+			{
+				//testKatalogUzytkownikow.setTelefon("123456789");
+				std::string telefon = "123123123";
+				Assert::AreEqual(testKatalogUzytkownikow.getTelefon(2), telefon);
+			}
+			TEST_METHOD(getPesel)
+			{
+				//testKatalogUzytkownikow.setPESEL("99999999999");
+				std::string pesel = "11111111111";
+				Assert::AreEqual(testKatalogUzytkownikow.getPESEL(2), pesel);
+			}
+			TEST_METHOD(czyIstniejePlik)
+			{
+				//testKatalogUzytkownikow.czyIstniejePlik();
+				std::string nazwaPliku = "czytelnicy.txt";
+				Assert::AreEqual( true, testKatalogUzytkownikow.czyIstniejePlik(nazwaPliku) );
+			}
+	};
+	
+
+	
 }

@@ -63,24 +63,20 @@ public:
 		std::string linia;
 		int ostatnieId = 0;
 
-		while (std::getline(plik, linia)) {
-			std::istringstream strumien(linia);
-			std::string token;
-
-			// Pobierz id (pierwszy token) z każdej linii
-			std::getline(strumien, token, '|');
-			int id = std::stoi(token);
-
-			// Aktualizuj ostatnieId, jeśli bieżące id jest większe
-			if (id > ostatnieId) {
-				ostatnieId = id;
-			}
+		//ostatnia linia w pliku to ostatni uzytkownik
+		while (getline(plik, linia))
+		{
+			std::stringstream ss(linia);
+			std::string id;
+			getline(ss, id, '|');
+			ostatnieId = std::stoi(id);
 		}
 
 		plik.close();
 
 		ID = ostatnieId + 1;
 	}
+	
 
 	//metoda do zapisu uzytkownika do pliku
 	void setIDToFile(std::string nazwaPliku) { 
@@ -125,6 +121,26 @@ public:
 		}
 	}
 	std::string getEmail() { return Email; }
+
+	//konstruktor
+
+	Osoba() {};
+
+Osoba(std::string imie, std::string nazwisko, std::string adres, std::string dataUrodzenia, std::string telefon, std::string pesel, std::string email, std::string haslo, int powerlevel)
+	{
+		setImie(imie);
+		setNazwisko(nazwisko);
+		setAdres(adres);
+		setDataUrodzenia(dataUrodzenia);
+		setTelefon(telefon);
+		setPESEL(pesel);
+		setEmail(email);
+		setHaslo(haslo);
+		setPowerLevel(powerlevel);
+		setID();
+	}
+
+	
 };
 	/*
 	void setPESEL( std::string nowyPESEL) {

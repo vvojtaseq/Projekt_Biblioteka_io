@@ -27,4 +27,11 @@
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="bibliotekarze.txt" />
+    <Text Include="czytelnicy.txt" />
+    <Text Include="hasla.txt" />
+    <Text Include="kartabiblioteczna.txt" />
+    <Text Include="ksiazki.txt" />
+  </ItemGroup>
 </Project>
