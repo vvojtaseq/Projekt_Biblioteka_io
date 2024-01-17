@@ -8,7 +8,7 @@ private:
 	std::string Opis;
 public:
 	std::string getImie() { return Imie; }
-	void getImie(std::string noweImie) { Imie = noweImie; }
+	void setImie(std::string noweImie) { Imie = noweImie; }
 	std::string getNazwisko() { return Nazwisko; }
 	void setNazwisko(std::string noweNazwisko) { Nazwisko = noweNazwisko; }
 	std::string getOpis() { return Opis; }

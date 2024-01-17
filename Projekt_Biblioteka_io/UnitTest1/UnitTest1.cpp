@@ -105,14 +105,25 @@ namespace UnitTest1
 	};
 	TEST_CLASS(Autor)
 	{
-		
 		public:
 			TEST_METHOD(getImie)
 			{
-			Autor autor;
-			
+			testAutor.setImie("Adam");
+			std::string imie = "Adam";
+			Assert::AreEqual(testAutor.getImie(), imie);
 		}
-	
+			TEST_METHOD(getNazwisko)
+			{
+			testAutor.setNazwisko("Kowalski");
+			std::string nazwisko = "Kowalski";
+			Assert::AreEqual(testAutor.getNazwisko(), nazwisko);
+		}
+			TEST_METHOD(getOpis)
+			{
+			testAutor.setOpis("Opis");
+			std::string opis = "Opis";
+			Assert::AreEqual(testAutor.getOpis(), opis);
+		}
 	};
 	
 }
