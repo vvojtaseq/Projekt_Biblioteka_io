@@ -87,11 +87,10 @@ public:
 		std::string haslo;
 		while (getline(plik, linia))
 		{
-			std::stringstream ss(linia);
-			getline(ss, idString, '|');
-			getline(ss, haslo, '|');
+			idString = ZnajdzSubstring(1, linia, "|");
 			if (id == std::stoi(idString))
 			{
+				haslo = ZnajdzSubstring(2, linia, "|");
 				return haslo;
 			}
 		}
@@ -107,26 +106,31 @@ public:
 		std::string linia;
 		std::string idString;
 		std::string haslo;
-		std::vector<std::string> hasla;
+		std::string noweHasloString = noweHaslo;
+		std::string changedID = std::to_string(ID);
+		std::string nowaLinia;
 		while (getline(plik, linia))
 		{
-			std::stringstream ss(linia);
-			getline(ss, idString, '|');
-			getline(ss, haslo, '|');
-			if (ID == std::stoi(idString))
+			idString = ZnajdzSubstring(1, linia, "|");
+			if (changedID == idString)
 			{
-				hasla.push_back(idString + "|" + noweHaslo);
-			}
-			else
-			{
-				hasla.push_back(idString + "|" + haslo);
+				haslo = ZnajdzSubstring(2, linia, "|");
+				nowaLinia = changedID + "|" + noweHasloString + "|" + haslo;
+				break;
 			}
 		}
 		plik.close();
 		plik.open("hasla.txt", std::ios::out);
-		for (int i = 0; i < hasla.size(); i++)
+		while (getline(plik, linia))
 		{
-			plik << hasla[i] << std::endl;
+			if (linia != nowaLinia)
+			{
+				plik << linia << std::endl;
+			}
+			else
+			{
+				plik << nowaLinia << std::endl;
+			}
 		}
 		plik.close();
 	}
@@ -177,7 +181,7 @@ public:
 			}
 		}
 		plik.close();
-		return -1;
+		return 0;
 	}
 
 
@@ -454,10 +458,5 @@ public:
 		}
 
 	}
-
-
-
-
-
 
 };
