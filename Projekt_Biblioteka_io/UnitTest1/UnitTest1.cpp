@@ -19,9 +19,7 @@ namespace UnitTest1
 	Dlug testDlug;
 	Egzemplarz testEgzemplarz;
 	KartaBiblioteczna testKartaBiblioteczna;
-
-	//Wypozyczenie testWypozyczenie;
-
+	KatalogUzytkownikow testKatalogUzytkownikow;
 
 	TEST_CLASS(Osoba)
 	{
@@ -178,6 +176,52 @@ namespace UnitTest1
 				testKartaBiblioteczna.setDataZwrotu("11.12.1994");
 				std::string data = "11.12.1994";
 				Assert::AreEqual(testKartaBiblioteczna.getDataZwrotu(), data);
+			}
+	};
+	TEST_CLASS(KatalogUzytkownikow)
+	{
+		public:
+			TEST_METHOD(getID)
+			{
+				//testKatalogUzytkownikow.getID(1);
+				//int id = 1;
+				//Assert::AreEqual(testKatalogUzytkownikow.getID(), id);
+			}
+			TEST_METHOD(getImie)
+			{
+				//testKatalogUzytkownikow.getImie(2);
+				std::string imie = "Marek";
+				Assert::AreEqual(testKatalogUzytkownikow.getImie(2), imie);
+			}
+			TEST_METHOD(getNazwisko)
+			{
+				//testKatalogUzytkownikow.getNazwisko(2);
+				std::string nazwisko = "Towarek";
+				Assert::AreEqual(testKatalogUzytkownikow.getNazwisko(2), nazwisko);
+			}
+			TEST_METHOD(getAdres)
+			{
+				//testKatalogUzytkownikow.getAdres(1);
+				std::string adres = "Abby 2, 23-123 Krosno";
+				Assert::AreEqual(testKatalogUzytkownikow.getAdres(2), adres);
+			}
+			TEST_METHOD(getDataUrodzenia)
+			{
+				//testKatalogUzytkownikow.getDataUrodzenia("11.12.1994");
+				//std::string data = "11.12.1994";
+				//Assert::AreEqual(testKatalogUzytkownikow.getDataUrodzenia(), data);
+			}
+			TEST_METHOD(getTelefon)
+			{
+				//testKatalogUzytkownikow.setTelefon("123456789");
+				std::string telefon = "123123123";
+				Assert::AreEqual(testKatalogUzytkownikow.getTelefon(2), telefon);
+			}
+			TEST_METHOD(getPesel)
+			{
+				//testKatalogUzytkownikow.setPESEL("99999999999");
+				std::string pesel = "11111111111";
+				Assert::AreEqual(testKatalogUzytkownikow.getPESEL(2), pesel);
 			}
 	};
 	

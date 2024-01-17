@@ -59,6 +59,24 @@ public:
 		plik.close();
 	}
 
+	//dzieli string ze wzglêdu na podany znak i zwraca wybrany string
+	std::string ZnajdzSubstring(int number, std::string line, std::string delimiter)
+	{
+		std::string requestedSubstring;
+		std::string token;
+		std::istringstream tokenStream(line);
+		int i = 0;
+		while (std::getline(tokenStream, token, '|'))
+		{
+			i++;
+			if (i == number)
+			{
+				requestedSubstring = token;
+			}
+		}
+		return requestedSubstring;
+	}
+
 	//pobieranie hasla z pliku
 	std::string getHaslo(unsigned int id)
 	{
@@ -137,6 +155,7 @@ public:
 		return false;
 	}
 
+
 	//pobieranie id z pliku za pomoc¹ maila 
 	unsigned int getID(std::string email)
 	{
@@ -162,7 +181,7 @@ public:
 	}
 
 
-	//pobieranie imienia z pliku 
+	//pobieranie imienia z pliku (String pomiêdzi pierwszym a drugim "|")
 	std::string getImie(unsigned int id)
 	{
 		std::fstream plik;
@@ -172,31 +191,30 @@ public:
 		std::string imie;
 		while (getline(plik, linia))
 		{
-			std::stringstream ss(linia);
-			getline(ss, idString, '|');
-			getline(ss, imie, '|');
+			idString = ZnajdzSubstring(1, linia, "|");
 			if (id == std::stoi(idString))
 			{
-				return imie;
+				return ZnajdzSubstring(2, linia, "|");
 			}
+
 		}
 		plik.close();
+		
 		plik.open("bibliotekarze.txt", std::ios::in);
 		while (getline(plik, linia))
 		{
-			std::stringstream ss(linia);
-			getline(ss, idString, '|');
-			getline(ss, imie, '|');
+			idString = ZnajdzSubstring(1, linia, "|");
 			if (id == std::stoi(idString))
 			{
-				return imie;
+				return ZnajdzSubstring(2, linia, "|");
 			}
+
 		}
 		plik.close();
-		return "Nie znaleziono imienia";
+		return "Nie znaleziono nazwiska";
 	}
 
-	//pobieranie nazwiska z pliku
+	//pobieranie nazwiska z pliku (String pomiêdzi drugim a trzecim "|")
 	std::string getNazwisko(unsigned int id)
 	{
 		std::fstream plik;
@@ -206,28 +224,29 @@ public:
 		std::string nazwisko;
 		while (getline(plik, linia))
 		{
-			std::stringstream ss(linia);
-			getline(ss, idString, '|');
-			getline(ss, nazwisko, '|');
+			idString = ZnajdzSubstring(1, linia, "|");
 			if (id == std::stoi(idString))
 			{
-				return nazwisko;
+				return ZnajdzSubstring(3, linia, "|");
 			}
+
 		}
 		plik.close();
+
 		plik.open("bibliotekarze.txt", std::ios::in);
 		while (getline(plik, linia))
 		{
-			std::stringstream ss(linia);
-			getline(ss, idString, '|');
-			getline(ss, nazwisko, '|');
+			idString = ZnajdzSubstring(1, linia, "|");
 			if (id == std::stoi(idString))
 			{
-				return nazwisko;
+				return ZnajdzSubstring(3, linia, "|");
 			}
+
 		}
 		plik.close();
-		return "Nie znaleziono nazwiska";
+		return "Nie znaleziono imienia";
+		
+
 	}
 
 	std::string getEmail(unsigned int id)
@@ -237,27 +256,27 @@ public:
 		std::string linia;
 		std::string idString;
 		std::string email;
+		std::string changedID = std::to_string(id);
 		while (getline(plik, linia))
 		{
-			std::stringstream ss(linia);
-			getline(ss, idString, '|');
-			getline(ss, email, '|');
+			idString = ZnajdzSubstring(1, linia, "|");
 			if (id == std::stoi(idString))
 			{
-				return email;
+				return ZnajdzSubstring(4, linia, "|");
 			}
+
 		}
 		plik.close();
+
 		plik.open("bibliotekarze.txt", std::ios::in);
 		while (getline(plik, linia))
 		{
-			std::stringstream ss(linia);
-			getline(ss, idString, '|');
-			getline(ss, email, '|');
+			idString = ZnajdzSubstring(1, linia, "|");
 			if (id == std::stoi(idString))
 			{
-				return email;
+				return ZnajdzSubstring(4, linia, "|");
 			}
+
 		}
 		plik.close();
 		return "Nie znaleziono emaila";
@@ -270,27 +289,27 @@ public:
 		std::string linia;
 		std::string idString;
 		std::string adres;
+		std::string changedID = std::to_string(id);
 		while (getline(plik, linia))
 		{
-			std::stringstream ss(linia);
-			getline(ss, idString, '|');
-			getline(ss, adres, '|');
+			idString = ZnajdzSubstring(1, linia, "|");
 			if (id == std::stoi(idString))
 			{
-				return adres;
+				return ZnajdzSubstring(5, linia, "|");
 			}
+
 		}
 		plik.close();
+
 		plik.open("bibliotekarze.txt", std::ios::in);
 		while (getline(plik, linia))
 		{
-			std::stringstream ss(linia);
-			getline(ss, idString, '|');
-			getline(ss, adres, '|');
+			idString = ZnajdzSubstring(1, linia, "|");
 			if (id == std::stoi(idString))
 			{
-				return adres;
+				return ZnajdzSubstring(5, linia, "|");
 			}
+
 		}
 		plik.close();
 		return "Nie znaleziono adresu";
@@ -303,27 +322,27 @@ public:
 		std::string linia;
 		std::string idString;
 		std::string telefon;
+		std::string changedID = std::to_string(id);
 		while (getline(plik, linia))
 		{
-			std::stringstream ss(linia);
-			getline(ss, idString, '|');
-			getline(ss, telefon, '|');
+			idString = ZnajdzSubstring(1, linia, "|");
 			if (id == std::stoi(idString))
 			{
-				return telefon;
+				return ZnajdzSubstring(6, linia, "|");
 			}
+
 		}
 		plik.close();
+
 		plik.open("bibliotekarze.txt", std::ios::in);
 		while (getline(plik, linia))
 		{
-			std::stringstream ss(linia);
-			getline(ss, idString, '|');
-			getline(ss, telefon, '|');
+			idString = ZnajdzSubstring(1, linia, "|");
 			if (id == std::stoi(idString))
 			{
-				return telefon;
+				return ZnajdzSubstring(6, linia, "|");
 			}
+
 		}
 		plik.close();
 		return "Nie znaleziono telefonu";
@@ -336,27 +355,27 @@ public:
 		std::string linia;
 		std::string idString;
 		std::string pesel;
+		std::string changedID = std::to_string(id);
 		while (getline(plik, linia))
 		{
-			std::stringstream ss(linia);
-			getline(ss, idString, '|');
-			getline(ss, pesel, '|');
+			idString = ZnajdzSubstring(1, linia, "|");
 			if (id == std::stoi(idString))
 			{
-				return pesel;
+				return ZnajdzSubstring(7, linia, "|");
 			}
+
 		}
 		plik.close();
+
 		plik.open("bibliotekarze.txt", std::ios::in);
 		while (getline(plik, linia))
 		{
-			std::stringstream ss(linia);
-			getline(ss, idString, '|');
-			getline(ss, pesel, '|');
+			idString = ZnajdzSubstring(1, linia, "|");
 			if (id == std::stoi(idString))
 			{
-				return pesel;
+				return ZnajdzSubstring(7, linia, "|");
 			}
+
 		}
 		plik.close();
 		return "Nie znaleziono peselu";
@@ -369,27 +388,27 @@ public:
 		std::string linia;
 		std::string idString;
 		std::string powerlevel;
+		std::string changedID = std::to_string(id);
 		while (getline(plik, linia))
 		{
-			std::stringstream ss(linia);
-			getline(ss, idString, '|');
-			getline(ss, powerlevel, '|');
+			idString = ZnajdzSubstring(1, linia, "|");
 			if (id == std::stoi(idString))
 			{
-				return std::stoi(powerlevel);
+				return std::stoi(ZnajdzSubstring(8, linia, "|"));
 			}
+
 		}
 		plik.close();
+
 		plik.open("bibliotekarze.txt", std::ios::in);
 		while (getline(plik, linia))
 		{
-			std::stringstream ss(linia);
-			getline(ss, idString, '|');
-			getline(ss, powerlevel, '|');
+			idString = ZnajdzSubstring(1, linia, "|");
 			if (id == std::stoi(idString))
 			{
-				return std::stoi(powerlevel);
+				return std::stoi(ZnajdzSubstring(8, linia, "|"));
 			}
+
 		}
 		plik.close();
 		return -1;
@@ -413,18 +432,16 @@ public:
 
 		while (getline(plik, linia))
 		{
-			std::stringstream ss(linia);
-			getline(ss, idString, '|');
-			getline(ss, imie, '|');
-			getline(ss, nazwisko, '|');
-			getline(ss, email, '|');
-			getline(ss, adres, '|');
-			getline(ss, telefon, '|');
-			getline(ss, pesel, '|');
-			getline(ss, powerlevel, '|');
+			idString = ZnajdzSubstring(1, linia, "|");
 			if (id == std::stoi(idString))
 			{
-				osoba.setID(id);
+				imie = ZnajdzSubstring(2, linia, "|");
+				nazwisko = ZnajdzSubstring(3, linia, "|");
+				email = ZnajdzSubstring(4, linia, "|");
+				adres = ZnajdzSubstring(5, linia, "|");
+				telefon = ZnajdzSubstring(6, linia, "|");
+				pesel = ZnajdzSubstring(7, linia, "|");
+				powerlevel = ZnajdzSubstring(8, linia, "|");
 				osoba.setImie(imie);
 				osoba.setNazwisko(nazwisko);
 				osoba.setEmail(email);
