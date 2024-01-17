@@ -76,6 +76,7 @@ public:
 
 		ID = ostatnieId + 1;
 	}
+	
 
 	//metoda do zapisu uzytkownika do pliku
 	void setIDToFile(std::string nazwaPliku) { 
@@ -120,6 +121,26 @@ public:
 		}
 	}
 	std::string getEmail() { return Email; }
+
+	//konstruktor
+
+	Osoba() {};
+
+Osoba(std::string imie, std::string nazwisko, std::string adres, std::string dataUrodzenia, std::string telefon, std::string pesel, std::string email, std::string haslo, int powerlevel)
+	{
+		setImie(imie);
+		setNazwisko(nazwisko);
+		setAdres(adres);
+		setDataUrodzenia(dataUrodzenia);
+		setTelefon(telefon);
+		setPESEL(pesel);
+		setEmail(email);
+		setHaslo(haslo);
+		setPowerLevel(powerlevel);
+		setID();
+	}
+
+	
 };
 	/*
 	void setPESEL( std::string nowyPESEL) {

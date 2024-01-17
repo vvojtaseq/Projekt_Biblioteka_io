@@ -74,29 +74,37 @@ public:
 	//tworzenie tablicy ze wszyskimi pozycjami danego uzytkownika
 	KartaBiblioteczna* getKartaBibliotecznaTab(int IDuzytkownika)
 	{
-		std::fstream plik;
+	std::fstream plik;
 		plik.open("kartabiblioteczna.txt", std::ios::in);
 		std::string linia;
 		std::string idString;
 		std::string idKsiazkiString;
 		std::string dataWypozyczenia;
 		std::string dataZwrotu;
-		KartaBiblioteczna* kartaBiblioteczna = new KartaBiblioteczna[100];
 		int i = 0;
+		KartaBiblioteczna* kartaBiblioteczna = new KartaBiblioteczna;
+		//kartaBiblioteczna = NULL;
 		while (getline(plik, linia))
 		{
-			IDuzytkownika = std::stoi(ZnajdzSubstring(1, linia, "|"));
+			idString = ZnajdzSubstring(1, linia, "|");
+			std::cout << idString << std::endl;
 			if (IDuzytkownika == std::stoi(idString))
 			{
+				i++;
+				std::cout << "Dodano: "<< i << std::endl;
+				idKsiazkiString = ZnajdzSubstring(2, linia, "|");
+				dataWypozyczenia = ZnajdzSubstring(3, linia, "|");
+				dataZwrotu = ZnajdzSubstring(4, linia, "|");
 				kartaBiblioteczna[i].setIDuzytkownika(std::stoi(idString));
 				kartaBiblioteczna[i].setIDksiazki(std::stoi(idKsiazkiString));
 				kartaBiblioteczna[i].setDataWypozyczenia(dataWypozyczenia);
 				kartaBiblioteczna[i].setDataZwrotu(dataZwrotu);
-				i++;
+				
 			}
 		}
 		plik.close();
 		return kartaBiblioteczna;
+
 	}
 
 	//iloœæ pozycji w tablicy Karta Biblioteczna
@@ -105,6 +113,7 @@ public:
 		int i = 0;
 		while (kartaBiblioteczna[i].getIDuzytkownika() != 0)
 		{
+			std::cout << "Zliczanie: " << i << std::endl;
 			i++;
 		}
 		return i;
@@ -123,9 +132,7 @@ public:
 			{
 				plik << kartaBiblioteczna->getIDuzytkownika() << "|" << kartaBiblioteczna->getIDksiazki() << "|" << kartaBiblioteczna->getDataWypozyczenia() << "|" << kartaBiblioteczna->getDataZwrotu() << std::endl;
 			}
-		
 		}
-
 		plik.close();
 	}
 
@@ -133,10 +140,10 @@ public:
 	//zapisywanie karty bibliotecznej do pliku
 	void addKartaBiblioteczna(KartaBiblioteczna kartaBiblioteczna)
 	{
-					std::fstream plik;
-			plik.open("kartabiblioteczna.txt", std::ios::out | std::ios::app);
-			plik << kartaBiblioteczna.getIDuzytkownika() << "|" << kartaBiblioteczna.getIDksiazki() << "|" << kartaBiblioteczna.getDataWypozyczenia() << "|" << kartaBiblioteczna.getDataZwrotu() << std::endl;
-			plik.close();
+		std::fstream plik;
+		plik.open("kartabiblioteczna.txt", std::ios::out | std::ios::app);
+		plik << kartaBiblioteczna.getIDuzytkownika() << "|" << kartaBiblioteczna.getIDksiazki() << "|" << kartaBiblioteczna.getDataWypozyczenia() << "|" << kartaBiblioteczna.getDataZwrotu() << std::endl;
+		plik.close();
 	}
 
 	void setKartaBiblioteczna(int IDuzytkownika, int IDksiazki, std::string dataWypozyczenia, std::string dataZwrotu)
@@ -159,16 +166,13 @@ public:
 		std::string dataZwrotu;
 		while (getline(plik, linia))
 		{
-			IDuzytkownika = std::stoi(ZnajdzSubstring(1, linia, "|"));
-			IDksiazki = std::stoi(ZnajdzSubstring(2, linia, "|"));
+idString = ZnajdzSubstring(1, linia, "|");
+			idKsiazkiString = ZnajdzSubstring(2, linia, "|");
 			if (IDuzytkownika == std::stoi(idString) && IDksiazki == std::stoi(idKsiazkiString))
 			{
-				KartaBiblioteczna kartaBiblioteczna;
-				kartaBiblioteczna.setIDuzytkownika(std::stoi(idString));
-				kartaBiblioteczna.setIDksiazki(std::stoi(idKsiazkiString));
-				kartaBiblioteczna.setDataWypozyczenia(dataWypozyczenia);
-				kartaBiblioteczna.setDataZwrotu(dataZwrotu);
-				return kartaBiblioteczna;
+				dataWypozyczenia = ZnajdzSubstring(3, linia, "|");
+				dataZwrotu = ZnajdzSubstring(4, linia, "|");
+				break;
 			}
 		}
 		plik.close();
@@ -178,6 +182,7 @@ public:
 	}
 
 	
-	KartaBiblioteczna ();
+
+
 };
 
