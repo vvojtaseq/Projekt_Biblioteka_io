@@ -1,2 +1,2 @@
-1|Adam|Kowalski|adam@gmail.com|Chłopska 4|999888777|12345678901|0
-
+1|Alicja|Nawracaj|Anawracaj@onet.pl|Górnicza 23, 87-890 Poleszajewo|345192753|75836582282|0
+2|Marek|Towarek|Mtowarek@gmail.com|Holnica 1, 45-543 Korczewo|108000506|34000002322|0
