@@ -24,7 +24,23 @@ public:
 	int getIloscEgzemplarzy() { return IloscEgzemplarzy; }
 	void setIloscEgzemplarzy(int nowaIloscEgzemplarzy) { IloscEgzemplarzy = nowaIloscEgzemplarzy; }
 
-	void setID (int noweID) { ID = noweID; }
+	void setID (int noweID) { 
+		std::ifstream plik("ksiazki.txt");
+		std::string linia;
+		int ostatnieId = 0;
+
+		while (getline(plik, linia))
+		{
+			std::stringstream ss(linia);
+			std::string id;
+			getline(ss, id, '|');
+			ostatnieId = std::stoi(id);
+		}
+
+		plik.close();
+
+		ID = ostatnieId + 1;
+	}
 	int getID() { return ID; }
 
 	std::string getAutorImie() { return AutorImie; }

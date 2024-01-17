@@ -12,7 +12,7 @@ public:
 //	void addBibliotekarz(Bibliotekarz bibliotekarz);
 //
 //	**Metody do dodawania i pobierania danych z pliku ,,hasla.txt"**
-//	void changeHaslo(std::string noweHaslo, unsigned int ID);
+//	void editHaslo(std::string noweHaslo, unsigned int ID);
 //	void setHaslo(unsigned int id, std::string haslo, std::string Email);
 //	std::string getHaslo(unsigned int id);
 //	bool Autoryzacja(std::string email, std::string haslo);
@@ -116,7 +116,7 @@ public:
 	}
 
 	//zmiana hasla w pliku
-	void changeHaslo(std::string noweHaslo, unsigned int ID)
+	void editHaslo(std::string noweHaslo, unsigned int ID)
 	{
 		std::fstream plik;
 		plik.open("hasla.txt", std::ios::in);

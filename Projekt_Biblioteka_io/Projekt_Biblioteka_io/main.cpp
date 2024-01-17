@@ -5,9 +5,9 @@
 
 int main()
 {
-	
 
 	std::locale::global(std::locale("pl_PL.utf8"));
+
 	std::wcout.imbue(std::locale());  // robi nam polskie litery w coutach
 	SetConsoleOutputCP(CP_UTF8);
 	SetConsoleCP(CP_UTF8);
@@ -17,10 +17,10 @@ int main()
 
 
 
-
+/*
 //	***TESTY***
 //	Do sprawdzaenia czy dziala klasa KatalogUzytkownikow
-/*	KatalogUzytkownikow katalogUzytkownikow;
+	KatalogUzytkownikow katalogUzytkownikow;
 	std::cout << katalogUzytkownikow.getImie(2) << "|";
 	std::cout << katalogUzytkownikow.getNazwisko(2) << "|";
 	std::cout << katalogUzytkownikow.getEmail(2) << "|";
@@ -57,18 +57,13 @@ Autor autor("Kamil", "Pris", "Blabla");
 Zbior zbior;
 zbior.addKsiazka(ksiazka, autor);
 
-
 KartaBiblioteczna kartaBiblioteczna;
-kartaBiblioteczna.setIDuzytkownika(czytelnik.getID());
-kartaBiblioteczna.setIDksiazki(ksiazka.getID());
-kartaBiblioteczna.setDataWypozyczenia("01.01.2000");
-kartaBiblioteczna.setDataZwrotu("15.01.2000");
+kartaBiblioteczna.addKartaBiblioteczna(katalogUzytkownikow.getImie(9), katalogUzytkownikow.getNazwisko(9), 9, zbior.getTytul(1), 1, "1.02.2024", "15.02.2024");
+kartaBiblioteczna.saveKartaBiblioteczna();
 
-//kartaBiblioteczna.addKartaBiblioteczna(kartaBiblioteczna);
+katalogUzytkownikow.setHaslo(1, "1234", "jan@onet.pl");
+std::cout << katalogUzytkownikow.Autoryzacja("jan@onet.pl", "1234");
 
-KartaBiblioteczna* kartaBibliotecznaTab = new KartaBiblioteczna;
-KartaBiblioteczna* check = kartaBibliotecznaTab->getKartaBibliotecznaTab(5);
-std::cout << check->getIloscPozycji(check) << std::endl;
 */
 
 }
