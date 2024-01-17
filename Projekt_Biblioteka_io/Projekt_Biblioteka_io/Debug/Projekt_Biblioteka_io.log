@@ -1,8 +1,33 @@
-﻿  main.cpp
+﻿  Autor.cpp
+  Bibliotekarz.cpp
+  Czytelnik.cpp
+  Dlug.cpp
+  Egzemplarz.cpp
+  KartaBiblioteczna.cpp
+  KatalogUzytkownikow.cpp
+  Ksiazka.cpp
+  Osoba.cpp
+  UI.cpp
+D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Zbior.h(315,35): warning C4018: ">=": niezgodność typu ze znakiem/bez znaku
+  (kompilowanie pliku źródłowego „UI.cpp”)
+  
+D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Zbior.h(315,71): warning C4018: "<=": niezgodność typu ze znakiem/bez znaku
+  (kompilowanie pliku źródłowego „UI.cpp”)
+  
+  Wypozyczenia.cpp
+  Zbior.cpp
+D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Zbior.h(315,35): warning C4018: ">=": niezgodność typu ze znakiem/bez znaku
+  (kompilowanie pliku źródłowego „Zbior.cpp”)
+  
+D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Zbior.h(315,71): warning C4018: "<=": niezgodność typu ze znakiem/bez znaku
+  (kompilowanie pliku źródłowego „Zbior.cpp”)
+  
+  main.cpp
 D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Zbior.h(315,35): warning C4018: ">=": niezgodność typu ze znakiem/bez znaku
   (kompilowanie pliku źródłowego „main.cpp”)
   
 D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Zbior.h(315,71): warning C4018: "<=": niezgodność typu ze znakiem/bez znaku
   (kompilowanie pliku źródłowego „main.cpp”)
   
+  Generowanie kodu...
   Projekt_Biblioteka_io.vcxproj -> D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Debug\Projekt_Biblioteka_io.exe
