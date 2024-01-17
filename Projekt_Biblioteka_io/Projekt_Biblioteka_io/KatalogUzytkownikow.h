@@ -55,7 +55,7 @@ public:
 	{
 		std::fstream plik;
 		plik.open("czytelnicy.txt", std::ios::out | std::ios::app);
-		plik << czytelnik.getID() << "|" << czytelnik.getImie() << "|" << czytelnik.getNazwisko() << "|" << czytelnik.getEmail() << "|" << czytelnik.getAdres() << "|" << czytelnik.getTelefon() << "|" << czytelnik.getPESEL() << "|" << czytelnik.getPowerLevel() << std::endl;
+		plik << czytelnik.getID() << "|" << czytelnik.getImie() << "|" << czytelnik.getNazwisko() << "|" << czytelnik.getEmail() << "|" << czytelnik.getAdres() << "|"  << czytelnik.getDataUrodzenia() << "|" << czytelnik.getTelefon() << "|" << czytelnik.getPESEL() << "|" << czytelnik.getPowerLevel() << std::endl;
 		plik.close();
 	}
 	//dodawanie uzytkownika do pliku
@@ -63,11 +63,11 @@ public:
 	{
 		std::fstream plik;
 		plik.open("bibliotekarze.txt", std::ios::out | std::ios::app);
-		plik << bibliotekarz.getID() << "|" << bibliotekarz.getImie() << "|" << bibliotekarz.getNazwisko() << "|" << bibliotekarz.getEmail() << "|" << bibliotekarz.getAdres() << "|" << bibliotekarz.getTelefon() << "|" << bibliotekarz.getPESEL() << "|" << bibliotekarz.getPowerLevel() << std::endl;
+		plik << bibliotekarz.getID() << "|" << bibliotekarz.getImie() << "|" << bibliotekarz.getNazwisko() << "|" << bibliotekarz.getEmail() << "|" << bibliotekarz.getAdres() << "|" << bibliotekarz.getDataUrodzenia() <<"|" << bibliotekarz.getTelefon() << "|" << bibliotekarz.getPESEL() << "|" << bibliotekarz.getPowerLevel() << std::endl;
 		plik.close();
 	}
 
-	//dodawanie id, hasla i ID do pliku
+	//dodawanie id, hasla i ID do wolnej linijki pliku ,,hasla.txt"
 	void setHaslo(unsigned int id, std::string haslo, std::string email)
 	{
 		std::fstream plik;
@@ -336,13 +336,13 @@ public:
 		return "Nie znaleziono adresu";
 	}
 
-	std::string getTelefon(unsigned int id)
+	std::string getDataUrodzenia(unsigned int id)
 	{
 		std::fstream plik;
 		plik.open("czytelnicy.txt", std::ios::in);
 		std::string linia;
 		std::string idString;
-		std::string telefon;
+		std::string dataUrodzenia;
 		std::string changedID = std::to_string(id);
 		while (getline(plik, linia))
 		{
@@ -362,6 +362,40 @@ public:
 			if (id == std::stoi(idString))
 			{
 				return ZnajdzSubstring(6, linia, "|");
+			}
+
+		}
+		plik.close();
+		return "Nie znaleziono daty urodzenia";
+	
+	}
+
+	std::string getTelefon(unsigned int id)
+	{
+		std::fstream plik;
+		plik.open("czytelnicy.txt", std::ios::in);
+		std::string linia;
+		std::string idString;
+		std::string telefon;
+		std::string changedID = std::to_string(id);
+		while (getline(plik, linia))
+		{
+			idString = ZnajdzSubstring(1, linia, "|");
+			if (id == std::stoi(idString))
+			{
+				return ZnajdzSubstring(7, linia, "|");
+			}
+
+		}
+		plik.close();
+
+		plik.open("bibliotekarze.txt", std::ios::in);
+		while (getline(plik, linia))
+		{
+			idString = ZnajdzSubstring(1, linia, "|");
+			if (id == std::stoi(idString))
+			{
+				return ZnajdzSubstring(7, linia, "|");
 			}
 
 		}
@@ -382,7 +416,7 @@ public:
 			idString = ZnajdzSubstring(1, linia, "|");
 			if (id == std::stoi(idString))
 			{
-				return ZnajdzSubstring(7, linia, "|");
+				return ZnajdzSubstring(8, linia, "|");
 			}
 
 		}
@@ -394,7 +428,7 @@ public:
 			idString = ZnajdzSubstring(1, linia, "|");
 			if (id == std::stoi(idString))
 			{
-				return ZnajdzSubstring(7, linia, "|");
+				return ZnajdzSubstring(8, linia, "|");
 			}
 
 		}
@@ -415,7 +449,7 @@ public:
 			idString = ZnajdzSubstring(1, linia, "|");
 			if (id == std::stoi(idString))
 			{
-				return std::stoi(ZnajdzSubstring(8, linia, "|"));
+				return std::stoi(ZnajdzSubstring(9, linia, "|"));
 			}
 
 		}
@@ -427,7 +461,7 @@ public:
 			idString = ZnajdzSubstring(1, linia, "|");
 			if (id == std::stoi(idString))
 			{
-				return std::stoi(ZnajdzSubstring(8, linia, "|"));
+				return std::stoi(ZnajdzSubstring(9, linia, "|"));
 			}
 
 		}
@@ -447,6 +481,7 @@ public:
 		std::string nazwisko;
 		std::string email;
 		std::string adres;
+		std::string dataUrodzenia;
 		std::string telefon;
 		std::string pesel;
 		std::string powerlevel;
@@ -460,9 +495,10 @@ public:
 				nazwisko = ZnajdzSubstring(3, linia, "|");
 				email = ZnajdzSubstring(4, linia, "|");
 				adres = ZnajdzSubstring(5, linia, "|");
-				telefon = ZnajdzSubstring(6, linia, "|");
-				pesel = ZnajdzSubstring(7, linia, "|");
-				powerlevel = ZnajdzSubstring(8, linia, "|");
+				dataUrodzenia = ZnajdzSubstring(6, linia, "|");
+				telefon = ZnajdzSubstring(7, linia, "|");
+				pesel = ZnajdzSubstring(8, linia, "|");
+				powerlevel = ZnajdzSubstring(9, linia, "|");
 				osoba.setImie(imie);
 				osoba.setNazwisko(nazwisko);
 				osoba.setEmail(email);
