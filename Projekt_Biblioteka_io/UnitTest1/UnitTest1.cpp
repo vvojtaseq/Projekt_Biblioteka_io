@@ -18,6 +18,8 @@ namespace UnitTest1
 	Czytelnik testCzytelnik;
 	Dlug testDlug;
 	Egzemplarz testEgzemplarz;
+	KartaBiblioteczna testKartaBiblioteczna;
+
 	//Wypozyczenie testWypozyczenie;
 
 
@@ -146,6 +148,36 @@ namespace UnitTest1
 				testEgzemplarz.setIdentyfikator(1);
 				int id = 1;
 				Assert::AreEqual(testEgzemplarz.getIdentyfikator(), id);
+			}
+	};
+	TEST_CLASS(KartaBiblioteczna)
+	{
+		
+		public:
+			
+			TEST_METHOD(getIDuzytkownika)
+			{
+				testKartaBiblioteczna.setIDuzytkownika(1);
+				int id = 1;
+				Assert::AreEqual(testKartaBiblioteczna.getIDuzytkownika(), id);
+			}
+			TEST_METHOD(getIDksiazki)
+			{
+				testKartaBiblioteczna.setIDksiazki(1);
+				int id = 1;
+				Assert::AreEqual(testKartaBiblioteczna.getIDksiazki(), id);
+			}
+			TEST_METHOD(getDataWypozyczenia)
+			{
+				testKartaBiblioteczna.setDataWypozyczenia("11.12.1994");
+				std::string data = "11.12.1994";
+				Assert::AreEqual(testKartaBiblioteczna.getDataWypozyczenia(), data);
+			}
+			TEST_METHOD(getDataZwrotu)
+			{
+				testKartaBiblioteczna.setDataZwrotu("11.12.1994");
+				std::string data = "11.12.1994";
+				Assert::AreEqual(testKartaBiblioteczna.getDataZwrotu(), data);
 			}
 	};
 	
