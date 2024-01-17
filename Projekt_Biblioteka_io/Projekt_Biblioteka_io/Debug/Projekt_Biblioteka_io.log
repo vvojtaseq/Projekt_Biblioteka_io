@@ -1,10 +1,3 @@
-<<<<<<< HEAD
 ﻿  UI.cpp
-C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(109,21): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
-  (kompilowanie pliku źródłowego „UI.cpp”)
-  
+C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(513): warning C4715: "KatalogUzytkownikow::getWszystkieDane”: niewszystkie ścieżki kodu zwracają wartość
   Projekt_Biblioteka_io.vcxproj -> C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Debug\Projekt_Biblioteka_io.exe
-=======
-﻿  main.cpp
-  Projekt_Biblioteka_io.vcxproj -> D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Debug\Projekt_Biblioteka_io.exe
->>>>>>> 8e1534dad4ffaa2a355793b5e7f3addff5526f96

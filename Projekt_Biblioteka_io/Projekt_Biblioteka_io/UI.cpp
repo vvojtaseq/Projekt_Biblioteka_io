@@ -1,6 +1,8 @@
 #include "Includy.h"
 #include "IncludyKlasy.h"
+
 #define HASLOPRACOWNIKOW = 88987
+int ID = 0;
 
 void userInterface()
 {
@@ -34,7 +36,7 @@ void userInterfaceUzytkownik()
 	system("CLS");
 	std::cout << "**<< Biblioteka >>**" << std::endl << std::endl << std::endl;
 	std::cout << "Opcje :" << std::endl;
-	std::cout << "[1] - Zaloguj się" << std::setw(25) << "[2] - Zarejestruj się" << std::setw(20) << "[3] - Powrót" << std::endl;
+	std::cout << "[1] - Zaloguj się" << std::setw(28) << "[2] - Zarejestruj się" << std::setw(19) << "[3] - Powrót" << std::endl;
 	int decide;
 	std::cin >> decide;
 	std::cin.ignore();
@@ -55,32 +57,7 @@ void userInterfaceUzytkownik()
 		userInterfaceUzytkownik();
 	}
 }
-void userInterfacePracownik()
-{
-	system("CLS");
-	std::cout << "**<< Biblioteka >>**" << std::endl << std::endl << std::endl;
-	std::cout << "Opcje :\n";
-	std::cout << "[1] - Zaloguj się"<< std::setw(43) << "[2] - Zarejestruj się (potrzebny kod)" << std::endl;
-	int decide;
-	std::cin >> decide;
-	std::cin.ignore();
-	switch (decide)
-	{
-	case 1:
-		
-		break;
-	case 2:
-		
-		break;
-	case 3:
-		userInterface();
-		break;
-	default:
-		std::cout << "Opcja o id: " << decide << " nie istnieje! Podaj właściwą opcję!" << std::endl;
-		system("pause");
-		userInterfacePracownik();
-	}
-}
+
 bool sprawdzPoprawnoscNazwy(const std::string& imie) {
 	// Sprawdzenie, czy imię zawiera tylko litery i spacje
 	for (char znak : imie) {
@@ -227,7 +204,7 @@ void userInterfaceZarejestrujSie()
 	while (true)
 	{
 		system("CLS");
-		std::cout << "**<< Biblioteka dla Studentów >>**" << std::endl << std::endl << std::endl;
+		std::cout << "**<< Biblioteka >>**" << std::endl << std::endl << std::endl;
 		if (imie.empty())
 		{
 			std::cout << "Podaj Imię: ";
@@ -477,7 +454,7 @@ void userInterfaceZarejestrujSie()
 		}
 		
 	}
-	userInterface();
+	userInterfaceUzytkownik();
 }
 
 void userInterfaceZalogujSie()
@@ -504,6 +481,7 @@ void userInterfaceZalogujSie()
 			KatalogUzytkownikow katalog;
 			if (katalog.Autoryzacja(email, haslo))
 			{
+				ID = katalog.getID(email);
 				std::cout << "Logowanie..." << std::endl;
 				system("pause");
 				userInterfaceUzytkownikZalogowany();
@@ -562,7 +540,6 @@ void ZmianaHasla()
 	std::string dataUrodzenia;
 	std::string haslo;
 	std::string powtórz_haslo;
-	int ID;
 	while (true)
 	{
 		system("CLS");
@@ -573,7 +550,7 @@ void ZmianaHasla()
 			std::cout << "Podaj e-mail: ";
 			std::getline(std::cin, adres_email);
 			ID = katalog.getID(adres_email);
-			if (ID < 0)
+			if (ID <= 0)
 			{
 				std::cout << "Podanego adresu e-mail nie ma w bazie!\nCzy chcesz się zarejstrować?\n[1] - Tak" << std::setw(20) << "[2] - Nie" << std::endl;
 				while (true)
@@ -591,7 +568,6 @@ void ZmianaHasla()
 					default:
 						std::cout << "Opcja o id: " << decide << " nie istnieje! Spróbuj ponownie!" << std::endl;
 						system("pause");
-						userInterface();
 					}
 				}
 			}
@@ -609,7 +585,17 @@ void ZmianaHasla()
 			}
 			else
 			{
-				zweryfikowany = true;
+				std::string dataUrodzeniaPlik = katalog.getDataUrodzenia(ID);
+				if (dataUrodzenia == dataUrodzeniaPlik)
+				{
+					zweryfikowany = true;
+				}
+				else
+				{
+					std::cout << "Nie zgadza się!" << std::endl;
+					system("pause");
+				}
+				
 			}
 		}
 		else
@@ -628,7 +614,8 @@ void ZmianaHasla()
 				std::getline(std::cin, powtórz_haslo);
 				if (haslo == powtórz_haslo)
 				{
-					katalog.changeHaslo(haslo, );
+					katalog.editHaslo(haslo, ID);
+					break;
 				}
 				else
 				{
@@ -639,8 +626,23 @@ void ZmianaHasla()
 			}
 		}
 	}
-	
-
+	userInterfaceZalogujSie();
+}
+void wyswietlDaneUżytkownika()
+{
+	KatalogUzytkownikow katalog;
+	Osoba użytkownik = katalog.getWszystkieDane(ID, "czytelnicy.txt");
+	system("CLS");
+	std::cout << "**<< Biblioteka >>**" << std::endl << std::endl << std::endl;
+	std::cout << "Imie: " << użytkownik.getImie() << std::endl;
+	std::cout << "Nazwisko: " << użytkownik.getNazwisko() << std::endl;
+	std::cout << "Status: Użytkownik" << std::endl;
+	std::cout << "E-mail: " << użytkownik.getEmail() << std::endl;
+	std::cout << "Adres: " << użytkownik.getAdres() << std::endl;
+	std::cout << "Tel.: " << użytkownik.getTelefon() << std::endl;
+	std::cout << "PESEL: " << użytkownik.getPESEL() << std::endl;
+	system("pause");
+	userInterfaceUzytkownikZalogowany();
 }
 
 void userInterfaceUzytkownikZalogowany()
@@ -648,9 +650,9 @@ void userInterfaceUzytkownikZalogowany()
 	system("CLS");
 	std::cout << "**<< Biblioteka >>**" << std::endl << std::endl << std::endl;
 	std::cout << "Opcje :\n";
-	std::cout << "[1] - Wyszukaj książkę" << std::setw(20) << "[2] - Wypożycz książkę " << std::endl;
-	std::cout << "[3] - Zwróć książkę" << std::setw(20) << "[4] - Zobacz swoje książki " << std::endl;
-	std::cout << "[5] - Zobacz swoje dane" << std::setw(20) << "[6] - Wyloguj się " << std::endl;
+	std::cout << "[1] - Wyświetl zbiór" << std::setw(33) << "[2] - Wyszukaj książkę " << std::endl;
+	std::cout << "[3] - Zwróć książkę" << std::setw(38) << "[4] - Zobacz swoje książki " << std::endl;
+	std::cout << "[5] - Zobacz swoje dane" << std::setw(24) << "[6] - Wyloguj się " << std::endl;
 	int decide;
 	std::cin >> decide;
 	switch (decide)
@@ -667,9 +669,9 @@ void userInterfaceUzytkownikZalogowany()
 	case 4:
 		
 		break;
-	case 5:
-		
-		break;
+	case 5: 
+		wyswietlDaneUżytkownika();
+	break;
 	case 6:
 		std::cout << "Wylogowywanie..." << std::endl;
 		system("pause");
@@ -682,4 +684,304 @@ void userInterfaceUzytkownikZalogowany()
 	}
 }
 
-//
+void userInterfacePracownik()
+{
+	system("CLS");
+	std::cout << "**<< Biblioteka >>**" << std::endl << std::endl << std::endl;
+	std::cout << "Opcje :\n";
+	std::cout << "[1] - Zaloguj się" << std::setw(43) << "[2] - Zarejestruj się (potrzebny kod)" << std::setw(19) << "[3] - Powrót"<< std::endl;
+	int decide;
+	std::cin >> decide;
+	std::cin.ignore();
+	switch (decide)
+	{
+	case 1:
+
+		break;
+	case 2:
+
+		break;
+	case 3:
+		userInterface();
+		break;
+	default:
+		std::cout << "Opcja o id: " << decide << " nie istnieje! Podaj właściwą opcję!" << std::endl;
+		system("pause");
+		userInterfacePracownik();
+	}
+}
+
+void userInterfacePracownikZarejestrujSię()
+{
+	Bibliotekarz bibliotekarz;
+	bool wlasciweDane;
+	int decyzja;
+	std::string imie;
+	std::string nazwisko;
+	std::string adres;
+	std::string ulica;
+	std::string numer_domu;
+	std::string kod_pocztowy;
+	std::string miasto;
+	std::string dataUrodzenia;
+	std::string telefon;
+	std::string pesel;
+	std::string adres_email;
+	std::string haslo;
+	std::string powtórz_haslo;
+	while (true)
+	{
+		system("CLS");
+		std::cout << "**<< Biblioteka >>**" << std::endl << std::endl << std::endl;
+		if (imie.empty())
+		{
+			std::cout << "Podaj Imię: ";
+			std::getline(std::cin, imie);
+			if (sprawdzPoprawnoscNazwy(imie) == false)
+			{
+				std::cout << "Imię które podałeś jest niepoprawne! Nie możesz używać spacji!" << std::endl;
+				system("pause");
+				imie = "";
+			}
+			else
+			{
+				std::cout << "Czy " << imie << " to na pewno twoje imie?\n[1] - Tak" << std::setw(20) << "[2] - Nie" << std::endl;
+				wlasciweDane = false;
+				while (!wlasciweDane)
+				{
+					std::cin >> decyzja;
+					std::cin.ignore();
+					switch (decyzja)
+					{
+					case 1: bibliotekarz.setImie(imie); wlasciweDane = true; break;
+					case 2: imie = "";  wlasciweDane = true; break;
+					default: std::cout << "Opcja o id: " << decyzja << " nie istnieje! Podaj właściwą opcję!" << std::endl;
+					}
+				}
+
+
+			}
+		}
+		else if (nazwisko.empty())
+		{
+			std::cout << "Podaj Nazwisko: ";
+			std::getline(std::cin, nazwisko);
+			if (sprawdzPoprawnoscNazwy(imie) == false)
+			{
+				std::cout << "Nazwisko które podałeś jest niepoprawne! Nie możesz używać spacji!" << std::endl;
+				system("pause");
+				nazwisko = "";
+			}
+			else
+			{
+				std::cout << "Czy " << nazwisko << " to na pewno twoje nazwisko?\n[1] - Tak" << std::setw(20) << "[2] - Nie" << std::endl;
+				wlasciweDane = false;
+				while (!wlasciweDane)
+				{
+					std::cin >> decyzja;
+					std::cin.ignore();
+					switch (decyzja)
+					{
+					case 1: bibliotekarz.setNazwisko(nazwisko); wlasciweDane = true; break;
+					case 2: nazwisko = "";  wlasciweDane = true; break;
+					default: std::cout << "Opcja o id: " << decyzja << " nie istnieje! Podaj właściwą opcję!" << std::endl;
+					}
+				}
+			}
+		}
+		else if (adres.empty())
+		{
+			std::cout << "[Wprowadzanie Adresu]" << std::endl;
+			std::cout << "Podaj ulicę: ";
+			std::getline(std::cin, ulica);
+			std::cout << "Podaj numer domu: ";
+			std::getline(std::cin, numer_domu);
+			std::cout << "Podaj kod pocztowy: ";
+			std::getline(std::cin, kod_pocztowy);
+			std::cout << "Podaj miasto: ";
+			std::getline(std::cin, miasto);
+			adres = ulica + " " + numer_domu + ", " + kod_pocztowy + " " + miasto;
+			if (sprawdzPoprawnoscAdresu(ulica, numer_domu, kod_pocztowy, miasto) == false)
+			{
+				std::cout << "Adres który podałeś jest niepoprawny!" << std::endl;
+				system("pause");
+				adres = "";
+			}
+			else
+			{
+				std::cout << "Czy " << adres << " to na pewno twój adres?\n[1] - Tak" << std::setw(20) << "[2] - Nie" << std::endl;
+				wlasciweDane = false;
+				while (!wlasciweDane)
+				{
+					std::cin >> decyzja;
+					std::cin.ignore();
+					switch (decyzja)
+					{
+					case 1: bibliotekarz.setAdres(adres);; wlasciweDane = true; break;
+					case 2: adres = "";  wlasciweDane = true; break;
+					default: std::cout << "Opcja o id: " << decyzja << " nie istnieje! Podaj właściwą opcję!" << std::endl;
+					}
+				}
+			}
+		}
+		else if (dataUrodzenia.empty())
+		{
+			std::cout << "Podaj datę urodzenia: ";
+			std::getline(std::cin, dataUrodzenia);
+			if (sprawdzPoprawnoscDatyUrodzenia(dataUrodzenia) == false)
+			{
+				std::cout << "Data urodzenia, którą podałeś jest niepoprawne! Nie możesz używać spacji!" << std::endl;
+				system("pause");
+				dataUrodzenia = "";
+			}
+			else
+			{
+				std::cout << "Czy " << dataUrodzenia << " to na pewno twoja data urodzin?\n[1] - Tak" << std::setw(20) << "[2] - Nie" << std::endl;
+				wlasciweDane = false;
+				while (!wlasciweDane)
+				{
+					std::cin >> decyzja;
+					std::cin.ignore();
+					switch (decyzja)
+					{
+					case 1: bibliotekarz.setDataUrodzenia(dataUrodzenia); wlasciweDane = true; break;
+					case 2: dataUrodzenia = "";  wlasciweDane = true; break;
+					default: std::cout << "Opcja o id: " << decyzja << " nie istnieje! Podaj właściwą opcję!" << std::endl;
+					}
+				}
+			}
+		}
+		else if (telefon.empty())
+		{
+			std::cout << "Podaj numer telefonu: ";
+			std::getline(std::cin, telefon);
+			if (sprawdzPoprawnoscNumeruTelefonu(telefon) == false)
+			{
+				std::cout << "Data urodzenia, którą podałeś jest niepoprawne! Nie możesz używać spacji!" << std::endl;
+				system("pause");
+				telefon = "";
+			}
+			else
+			{
+				std::cout << "Czy " << telefon << " to na pewno twój numer telefonu?\n[1] - Tak" << std::setw(20) << "[2] - Nie" << std::endl;
+				wlasciweDane = false;
+				while (!wlasciweDane)
+				{
+					std::cin >> decyzja;
+					std::cin.ignore();
+					switch (decyzja)
+					{
+					case 1: bibliotekarz.setTelefon(telefon); wlasciweDane = true; break;
+					case 2: telefon = "";  wlasciweDane = true; break;
+					default: std::cout << "Opcja o id: " << decyzja << " nie istnieje! Podaj właściwą opcję!" << std::endl;
+					}
+				}
+			}
+		}
+		else if (pesel.empty())
+		{
+			std::cout << "Podaj numer PESEL: ";
+			std::getline(std::cin, pesel);
+			if (pesel.length() != PESELLENGTH) {
+				std::cout << "Niepoprawna dlugosc numeru PESEL. Wprowadz 11 znakow." << std::endl;
+				system("pause");
+				pesel = "";
+			}
+			else if (!std::all_of(pesel.begin(), pesel.end(), ::isdigit)) {
+				std::cout << "Numer PESEL powinien zawierac tylko cyfry." << std::endl;
+				system("pause");
+				pesel = "";
+			}
+			else {
+				long long pesel_lenght = std::stoll(pesel);
+				if (pesel_lenght > MAXPESEL || pesel_lenght < MINPESEL) {
+					std::cout << "Niepoprawny nr PESEL. Numer PESEL powinien zawierac 11 cyfr." << std::endl;
+					system("pause");
+					pesel = "";
+				}
+				else {
+					std::cout << "Czy " << pesel << " to na pewno twój numer PESEL?\n[1] - Tak" << std::setw(20) << "[2] - Nie" << std::endl;
+					wlasciweDane = false;
+					while (!wlasciweDane)
+					{
+						std::cin >> decyzja; \
+							std::cin.ignore();
+						switch (decyzja)
+						{
+						case 1: bibliotekarz.setPESEL(pesel); wlasciweDane = true; break;
+						case 2: pesel = "";  wlasciweDane = true; break;
+						default: std::cout << "Opcja o id: " << decyzja << " nie istnieje! Podaj właściwą opcję!" << std::endl;
+						}
+					}
+				}
+			}
+		}
+		else if (adres_email.empty())
+		{
+			std::cout << "Podaj e-mail: ";
+			std::getline(std::cin, adres_email);
+			if (sprawdzPoprawnoscEmaila(adres_email) == false)
+			{
+				std::cout << "email który podałeś jest niepoprawny!" << std::endl;
+				system("pause");
+				imie = "";
+			}
+			else
+			{
+				std::cout << "Czy " << adres_email << " to na pewno twój email?\n[1] - Tak" << std::setw(20) << "[2] - Nie" << std::endl;
+				wlasciweDane = false;
+				while (!wlasciweDane)
+				{
+					std::cin >> decyzja;
+					std::cin.ignore();
+					switch (decyzja)
+					{
+					case 1: bibliotekarz.setEmail(adres_email); wlasciweDane = true; break;
+					case 2: adres_email = "";  wlasciweDane = true; break;
+					default: std::cout << "Opcja o id: " << decyzja << " nie istnieje! Podaj właściwą opcję!" << std::endl;
+					}
+				}
+
+
+			}
+		}
+		else if (haslo.empty())
+		{
+			std::cout << "Utwórz hasło: ";
+			std::getline(std::cin, haslo);
+			if (sprawdzPoprawnoscHasla(haslo) == false)
+			{
+				std::cout << "Haslo, którą podałeś jest niepoprawne! Użyj minimum 8 znaków, co najmniej jednej małej litery i dużej litery oraz liczby!" << std::endl;
+				system("pause");
+				haslo = "";
+			}
+			else
+			{
+				std::cout << "Powtórz hasło: ";
+				std::getline(std::cin, powtórz_haslo);
+				if (haslo == powtórz_haslo)
+				{
+					bibliotekarz.setHaslo(haslo);
+				}
+				else
+				{
+					std::cout << "Nie zgadza się! Jeszcze raz..." << std::endl;
+					system("pause");
+					haslo = "";
+				}
+			}
+		}
+		else
+		{
+			KatalogUzytkownikow katalog;
+			bibliotekarz.setPowerLevel(1);
+			bibliotekarz.setID();
+			katalog.addBibliotekarz(bibliotekarz);
+			katalog.setHaslo(bibliotekarz.getID(), haslo, adres_email);
+			break;
+		}
+
+	}
+	userInterfacePracownik();
+}
+}

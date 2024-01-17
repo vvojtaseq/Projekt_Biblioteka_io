@@ -8,4 +8,6 @@ void userInterfaceZalogujSie();
 void WielokrotnePodanieZlegoHasla();
 void ZmianaHasla();
 void userInterfaceUzytkownikZalogowany();
-
+void wyswietlDaneU¿ytkownika();
+void userInterfacePracownikZarejestrujSiê();
+void userInterfacePracownikZalogowany();
