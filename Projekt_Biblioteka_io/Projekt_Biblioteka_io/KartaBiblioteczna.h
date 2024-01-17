@@ -29,6 +29,9 @@ public:
 //
 //	**Edycja danych na karcie bibliotecznej**
 //	void editKartaBiblioteczna(const std::string& imie, const std::string& nazwisko, int iduzytkownika,
+// 
+// 	  **Sprawdzanie wszystkich wypo¿yczonych tytu³ów przez danego u¿ytkownika**
+// 	 void checkWypozyczenia(const KartaBiblioteczna karta[]) const
 //
 //	**Zapisywanie danych z karty bibliotecznej do pliku**
 //	void saveKartaBiblioteczna() const
@@ -170,12 +173,13 @@ public:
 	}
 
 	// Metoda do sprawdzania wszystkich wypo¿yczonych tytu³ów przez danego u¿ytkownika
-	void checkWypozyczenia(const std::vector<KartaBiblioteczna>& Wypozyczenia) const {
+	void checkWypozyczenia(const KartaBiblioteczna karta[]) const {
+		int ilosc = getIloscWpisow();
 		std::cout << "Wypo¿yczone tytu³y przez " << Imie << " " << Nazwisko << " (ID: " << IDuzytkownika << "):\n";
 
-		for (const auto& karta : Wypozyczenia) {
-			if (karta.getIDuzytkownika() == IDuzytkownika) {
-				std::cout << karta.getTytul() << " (ID: " << karta.getIDksiazki() << ") " << "Wypo¿yczona: " << karta.getDataWypozyczenia() << " Data zwrotu: " << karta.getDataZwrotu() << std::endl ;
+		for (int i = 0; i < ilosc; i++) {
+			if (karta[i].getIDuzytkownika() == getIDuzytkownika()) {
+				std::cout << karta[i].getTytul() << " (ID: " << karta[i].getIDksiazki()<< ")\n";
 			}
 		}
 	}

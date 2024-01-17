@@ -25,7 +25,7 @@ public:
 // 
 // 	**Wyszukiwanie ksiazki po tytule**
 //	std::string getIDbyTytul(std::string tytul);
-// 	  Ksiazka getKsiazkabyTytul(std::string tytul);
+// 	 Ksiazka getKsiazkabyTytul(std::string tytul);
 //
 //	**Usuwanie ksiazki z pliku**
 //	void deleteKsiazka(unsigned int id);
