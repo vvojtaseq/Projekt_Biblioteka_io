@@ -12,15 +12,20 @@ public:
 //	std::string getAutorImie(unsigned int id);
 //	std::string getAutorNazwisko(unsigned int id);
 //	std::string getRokWydania(unsigned int id);
-// 	
-// 	(poni¿sze metody w klasie Ksiazka s¹ podane jako int, ale tutaj zwracane s¹ w stringu - zalecane rzutowanie)
+// 	!!!(poni¿sze metody w klasie Ksiazka s¹ podane jako int, ale tutaj zwracane s¹ w stringu - zalecane rzutowanie)!!
 // 	std::string getIloscStron(unsigned int id);
 // 	std::string getIloscEgzemplarzy(unsigned int id);
 // 	std::string getID(unsigned int id);
 // 	   	
-// 	**Pobieranie ca³ejk ksiazki do klasy z pliku**
+// 	**Pobieranie ca³ejk ksiazki do klasy z pliku (po id)**
 //	Ksiazka getKsiazka(unsigned int id);
+// 
+// 	**Wyszukiwanie ksiazki po tytule**
+//	std::string getIDbyTytul(std::string tytul);
+// 	  Ksiazka getKsiazkabyTytul(std::string tytul);
 //
+//	**Usuwanie ksiazki z pliku**
+//	void deleteKsiazka(unsigned int id);
 // 
 //	konstruktor domyslny
 	Zbior() {};
@@ -212,6 +217,80 @@ public:
 		return Ksiazka();
 	}
 
+	//wyszukiwanie ksiazki po tytule
+	std::string getIDbyTytul(std::string tytul)
+	{
+		std::fstream plik;
+		plik.open("ksiazki.txt", std::ios::in);
+		std::string linia;
+		std::string tytulString;
+		std::string IDksiazkiString;
+		while (getline(plik, linia))
+		{
+			tytulString = ZnajdzSubstring(2, linia, "|");
+			if (tytul == tytulString)
+			{
+				IDksiazkiString = ZnajdzSubstring(1, linia, "|");
+				return IDksiazkiString;
+			}
+		}
+		plik.close();
+		return "Nie znaleziono ksiazki";
+	}
+
+	Ksiazka getKsiazkabyTytul(std::string tytul)
+	{
+		std::fstream plik;
+		plik.open("ksiazki.txt", std::ios::in);
+		std::string linia;
+		std::string tytulString;
+		std::string IDksiazkiString;
+		std::string autorImie;
+		std::string autorNazwisko;
+		std::string rokWydania;
+		std::string iloscStron;
+		std::string iloscEgzemplarzy;
+		while (getline(plik, linia))
+		{
+			tytulString = ZnajdzSubstring(2, linia, "|");
+			if (tytul == tytulString)
+			{
+				IDksiazkiString = ZnajdzSubstring(1, linia, "|");
+				autorImie = ZnajdzSubstring(3, linia, "|");
+				autorNazwisko = ZnajdzSubstring(4, linia, "|");
+				rokWydania = ZnajdzSubstring(5, linia, "|");
+				iloscStron = ZnajdzSubstring(6, linia, "|");
+				iloscEgzemplarzy = ZnajdzSubstring(7, linia, "|");
+				Ksiazka ksiazka = Ksiazka(tytul, autorImie, autorNazwisko, rokWydania, std::stoi(iloscStron), std::stoi(iloscEgzemplarzy), std::stoi(IDksiazkiString));
+				return ksiazka;
+			}
+		}
+		plik.close();
+		return Ksiazka();
+	}
+
+	//usuwanie ksiazki z pliku
+	void deleteKsiazka(unsigned int IDksiazki)
+	{
+		std::fstream plik;
+		plik.open("ksiazki.txt", std::ios::in);
+		std::ofstream temp;
+		temp.open("temp.txt", std::ios::out);
+		std::string linia;
+		std::string IDksiazkiString;
+		while (getline(plik, linia))
+		{
+			IDksiazkiString = ZnajdzSubstring(1, linia, "|");
+			if (IDksiazki != std::stoi(IDksiazkiString))
+			{
+				temp << linia << std::endl;
+			}
+		}
+		plik.close();
+		temp.close();
+		remove("ksiazki.txt");
+		rename("temp.txt", "ksiazki.txt");
+	}
 
 };
 
