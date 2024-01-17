@@ -16,6 +16,7 @@ namespace UnitTest1
 	Autor testAutor;
 	Ksiazka testKsiazka;
 	Czytelnik testCzytelnik;
+	Dlug testDlug;
 	//Wypozyczenie testWypozyczenie;
 
 
@@ -123,6 +124,17 @@ namespace UnitTest1
 			testAutor.setOpis("Opis");
 			std::string opis = "Opis";
 			Assert::AreEqual(testAutor.getOpis(), opis);
+		}
+			
+	};
+	TEST_CLASS(Dlug)
+	{
+		public:
+			TEST_METHOD(getWartoscDlugu)
+			{
+			testDlug.setWartoscDlugu(100);
+			float wartosc = 100;
+			Assert::AreEqual(testDlug.getWartoscDlugu(), wartosc);
 		}
 	};
 	
