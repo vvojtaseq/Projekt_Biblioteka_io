@@ -9,6 +9,7 @@ void WielokrotnePodanieZlegoHasla();
 void ZmianaHasla();
 void userInterfaceUzytkownikZalogowany();
 void wyswietlDaneU¿ytkownika();
+void wyswietlZbior();
 void userInterfacePracownikZarejestrujSie();
 void userInterfacePracownikZalogujSie();
 void WielokrotnePodanieZlegoHaslaPracownika();
