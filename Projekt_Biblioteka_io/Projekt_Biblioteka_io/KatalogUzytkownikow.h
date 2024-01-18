@@ -163,22 +163,19 @@ public:
 		std::fstream plik;
 		plik.open(PLIK_HASLA, std::ios::in);
 		std::string linia;
-		std::string idString;
 		std::string hasloString;
 		std::string emailString;
 		while (getline(plik, linia))
 		{
-			std::stringstream ss(linia);
-			getline(ss, idString, '|');
-			getline(ss, hasloString, '|');
-			getline(ss, emailString, '|');
+			emailString = ZnajdzSubstring(3, linia, "|");
+			hasloString = ZnajdzSubstring(2, linia, "|");
 			if (email == emailString && haslo == hasloString)
 			{
-				return true;
+				return 1;
 			}
 		}
 		plik.close();
-		return false;
+		return 0;
 	}
 
 

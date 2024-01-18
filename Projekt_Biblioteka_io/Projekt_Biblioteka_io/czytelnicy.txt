@@ -1,1 +1,2 @@
 1|Aldona|Nowak|Aldona@Nowak.pl|Powstańców Warszawskich 23A, 30-430 Gdnynia|12-02-2000|782953959|39573958437|0
+3|Tomek|Atomek|Tomek@Atomek.pl|Atomowa 83B, 35-700 Korczyna|11-01-1978|222333222|47583758432|0

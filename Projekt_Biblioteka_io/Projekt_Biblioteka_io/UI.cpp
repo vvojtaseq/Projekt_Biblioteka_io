@@ -479,7 +479,7 @@ void userInterfaceZalogujSie()
 		else
 		{
 			KatalogUzytkownikow katalog;
-			if (katalog.Autoryzacja(email, haslo) && katalog.getPowerLevel(ID)==0)
+			if (katalog.Autoryzacja(email, haslo)==1)
 			{
 				ID = katalog.getID(email);
 				std::cout << "Logowanie..." << std::endl;
@@ -647,25 +647,69 @@ void wyswietlDaneUżytkownika()
 
 void wyswietlZbior()
 {
+	KartaBiblioteczna kartaBiblioteczna;
+	KatalogUzytkownikow katalog;
+	Ksiazka ksiazka;
+	unsigned int IDksiazki;
 	int poczatek = 1;
 	int koniec = 10;
-	
+	Zbior zbior;
+	while (true)
+	{
+		system("CLS");
+		std::cout << "**<< Biblioteka >>**" << std::endl << std::endl << std::endl;
+		std::cout << "Pozycje:\n";
+		zbior.WypiszTytuly(poczatek, koniec);
+		std::cout <<std::endl<<std::endl<< "[1] - Następna strona" << std::setw(29) << "[2] - Poprzednia strona" << std::setw(21) << "[3] - Wypożycz" << std::setw(19) << "[4] - Powrót" << std::endl;
+		int decide;
+		std::cin >> decide;
+		std::cin.ignore();
+		switch (decide)
+		{
+		case 1:
+			poczatek += 10;
+			koniec += 10;
+			break;
+		case 2:
+			poczatek -= 10;
+			koniec -= 10;
+			break;
+		case 3:
+			
+			std::cout << "Podaj ID książki: ";
+			std::cin >> IDksiazki;
+			std::cin.ignore();
+			ksiazka = zbior.getKsiazka(IDksiazki);
+			kartaBiblioteczna.addKartaBiblioteczna(katalog.getImie(ID), katalog.getNazwisko(ID), ID ,ksiazka.getTytul(), IDksiazki, "18-01-2024", "01-02-2024");
+			kartaBiblioteczna.saveKartaBiblioteczna();
+			std::cout << "Wyporzyczono!!!" << std::endl;
+			system("pause");
+			break;
+		case 4:
+			userInterfaceUzytkownikZalogowany();
+			break;
+		default:
+			std::cout << "Opcja o id: " << decide << " nie istnieje! Spróbuj ponownie!" << std::endl;
+			system("pause");
+		}
+	}
 }
 
 void userInterfaceUzytkownikZalogowany()
 {
+	KartaBiblioteczna kartaBiblioteczna;
 	system("CLS");
 	std::cout << "**<< Biblioteka >>**" << std::endl << std::endl << std::endl;
 	std::cout << "Opcje :\n";
 	std::cout << "[1] - Wyświetl zbiór" << std::setw(33) << "[2] - Wyszukaj książkę " << std::endl;
-	std::cout << "[3] - Zwróć książkę" << std::setw(38) << "[4] - Zobacz swoje książki " << std::endl;
+	std::cout << "[3] - " << std::setw(38) << "[4] - Zobacz swoje książki " << std::endl;
 	std::cout << "[5] - Zobacz swoje dane" << std::setw(24) << "[6] - Wyloguj się " << std::endl;
 	int decide;
 	std::cin >> decide;
 	switch (decide)
 	{
 	case 1:
-		
+		wyswietlZbior();
 		break;
 	case 2:
 		
@@ -674,7 +718,11 @@ void userInterfaceUzytkownikZalogowany()
 		
 		break;
 	case 4:
-		
+		system("CLS");
+		std::cout << "**<< Biblioteka >>**" << std::endl << std::endl << std::endl;
+		kartaBiblioteczna.checkWypozyczenia(ID);
+		system("pause");
+		userInterfaceUzytkownikZalogowany();
 		break;
 	case 5: 
 		wyswietlDaneUżytkownika();
