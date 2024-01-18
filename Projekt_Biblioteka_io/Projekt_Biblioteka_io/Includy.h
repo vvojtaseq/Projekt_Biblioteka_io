@@ -1,11 +1,8 @@
 //biblioteki
 //do cpp i do plikow headerow klas
 #include <iostream>
-<<<<<<< HEAD
 #include <iomanip>
 #include <cctype>
-=======
->>>>>>> e1a68afd21e3d9044ce69a91d6937dcfa394aede
 #include <regex>
 #include <windows.h>
 #include <string>
