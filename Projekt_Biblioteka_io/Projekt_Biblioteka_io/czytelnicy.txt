@@ -1,14 +1,1 @@
-1|Adam|Kowalski|adam@gmail.com|Chłopska 4|12.12.2001|999888777|12345678901|0
-2|Adam|Kowalski|adam@gmail.com|Chłopska 4|12.12.2001|999888777|12345678901|0
-3|Jan|Kowalski|Jan@op.pl|ul. Kowalska 1|01.01.2000|123456789|12345678901|1
-4|Jan|Kowalski|Jan@op.pl|ul. Kowalska 1|01.01.2000|123456789|12345678901|1
-5|Jan|Kowalski|Jan@op.pl|ul. Kowalska 1|01.01.2000|123456789|12345678901|1
-6|Jan|Kowalski|Jan@op.pl|ul. Kowalska 1|01.01.2000|123456789|12345678901|1
-7|Jan|Kowalski|Jan@op.pl|ul. Kowalska 1|01.01.2000|123456789|12345678901|1
-8|Jan|Kowalski|Jan@op.pl|ul. Kowalska 1|01.01.2000|123456789|12345678901|1
-9|Jan|Kowalski|Jan@op.pl|ul. Kowalska 1|01.01.2000|123456789|12345678901|1
-10|Jan|Kowalski|Jan@op.pl|ul. Kowalska 1|01.01.2000|123456789|12345678901|1
-11|Jan|Kowalski|Jan@op.pl|ul. Kowalska 1|01.01.2000|123456789|12345678901|1
-12|Jan|Kowalski|Jan@op.pl|ul. Kowalska 1|01.01.2000|123456789|12345678901|1
-13|Jan|Kowalski|Jan@op.pl|ul. Kowalska 1|01.01.2000|123456789|12345678901|1
-14|Jan|Kowalski|Jan@op.pl|ul. Kowalska 1|01.01.2000|123456789|12345678901|1
+1|Aldona|Nowak|Aldona@Nowak.pl|Powstańców Warszawskich 23A, 30-430 Gdnynia|12-02-2000|782953959|39573958437|0

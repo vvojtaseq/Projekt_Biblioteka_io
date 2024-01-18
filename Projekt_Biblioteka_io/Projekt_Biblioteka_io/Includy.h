@@ -1,6 +1,8 @@
 //biblioteki
 //do cpp i do plikow headerow klas
 #include <iostream>
+#include <iomanip>
+#include <cctype>
 #include <regex>
 #include <windows.h>
 #include <string>
