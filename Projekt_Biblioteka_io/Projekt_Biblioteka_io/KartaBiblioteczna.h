@@ -4,6 +4,8 @@
 #include "Czytelnik.h"
 #include "Wypozyczenia.h"
 
+#define PLIK_KARTA_BIBLIOTECZNA "kartabiblioteczna.txt"
+
 
 class KartaBiblioteczna
 {
@@ -27,14 +29,17 @@ public:
 //
 //	**Edycja danych na karcie bibliotecznej**
 //	void editKartaBiblioteczna(const std::string& imie, const std::string& nazwisko, int iduzytkownika,
+// 
+// 	**Sprawdzanie wszystkich wypo¿yczonych tytu³ów przez danego u¿ytkownika**
+// 	void checkWypozyczenia(int IDuzytkownika) 
 //
 //	**Zapisywanie danych z karty bibliotecznej do pliku**
 //	void saveKartaBiblioteczna() const
 // 
-// **Sprawdzanie ilosci wpisow na karcie bibliotecznej**
+//	**Sprawdzanie ilosci wpisow na karcie bibliotecznej**
 //	int getIloscWpisow() const
 // 
-// **Usuwanie wpisu**
+//	**Usuwanie wpisu**
 //	void deleteWpis(int IDuzytkownika, int IDksiazki)
 // 
 //	**Pobieranie pojedyñczych danych z wypo¿yczenia**
@@ -110,7 +115,7 @@ public:
 
 	// Metoda do zapisywania danych z karty bibliotecznej do pliku tekstowego
 	void saveKartaBiblioteczna() const {
-		std::ofstream file("kartabiblioteczna.txt", std::ios::app);
+		std::ofstream file(PLIK_KARTA_BIBLIOTECZNA, std::ios::app);
 
 		if (file.is_open()) {
 			file << Imie << "|" << Nazwisko<< "|" << IDuzytkownika << "|"
@@ -145,7 +150,7 @@ public:
 	// Pobieranie stanu wypozyczenia
 	KartaBiblioteczna getStanWypozyczenia(int IDuzytkownika, int IDksiazki)
 	{
-		std::ifstream file("kartabiblioteczna.txt");
+		std::ifstream file(PLIK_KARTA_BIBLIOTECZNA);
 		std::string line;
 		std::string idString;
 		std::string idKsiazkiString;
@@ -167,20 +172,34 @@ public:
 		return kartaBiblioteczna;
 	}
 
-	// Metoda do sprawdzania wszystkich wypo¿yczonych tytu³ów przez danego u¿ytkownika
-	void checkWypozyczenia(const std::vector<KartaBiblioteczna>& Wypozyczenia) const {
-		std::cout << "Wypo¿yczone tytu³y przez " << Imie << " " << Nazwisko << " (ID: " << IDuzytkownika << "):\n";
-
-		for (const auto& karta : Wypozyczenia) {
-			if (karta.getIDuzytkownika() == IDuzytkownika) {
-				std::cout << karta.getTytul() << " (ID: " << karta.getIDksiazki() << ") " << "Wypo¿yczona: " << karta.getDataWypozyczenia() << " Data zwrotu: " << karta.getDataZwrotu() << std::endl ;
+	// Metoda do sprawdzania wszystkich wypo¿yczonych tytu³ów przez danego u¿ytkownika z pliku
+	void checkWypozyczenia(int IDuzytkownika)  {
+		std::ifstream file(PLIK_KARTA_BIBLIOTECZNA);
+		std::string line;
+		std::string idString;
+		std::string idKsiazkiString;
+		std::string dataWypozyczenia;
+		std::string dataZwrotu;
+		std::string Tytul;
+		while (std::getline(file, line))
+		{
+			idString = ZnajdzSubstring(3, line, "|");
+			if (IDuzytkownika == std::stoi(idString))
+			{
+				//idKsiazkiString = ZnajdzSubstring(5, line, "|");
+				Tytul = ZnajdzSubstring(4, line, "|");
+				dataWypozyczenia = ZnajdzSubstring(6, line, "|");
+				dataZwrotu = ZnajdzSubstring(7, line, "|");
+				std::cout << "Tytyl: " << Tytul << " Data wypozyczenia: " << dataWypozyczenia << " Data zwrotu: " << dataZwrotu << std::endl;
 			}
 		}
+		file.close();
+
 	}
 
 	int getIloscWpisow() const
 	{
-		std::ifstream file("kartabiblioteczna.txt");
+		std::ifstream file(PLIK_KARTA_BIBLIOTECZNA);
 		std::string line;
 		int i = 0;
 		while (std::getline(file, line))
@@ -194,7 +213,7 @@ public:
 // Metoda do usuwania wpisu
 	void deleteWpis(int IDuzytkownika, int IDksiazki)
 	{
-		std::ifstream file("kartabiblioteczna.txt");
+		std::ifstream file(PLIK_KARTA_BIBLIOTECZNA);
 		std::string line;
 		std::string idString;
 		std::string idKsiazkiString;
@@ -212,8 +231,8 @@ public:
 		}
 		file.close();
 		file2.close();
-		remove("kartabiblioteczna.txt");
-		rename("kartabiblioteczna2.txt", "kartabiblioteczna.txt");
+		remove(PLIK_KARTA_BIBLIOTECZNA);
+		rename("kartabiblioteczna2.txt", PLIK_KARTA_BIBLIOTECZNA);
 	}
 
 };
@@ -304,7 +323,7 @@ public:
 	KartaBiblioteczna* getKartaBibliotecznaTab(int IDuzytkownika)
 	{
 	std::fstream plik;
-		plik.open("kartabiblioteczna.txt", std::ios::in);
+		plik.open(PLIK_KARTA_BIBLIOTECZNA, std::ios::in);
 		std::string linia;
 		std::string idString;
 		std::string idKsiazkiString;
@@ -352,7 +371,7 @@ public:
 	void updateKartaBiblioteczna(KartaBiblioteczna* kartaBiblioteczna)
 	{
 		std::fstream plik;
-		plik.open("kartabiblioteczna.txt", std::ios::out);
+		plik.open(PLIK_KARTA_BIBLIOTECZNA, std::ios::out);
 		std::string linia;
 		std::string idString;
 		while (getline(plik, linia))
@@ -370,7 +389,7 @@ public:
 	void addKartaBiblioteczna(KartaBiblioteczna kartaBiblioteczna)
 	{
 		std::fstream plik;
-		plik.open("kartabiblioteczna.txt", std::ios::out | std::ios::app);
+		plik.open(PLIK_KARTA_BIBLIOTECZNA, std::ios::out | std::ios::app);
 		plik << kartaBiblioteczna.getIDuzytkownika() << "|" << kartaBiblioteczna.getIDksiazki() << "|" << kartaBiblioteczna.getDataWypozyczenia() << "|" << kartaBiblioteczna.getDataZwrotu() << std::endl;
 		plik.close();
 	}
@@ -378,7 +397,7 @@ public:
 	void setKartaBiblioteczna(int IDuzytkownika, int IDksiazki, std::string dataWypozyczenia, std::string dataZwrotu)
 	{
 		std::fstream plik;
-		plik.open("kartabiblioteczna.txt", std::ios::out | std::ios::app);
+		plik.open(PLIK_KARTA_BIBLIOTECZNA, std::ios::out | std::ios::app);
 		plik << IDuzytkownika << "|" << IDksiazki << "|" << dataWypozyczenia << "|" << dataZwrotu << std::endl;
 		plik.close();
 	}
@@ -387,7 +406,7 @@ public:
 	KartaBiblioteczna getKartaBiblioteczna(int IDuzytkownika, int IDksiazki)
 	{
 		std::fstream plik;
-		plik.open("kartabiblioteczna.txt", std::ios::in);
+		plik.open(PLIK_KARTA_BIBLIOTECZNA, std::ios::in);
 		std::string linia;
 		std::string idString;
 		std::string idKsiazkiString;

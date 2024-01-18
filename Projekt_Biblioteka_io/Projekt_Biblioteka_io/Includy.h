@@ -1,8 +1,11 @@
 //biblioteki
 //do cpp i do plikow headerow klas
 #include <iostream>
+<<<<<<< HEAD
 #include <iomanip>
 #include <cctype>
+=======
+>>>>>>> e1a68afd21e3d9044ce69a91d6937dcfa394aede
 #include <regex>
 #include <windows.h>
 #include <string>
@@ -14,7 +17,4 @@
 #include <cctype> // te dwa do std::all_of
 #include <locale.h> // do polskich liter
 #include <fstream> //do plikow
-#include <cstdlib> //do generowania ID
-#include <vector> //do vectorow
 
-//klasy

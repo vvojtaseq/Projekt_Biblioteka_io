@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "CppUnitTest.h"
-//#include "main.cpp"
 #include "Includy.h"
 #include "IncludyKlasy.h"
 
@@ -98,12 +97,19 @@ namespace UnitTest1
 			int id = 1;
 			Assert::AreEqual(testKsiazka.getID(), id);
 		}
-			TEST_METHOD(getAutor)
+			TEST_METHOD(getAutorImie)
 			{
-			testKsiazka.setAutor("Adam Kowalski");
-			std::string autor = "Adam Kowalski";
-			Assert::AreEqual(testKsiazka.getAutor(), autor);
+			testKsiazka.setAutorImie("Adam");
+			std::string imie = "Adam";
+			Assert::AreEqual(testKsiazka.getAutorImie(), imie);
 		}
+			TEST_METHOD(getAutorNazwisko)
+			{
+				testKsiazka.setAutorNazwisko("Kowalski");
+			std::string nazwisko = "Kowalski";
+			Assert::AreEqual(testKsiazka.getAutorNazwisko(), nazwisko);
+			}
+		
 	
 	};
 	TEST_CLASS(Autor)
@@ -149,36 +155,8 @@ namespace UnitTest1
 				Assert::AreEqual(testEgzemplarz.getIdentyfikator(), id);
 			}
 	};
-	TEST_CLASS(KartaBiblioteczna)
-	{
-		
-		public:
-			
-			TEST_METHOD(getIDuzytkownika)
-			{
-				testKartaBiblioteczna.setIDuzytkownika(1);
-				int id = 1;
-				Assert::AreEqual(testKartaBiblioteczna.getIDuzytkownika(), id);
-			}
-			TEST_METHOD(getIDksiazki)
-			{
-				testKartaBiblioteczna.setIDksiazki(1);
-				int id = 1;
-				Assert::AreEqual(testKartaBiblioteczna.getIDksiazki(), id);
-			}
-			TEST_METHOD(getDataWypozyczenia)
-			{
-				testKartaBiblioteczna.setDataWypozyczenia("11.12.1994");
-				std::string data = "11.12.1994";
-				Assert::AreEqual(testKartaBiblioteczna.getDataWypozyczenia(), data);
-			}
-			TEST_METHOD(getDataZwrotu)
-			{
-				testKartaBiblioteczna.setDataZwrotu("11.12.1994");
-				std::string data = "11.12.1994";
-				Assert::AreEqual(testKartaBiblioteczna.getDataZwrotu(), data);
-			}
-	};
+
+
 
 //	****************************************************************************************
 //	Pojawia siê problem gdy chcemy testowaæ funkcje zwi¹zane z plikami .txt

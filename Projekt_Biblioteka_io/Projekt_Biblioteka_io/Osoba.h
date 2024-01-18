@@ -15,7 +15,7 @@ private:
 	std::string Email;
 	unsigned int ID;
 	std::string Haslo;
-	int PowerLevel; //0 - czytelnik, 1 - pracownik, 2 - menadzer
+	int PowerLevel; //0 - czytelnik, 1 - pracownik
 
 public:
 	//metody 
@@ -57,11 +57,14 @@ public:
 	}
 
 	unsigned int getID() { return ID; }
-	void setID(unsigned int noweID) { ID = noweID; }
+
+	void setManualID(unsigned int id) { ID = id; }
+
 	void setID() {
 		std::ifstream plik("czytelnicy.txt");
 		std::string linia;
-		int ostatnieId = 0;
+		int ostatnieID1 = 0;
+		int ostatnieID2 = 0;
 
 		//ostatnia linia w pliku to ostatni uzytkownik
 		while (getline(plik, linia))
@@ -69,38 +72,28 @@ public:
 			std::stringstream ss(linia);
 			std::string id;
 			getline(ss, id, '|');
-			ostatnieId = std::stoi(id);
+			ostatnieID1 = std::stoi(id);
 		}
-
 		plik.close();
-
-		ID = ostatnieId + 1;
-	}
-	
-
-	//metoda do zapisu uzytkownika do pliku
-	void setIDToFile(std::string nazwaPliku) { 
-	
-		//pobieranie ostatniego ID z pliku
-		std::fstream plik;
-		plik.open(nazwaPliku, std::ios::in);
-		std::string linia;
-		std::string obecneID = "0";
-		std::string najwiekszeID = "1"; //visual pokazuje jakiœ problem ale dzia³a
-		while (getline(plik, linia))
+		std::ifstream plik2("bibliotekarze.txt");
+		while (getline(plik2, linia))
 		{
 			std::stringstream ss(linia);
-			getline(ss, obecneID, '|');
-			if (std::stoi(obecneID) > std::stoi(najwiekszeID))
-			{
-				najwiekszeID = obecneID;
-			}
+			std::string id;
+			getline(ss, id, '|');
+			ostatnieID2 = std::stoi(id);
 		}
-		ID = std::stoi(najwiekszeID) + 1;
-
-		plik.close();
+		plik2.close();
+		if(ostatnieID1 > ostatnieID2)
+		{
+			ID = ostatnieID1 + 1;
+		}
+		else
+		{
+			ID = ostatnieID2 + 1;
+		}
 	}
-
+	
 	std::string getHaslo() { return Haslo; }
 	void setHaslo(std::string noweHaslo) { Haslo = noweHaslo; }
 

@@ -1,3 +1,33 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> master
 ﻿  UI.cpp
 C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(513): warning C4715: "KatalogUzytkownikow::getWszystkieDane”: niewszystkie ścieżki kodu zwracają wartość
   Projekt_Biblioteka_io.vcxproj -> C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Debug\Projekt_Biblioteka_io.exe
+<<<<<<< HEAD
+=======
+=======
+﻿  main.cpp
+=======
+﻿  KartaBiblioteczna.cpp
+  main.cpp
+D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Zbior.h(315,35): warning C4018: ">=": niezgodność typu ze znakiem/bez znaku
+  (kompilowanie pliku źródłowego „main.cpp”)
+  
+D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Zbior.h(315,71): warning C4018: "<=": niezgodność typu ze znakiem/bez znaku
+  (kompilowanie pliku źródłowego „main.cpp”)
+  
+  UI.cpp
+D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Zbior.h(315,35): warning C4018: ">=": niezgodność typu ze znakiem/bez znaku
+  (kompilowanie pliku źródłowego „UI.cpp”)
+  
+D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Zbior.h(315,71): warning C4018: "<=": niezgodność typu ze znakiem/bez znaku
+  (kompilowanie pliku źródłowego „UI.cpp”)
+  
+  Generowanie kodu...
+>>>>>>> e1a68afd21e3d9044ce69a91d6937dcfa394aede
+  Projekt_Biblioteka_io.vcxproj -> D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Debug\Projekt_Biblioteka_io.exe
+>>>>>>> 8e1534dad4ffaa2a355793b5e7f3addff5526f96
+>>>>>>> master
