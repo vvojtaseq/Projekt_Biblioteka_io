@@ -1,6 +1,9 @@
 #pragma once
 #include "Autor.h"
 #include "Ksiazka.h"
+
+#define PLIK_KSIAZKI "ksiazki.txt"
+
 class Zbior
 {
 public:
@@ -22,10 +25,13 @@ public:
 // 
 // 	**Wyszukiwanie ksiazki po tytule**
 //	std::string getIDbyTytul(std::string tytul);
-// 	  Ksiazka getKsiazkabyTytul(std::string tytul);
+// 	 Ksiazka getKsiazkabyTytul(std::string tytul);
 //
 //	**Usuwanie ksiazki z pliku**
 //	void deleteKsiazka(unsigned int id);
+// 
+// 	**Wypisywanie tytulow ksiazek z zakresu**
+// 	  void WypiszTytuly(unsigned int od, unsigned int doo)
 // 
 //	konstruktor domyslny
 	Zbior() {};
@@ -34,7 +40,7 @@ public:
 	void addKsiazka(Ksiazka ksiazka, Autor autor)
 	{
 		std::fstream plik;
-		plik.open("ksiazki.txt", std::ios::out | std::ios::app);
+		plik.open(PLIK_KSIAZKI, std::ios::out | std::ios::app);
 		plik << ksiazka.getID() << "|" << ksiazka.getTytul() << "|" << autor.getImie() << "|" << autor.getNazwisko() << "|" << ksiazka.getRokWydania() << "|" << ksiazka.getIloscStron() << "|" << ksiazka.getIloscEgzemplarzy() << std::endl;
 		plik.close();
 
@@ -62,7 +68,7 @@ public:
 	std::string getTytul(unsigned int IDksiazki)
 	{
 		std::fstream plik;
-		plik.open("ksiazki.txt", std::ios::in);
+		plik.open(PLIK_KSIAZKI, std::ios::in);
 		std::string linia;
 		std::string IDksiazkiString;
 		std::string tytul;
@@ -83,7 +89,7 @@ public:
 	std::string getImieAutora(unsigned int IDksiazki)
 	{
 		std::fstream plik;
-		plik.open("ksiazki.txt", std::ios::in);
+		plik.open(PLIK_KSIAZKI, std::ios::in);
 		std::string linia;
 		std::string IDksiazkiString;
 		std::string autorImie;
@@ -104,7 +110,7 @@ public:
 	std::string getNazwiskoAutora(unsigned int IDksiazki)
 	{
 			std::fstream plik;
-		plik.open("ksiazki.txt", std::ios::in);
+		plik.open(PLIK_KSIAZKI, std::ios::in);
 		std::string linia;
 		std::string IDksiazkiString;
 		std::string autorNazwisko;
@@ -125,7 +131,7 @@ public:
 	std::string getRokWydania(unsigned int IDksiazki)
 	{
 		std::fstream plik;
-		plik.open("ksiazki.txt", std::ios::in);
+		plik.open(PLIK_KSIAZKI, std::ios::in);
 		std::string linia;
 		std::string IDksiazkiString;
 		std::string rokWydania;
@@ -146,7 +152,7 @@ public:
 	std::string getIloscStron(unsigned int IDksiazki)
 	{
 		std::fstream plik;
-		plik.open("ksiazki.txt", std::ios::in);
+		plik.open(PLIK_KSIAZKI, std::ios::in);
 		std::string linia;
 		std::string IDksiazkiString;
 		std::string iloscStron;
@@ -167,7 +173,7 @@ public:
 	std::string getIloscEgzemplarzy(unsigned int IDksiazki)
 	{
 		std::fstream plik;
-		plik.open("ksiazki.txt", std::ios::in);
+		plik.open(PLIK_KSIAZKI, std::ios::in);
 		std::string linia;
 		std::string IDksiazkiString;
 		std::string iloscEgzemplarzy;
@@ -189,7 +195,7 @@ public:
 	Ksiazka getKsiazka(unsigned int IDksiazki)
 	{
 		std::fstream plik;
-		plik.open("ksiazki.txt", std::ios::in);
+		plik.open(PLIK_KSIAZKI, std::ios::in);
 		std::string linia;
 		std::string IDksiazkiString;
 		std::string tytul;
@@ -221,7 +227,7 @@ public:
 	std::string getIDbyTytul(std::string tytul)
 	{
 		std::fstream plik;
-		plik.open("ksiazki.txt", std::ios::in);
+		plik.open(PLIK_KSIAZKI, std::ios::in);
 		std::string linia;
 		std::string tytulString;
 		std::string IDksiazkiString;
@@ -241,7 +247,7 @@ public:
 	Ksiazka getKsiazkabyTytul(std::string tytul)
 	{
 		std::fstream plik;
-		plik.open("ksiazki.txt", std::ios::in);
+		plik.open(PLIK_KSIAZKI, std::ios::in);
 		std::string linia;
 		std::string tytulString;
 		std::string IDksiazkiString;
@@ -273,7 +279,7 @@ public:
 	void deleteKsiazka(unsigned int IDksiazki)
 	{
 		std::fstream plik;
-		plik.open("ksiazki.txt", std::ios::in);
+		plik.open(PLIK_KSIAZKI, std::ios::in);
 		std::ofstream temp;
 		temp.open("temp.txt", std::ios::out);
 		std::string linia;
@@ -288,8 +294,37 @@ public:
 		}
 		plik.close();
 		temp.close();
-		remove("ksiazki.txt");
-		rename("temp.txt", "ksiazki.txt");
+		remove(PLIK_KSIAZKI);
+		rename("temp.txt", PLIK_KSIAZKI);
+	}
+
+	//wypisz ksi¹¿ki z zakresu 
+	void WypiszTytuly(unsigned int od, unsigned int doo)
+	{
+		std::fstream plik;
+		plik.open(PLIK_KSIAZKI, std::ios::in);
+		std::string linia;
+		std::string IDksiazkiString;
+		std::string tytul;
+		std::string autorImie;
+		std::string autorNazwisko;
+		unsigned int i;
+		while (getline(plik, linia))
+		{
+			IDksiazkiString = ZnajdzSubstring(1, linia, "|");
+			if (std::stoi(IDksiazkiString) >= od && std::stoi(IDksiazkiString) <= doo)
+			{
+				i = std::stoi(IDksiazkiString);
+				tytul = ZnajdzSubstring(2, linia, "|");
+				autorImie = ZnajdzSubstring(3, linia, "|");
+				autorNazwisko = ZnajdzSubstring(4, linia, "|");
+				std::cout << i << ". " << tytul << " " << autorImie << " " << autorNazwisko << std::endl;
+			
+			
+
+			}
+		}
+		plik.close();
 	}
 
 };

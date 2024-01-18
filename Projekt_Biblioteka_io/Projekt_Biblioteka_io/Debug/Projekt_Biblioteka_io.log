@@ -1,2 +1,17 @@
-﻿  main.cpp
+﻿  KartaBiblioteczna.cpp
+  main.cpp
+D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Zbior.h(315,35): warning C4018: ">=": niezgodność typu ze znakiem/bez znaku
+  (kompilowanie pliku źródłowego „main.cpp”)
+  
+D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Zbior.h(315,71): warning C4018: "<=": niezgodność typu ze znakiem/bez znaku
+  (kompilowanie pliku źródłowego „main.cpp”)
+  
+  UI.cpp
+D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Zbior.h(315,35): warning C4018: ">=": niezgodność typu ze znakiem/bez znaku
+  (kompilowanie pliku źródłowego „UI.cpp”)
+  
+D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Zbior.h(315,71): warning C4018: "<=": niezgodność typu ze znakiem/bez znaku
+  (kompilowanie pliku źródłowego „UI.cpp”)
+  
+  Generowanie kodu...
   Projekt_Biblioteka_io.vcxproj -> D:\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Debug\Projekt_Biblioteka_io.exe

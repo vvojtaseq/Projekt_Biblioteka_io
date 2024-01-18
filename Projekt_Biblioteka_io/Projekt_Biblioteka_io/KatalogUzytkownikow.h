@@ -3,6 +3,11 @@
 #include "Czytelnik.h"
 #include "Bibliotekarz.h"
 
+
+#define PLIK_CZYTELNICY "czytelnicy.txt"
+#define PLIK_BIBLIOTEKARZE "bibliotekarze.txt"
+#define PLIK_HASLA "hasla.txt"
+
 class KatalogUzytkownikow
 {
 public:
@@ -54,7 +59,7 @@ public:
 	void addCzytelnik(Czytelnik czytelnik)
 	{
 		std::fstream plik;
-		plik.open("czytelnicy.txt", std::ios::out | std::ios::app);
+		plik.open(PLIK_CZYTELNICY, std::ios::out | std::ios::app);
 		plik << czytelnik.getID() << "|" << czytelnik.getImie() << "|" << czytelnik.getNazwisko() << "|" << czytelnik.getEmail() << "|" << czytelnik.getAdres() << "|"  << czytelnik.getDataUrodzenia() << "|" << czytelnik.getTelefon() << "|" << czytelnik.getPESEL() << "|" << czytelnik.getPowerLevel() << std::endl;
 		plik.close();
 	}
@@ -62,7 +67,7 @@ public:
 	void addBibliotekarz(Bibliotekarz bibliotekarz)
 	{
 		std::fstream plik;
-		plik.open("bibliotekarze.txt", std::ios::out | std::ios::app);
+		plik.open(PLIK_BIBLIOTEKARZE, std::ios::out | std::ios::app);
 		plik << bibliotekarz.getID() << "|" << bibliotekarz.getImie() << "|" << bibliotekarz.getNazwisko() << "|" << bibliotekarz.getEmail() << "|" << bibliotekarz.getAdres() << "|" << bibliotekarz.getDataUrodzenia() <<"|" << bibliotekarz.getTelefon() << "|" << bibliotekarz.getPESEL() << "|" << bibliotekarz.getPowerLevel() << std::endl;
 		plik.close();
 	}
@@ -71,7 +76,7 @@ public:
 	void setHaslo(unsigned int id, std::string haslo, std::string email)
 	{
 		std::fstream plik;
-		plik.open("hasla.txt", std::ios::out | std::ios::app);
+		plik.open(PLIK_HASLA, std::ios::out | std::ios::app);
 		plik << id << "|" << haslo << "|" << email << std::endl;
 		plik.close();
 	}
@@ -98,7 +103,7 @@ public:
 	std::string getHaslo(unsigned int id)
 	{
 		std::fstream plik;
-		plik.open("hasla.txt", std::ios::in);
+		plik.open(PLIK_HASLA, std::ios::in);
 		std::string linia;
 		std::string idString;
 		std::string haslo;
@@ -119,7 +124,7 @@ public:
 	void editHaslo(std::string noweHaslo, unsigned int ID)
 	{
 		std::fstream plik;
-		plik.open("hasla.txt", std::ios::in);
+		plik.open(PLIK_HASLA, std::ios::in);
 		std::string linia;
 		std::string idString;
 		std::string haslo;
@@ -137,7 +142,7 @@ public:
 			}
 		}
 		plik.close();
-		plik.open("hasla.txt", std::ios::out);
+		plik.open(PLIK_HASLA, std::ios::out);
 		while (getline(plik, linia))
 		{
 			if (linia != nowaLinia)
@@ -156,7 +161,7 @@ public:
 	bool Autoryzacja(std::string email, std::string haslo)
 	{
 		std::fstream plik;
-		plik.open("hasla.txt", std::ios::in);
+		plik.open(PLIK_HASLA, std::ios::in);
 		std::string linia;
 		std::string idString;
 		std::string hasloString;
@@ -181,7 +186,7 @@ public:
 	unsigned int getID(std::string email)
 	{
 		std::fstream plik;
-		plik.open("hasla.txt", std::ios::in);
+		plik.open(PLIK_HASLA, std::ios::in);
 		std::string linia;
 		std::string idString;
 		std::string hasloString;
@@ -196,6 +201,7 @@ public:
 			{
 				return std::stoi(idString);
 			}
+	
 		}
 		plik.close();
 		return 0;
@@ -206,7 +212,7 @@ public:
 	std::string getImie(unsigned int id)
 	{
 		std::fstream plik;
-		plik.open("czytelnicy.txt", std::ios::in);
+		plik.open(PLIK_CZYTELNICY, std::ios::in);
 		std::string linia;
 		std::string idString;
 		std::string imie;
@@ -221,7 +227,7 @@ public:
 		}
 		plik.close();
 		
-		plik.open("bibliotekarze.txt", std::ios::in);
+		plik.open(PLIK_BIBLIOTEKARZE, std::ios::in);
 		while (getline(plik, linia))
 		{
 			idString = ZnajdzSubstring(1, linia, "|");
@@ -239,7 +245,7 @@ public:
 	std::string getNazwisko(unsigned int id)
 	{
 		std::fstream plik;
-		plik.open("czytelnicy.txt", std::ios::in);
+		plik.open(PLIK_CZYTELNICY, std::ios::in);
 		std::string linia;
 		std::string idString;
 		std::string nazwisko;
@@ -254,7 +260,7 @@ public:
 		}
 		plik.close();
 
-		plik.open("bibliotekarze.txt", std::ios::in);
+		plik.open(PLIK_BIBLIOTEKARZE, std::ios::in);
 		while (getline(plik, linia))
 		{
 			idString = ZnajdzSubstring(1, linia, "|");
@@ -273,7 +279,7 @@ public:
 	std::string getEmail(unsigned int id)
 	{
 		std::fstream plik;
-		plik.open("czytelnicy.txt", std::ios::in);
+		plik.open(PLIK_CZYTELNICY, std::ios::in);
 		std::string linia;
 		std::string idString;
 		std::string email;
@@ -289,7 +295,7 @@ public:
 		}
 		plik.close();
 
-		plik.open("bibliotekarze.txt", std::ios::in);
+		plik.open(PLIK_BIBLIOTEKARZE, std::ios::in);
 		while (getline(plik, linia))
 		{
 			idString = ZnajdzSubstring(1, linia, "|");
@@ -306,7 +312,7 @@ public:
 	std::string getAdres(unsigned int id)
 	{
 		std::fstream plik;
-		plik.open("czytelnicy.txt", std::ios::in);
+		plik.open(PLIK_CZYTELNICY, std::ios::in);
 		std::string linia;
 		std::string idString;
 		std::string adres;
@@ -322,7 +328,7 @@ public:
 		}
 		plik.close();
 
-		plik.open("bibliotekarze.txt", std::ios::in);
+		plik.open(PLIK_BIBLIOTEKARZE, std::ios::in);
 		while (getline(plik, linia))
 		{
 			idString = ZnajdzSubstring(1, linia, "|");
@@ -339,7 +345,7 @@ public:
 	std::string getDataUrodzenia(unsigned int id)
 	{
 		std::fstream plik;
-		plik.open("czytelnicy.txt", std::ios::in);
+		plik.open(PLIK_CZYTELNICY, std::ios::in);
 		std::string linia;
 		std::string idString;
 		std::string dataUrodzenia;
@@ -355,7 +361,7 @@ public:
 		}
 		plik.close();
 
-		plik.open("bibliotekarze.txt", std::ios::in);
+		plik.open(PLIK_BIBLIOTEKARZE, std::ios::in);
 		while (getline(plik, linia))
 		{
 			idString = ZnajdzSubstring(1, linia, "|");
@@ -373,7 +379,7 @@ public:
 	std::string getTelefon(unsigned int id)
 	{
 		std::fstream plik;
-		plik.open("czytelnicy.txt", std::ios::in);
+		plik.open(PLIK_CZYTELNICY, std::ios::in);
 		std::string linia;
 		std::string idString;
 		std::string telefon;
@@ -389,7 +395,7 @@ public:
 		}
 		plik.close();
 
-		plik.open("bibliotekarze.txt", std::ios::in);
+		plik.open(PLIK_BIBLIOTEKARZE, std::ios::in);
 		while (getline(plik, linia))
 		{
 			idString = ZnajdzSubstring(1, linia, "|");
@@ -406,7 +412,7 @@ public:
 	std::string getPESEL(unsigned int id)
 	{
 		std::fstream plik;
-		plik.open("czytelnicy.txt", std::ios::in);
+		plik.open(PLIK_CZYTELNICY, std::ios::in);
 		std::string linia;
 		std::string idString;
 		std::string pesel;
@@ -422,7 +428,7 @@ public:
 		}
 		plik.close();
 
-		plik.open("bibliotekarze.txt", std::ios::in);
+		plik.open(PLIK_BIBLIOTEKARZE, std::ios::in);
 		while (getline(plik, linia))
 		{
 			idString = ZnajdzSubstring(1, linia, "|");
@@ -439,7 +445,7 @@ public:
 	int getPowerLevel(unsigned int id)
 	{
 		std::fstream plik;
-		plik.open("czytelnicy.txt", std::ios::in);
+		plik.open(PLIK_CZYTELNICY, std::ios::in);
 		std::string linia;
 		std::string idString;
 		std::string powerlevel;
@@ -455,7 +461,7 @@ public:
 		}
 		plik.close();
 
-		plik.open("bibliotekarze.txt", std::ios::in);
+		plik.open(PLIK_BIBLIOTEKARZE, std::ios::in);
 		while (getline(plik, linia))
 		{
 			idString = ZnajdzSubstring(1, linia, "|");
