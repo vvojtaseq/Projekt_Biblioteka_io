@@ -5,5 +5,15 @@ C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Zbi
 C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Zbior.h(315,71): warning C4018: "<=": niezgodność typu ze znakiem/bez znaku
   (kompilowanie pliku źródłowego „UI.cpp”)
   
+C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\UI.cpp(1531,15): warning C4101: "IDksiazki": lokalna zmienna, do której nie istnieje odwołanie
+  main.cpp
+C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Zbior.h(315,35): warning C4018: ">=": niezgodność typu ze znakiem/bez znaku
+  (kompilowanie pliku źródłowego „main.cpp”)
+  
+C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Zbior.h(315,71): warning C4018: "<=": niezgodność typu ze znakiem/bez znaku
+  (kompilowanie pliku źródłowego „main.cpp”)
+  
+  Generowanie kodu...
+C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\UI.cpp(748): warning C4717: "WyszukajKsiazke": cykliczne we wszystkich ścieżkach przepływu, funkcja spowoduje przepełnienie stosu w trakcie wykonywania
 C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(516): warning C4715: "KatalogUzytkownikow::getWszystkieDane”: niewszystkie ścieżki kodu zwracają wartość
   Projekt_Biblioteka_io.vcxproj -> C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Debug\Projekt_Biblioteka_io.exe
