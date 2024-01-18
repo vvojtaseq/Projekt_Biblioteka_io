@@ -1,35 +1,9 @@
-﻿  Autor.cpp
-  Bibliotekarz.cpp
-  Czytelnik.cpp
-  Dlug.cpp
-  Egzemplarz.cpp
-  KartaBiblioteczna.cpp
-  KatalogUzytkownikow.cpp
-  Ksiazka.cpp
-  Osoba.cpp
-  UI.cpp
+﻿  UI.cpp
 C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Zbior.h(315,35): warning C4018: ">=": niezgodność typu ze znakiem/bez znaku
   (kompilowanie pliku źródłowego „UI.cpp”)
   
 C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Zbior.h(315,71): warning C4018: "<=": niezgodność typu ze znakiem/bez znaku
   (kompilowanie pliku źródłowego „UI.cpp”)
   
-  Wypozyczenia.cpp
-  Zbior.cpp
-C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Zbior.h(315,35): warning C4018: ">=": niezgodność typu ze znakiem/bez znaku
-  (kompilowanie pliku źródłowego „Zbior.cpp”)
-  
-C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Zbior.h(315,71): warning C4018: "<=": niezgodność typu ze znakiem/bez znaku
-  (kompilowanie pliku źródłowego „Zbior.cpp”)
-  
-  main.cpp
-C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Zbior.h(315,35): warning C4018: ">=": niezgodność typu ze znakiem/bez znaku
-  (kompilowanie pliku źródłowego „main.cpp”)
-  
-C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\Zbior.h(315,71): warning C4018: "<=": niezgodność typu ze znakiem/bez znaku
-  (kompilowanie pliku źródłowego „main.cpp”)
-  
-  Generowanie kodu...
-C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(519): warning C4715: "KatalogUzytkownikow::getWszystkieDane”: niewszystkie ścieżki kodu zwracają wartość
-  LINK : nie znaleziono elementu C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Debug\Projekt_Biblioteka_io.exe ani nie został on skompilowany podczas ostatniego konsolidowania przyrostowego; zostanie wykonana pełna konsolidacja
+C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Projekt_Biblioteka_io\KatalogUzytkownikow.h(516): warning C4715: "KatalogUzytkownikow::getWszystkieDane”: niewszystkie ścieżki kodu zwracają wartość
   Projekt_Biblioteka_io.vcxproj -> C:\Users\wodak\github\Biblioteka\Projekt_Biblioteka_io\Debug\Projekt_Biblioteka_io.exe
