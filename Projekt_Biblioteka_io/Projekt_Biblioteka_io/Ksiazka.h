@@ -24,7 +24,7 @@ public:
 	int getIloscEgzemplarzy() { return IloscEgzemplarzy; }
 	void setIloscEgzemplarzy(int nowaIloscEgzemplarzy) { IloscEgzemplarzy = nowaIloscEgzemplarzy; }
 
-	void setID (int noweID) { 
+	void setID () { 
 		std::ifstream plik("ksiazki.txt");
 		std::string linia;
 		int ostatnieId = 0;

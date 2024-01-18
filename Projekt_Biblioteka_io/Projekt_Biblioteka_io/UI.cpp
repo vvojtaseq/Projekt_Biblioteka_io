@@ -695,15 +695,67 @@ void wyswietlZbior()
 	}
 }
 
+void WyszukajKsiazke()
+{
+		Zbior zbior;
+		KartaBiblioteczna kartaBiblioteczna;
+		KatalogUzytkownikow katalog;
+		Ksiazka ksiazka;
+		system("CLS");
+		std::cout << "**<< Biblioteka >>**" << std::endl << std::endl << std::endl;
+		std::cout << "[Wyszukiwarka pozycji] Podaj tytuł: ";
+		std::string tytul;
+		std::getline(std::cin, tytul);
+		ksiazka = zbior.getKsiazkabyTytul(tytul);
+		if (ksiazka.getTytul().empty()) 
+		{
+			std::cout << "Wyszukiwanie nie powiodło się!" << std::endl;
+			WyszukajKsiazke();
+		}
+		else
+		{
+			while (true)
+			{
+				system("CLS");
+				std::cout << "**<< Biblioteka >>**" << std::endl << std::endl << std::endl;
+				std::cout << "Znaleziona pozycja:" << std::endl;
+				std::cout << "Tytuł: " << ksiazka.getTytul() << "; Autor: " << ksiazka.getAutorImie() << " " << ksiazka.getNazwisko() << "; Rok wydania: " << ksiazka.getRokWydania() <<"; Ilość stron: " << ksiazka.getIloscStron() << "; Ilość egzemplarzy: " << ksiazka.getIloscEgzemplarzy() << std::endl;
+				std::cout << "Opis: " << ksiazka.getOpis() << std::endl;
+				std::cout << std::endl << "-------------------------------------------\nOpcje:\n[1] - Wyporzycz" << std::setw(20) << "[2] - Wyszukaj ponownie" << std::setw(20) << "[3] Wyjście" << std::endl;
+			
+				int decyzja;
+				std::cin >> decyzja;
+				std::cin.ignore();
+				switch (decyzja)
+				{
+				case 1:
+				{
+					kartaBiblioteczna.addKartaBiblioteczna(katalog.getImie(ID), katalog.getNazwisko(ID), ID, ksiazka.getTytul(), ksiazka.getID(), "18-01-2024", "01-02-2024");
+					kartaBiblioteczna.saveKartaBiblioteczna();
+					std::cout << "Wyporzyczono!!!" << std::endl;
+					system("pause");
+					userInterfaceUzytkownikZalogowany();
+				}
+				break;
+				case 2: WyszukajKsiazke(); break;
+				case 3:
+					userInterfaceUzytkownikZalogowany();
+					break;
+				default: std::cout << "Opcja o id: " << decyzja << " nie istnieje! Podaj właściwą opcję!" << std::endl;
+				}
+			}
+		}
+}
+
 void userInterfaceUzytkownikZalogowany()
 {
 	KartaBiblioteczna kartaBiblioteczna;
 	system("CLS");
 	std::cout << "**<< Biblioteka >>**" << std::endl << std::endl << std::endl;
 	std::cout << "Opcje :\n";
-	std::cout << "[1] - Wyświetl zbiór" << std::setw(33) << "[2] - Wyszukaj książkę " << std::endl;
-	std::cout << "[3] - " << std::setw(38) << "[4] - Zobacz swoje książki " << std::endl;
-	std::cout << "[5] - Zobacz swoje dane" << std::setw(24) << "[6] - Wyloguj się " << std::endl;
+	std::cout << "[1] - Wyświetl zbiór" << std::setw(39) << "[2] - Wyszukaj książkę " << std::endl;
+	std::cout << "[3] - Zobacz swoje książki " << std::setw(29) <<"[4] - Zobacz swoje dane"<< std::endl;
+	std::cout << "[5] - Wyloguj się " << std::endl;
 	int decide;
 	std::cin >> decide;
 	switch (decide)
@@ -712,22 +764,19 @@ void userInterfaceUzytkownikZalogowany()
 		wyswietlZbior();
 		break;
 	case 2:
-		
+		WyszukajKsiazke();
 		break;
 	case 3:
-		
-		break;
-	case 4:
 		system("CLS");
 		std::cout << "**<< Biblioteka >>**" << std::endl << std::endl << std::endl;
 		kartaBiblioteczna.checkWypozyczenia(ID);
 		system("pause");
 		userInterfaceUzytkownikZalogowany();
 		break;
-	case 5: 
+	case 4: 
 		wyswietlDaneUżytkownika();
 	break;
-	case 6:
+	case 5:
 		std::cout << "Wylogowywanie..." << std::endl;
 		system("pause");
 		userInterface();
@@ -1066,7 +1115,7 @@ void userInterfacePracownikZalogujSie()
 		else
 		{
 			KatalogUzytkownikow katalog;
-			if (katalog.Autoryzacja(email, haslo) && katalog.getPowerLevel(ID) == 1)
+			if (katalog.Autoryzacja(email, haslo) && katalog.getPowerLevel(katalog.getID(email)) == 1)
 			{
 				ID = katalog.getID(email);
 				std::cout << "Logowanie..." << std::endl;
@@ -1218,7 +1267,7 @@ void ZmianaHaslaPracownika()
 void wyswietlDanePracownika()
 {
 	KatalogUzytkownikow katalog;
-	Osoba użytkownik = katalog.getWszystkieDane(ID, "czytelnicy.txt");
+	Osoba użytkownik = katalog.getWszystkieDane(ID, "bibliotekarze.txt");
 	system("CLS");
 	std::cout << "**<< Biblioteka >>**" << std::endl << std::endl << std::endl;
 	std::cout << "Imie: " << użytkownik.getImie() << std::endl;
@@ -1231,29 +1280,232 @@ void wyswietlDanePracownika()
 	system("pause");
 	userInterfacePracownikZalogowany();
 }
+
+void Zwroc()
+{
+	KartaBiblioteczna karta;
+	Zbior zbior;
+	Ksiazka ksiazka;
+	KatalogUzytkownikow katalog;
+	Osoba osoba;
+	int idKaiazki=0;
+	int idUzytkownik;
+	system("CLS");
+	std::cout << "**<< Biblioteka >>**" << std::endl << std::endl << std::endl;
+	std::cout << "[Zwrot]\nPodaj ID Książki: ";
+	std::cin >> idKaiazki;
+	std::cin.ignore();
+	ksiazka = zbior.getKsiazka(idKaiazki);
+	if (ksiazka.getTytul().empty())
+	{
+		std::cout << "Nie znaleziono!!!" << std::endl;
+		system("pause");
+		userInterfacePracownikZalogowany();
+	}
+	std::cout << "Podaj ID Karty Bibliotecznej Czytelnika: ";
+	std::cin >> idUzytkownik;
+	std::cin.ignore();
+	osoba = katalog.getWszystkieDane(idUzytkownik, "czytelnicy.txt");
+	if (osoba.getImie().empty())
+	{
+		std::cout << "Nie znaleziono!!!" << std::endl;
+		system("pause");
+		userInterfacePracownikZalogowany();
+	}
+	karta.deleteWpis(idUzytkownik, idKaiazki);
+	std::cout << "Zwracanie..." << std::endl;
+	system("pause");
+	userInterfacePracownikZalogowany();
+}
+
+void dodajPozycje()
+{
+	std::cin.ignore();
+	Zbior zbior;
+	Ksiazka ksiazka;
+	Autor autor;
+	bool wlasciweDane;
+	int decyzja;
+	std::string tytul;
+	std::string rokWydania;
+	std::string autorImie;
+	std::string autorNazwisko;
+	int iloscStron=-1;
+	int iloscEgzemplarzy = -1;
+	while (true)
+	{
+		system("CLS");
+		std::cout << "**<< Biblioteka >>**" << std::endl << std::endl << std::endl;
+		if (tytul.empty())
+		{
+		
+			std::cout << "Podaj Tytul: ";
+			std::getline(std::cin, tytul);
+			std::cout << "Czy " << tytul << " to na pewno właściwy tytuł?\n[1] - Tak" << std::setw(20) << "[2] - Nie" << std::endl;
+			wlasciweDane = false;
+			while (!wlasciweDane)
+				{
+				std::cin >> decyzja;
+				std::cin.ignore();
+				switch (decyzja)
+				{
+				case 1: ksiazka.setTytul(tytul); wlasciweDane = true; break;
+				case 2: tytul = "";  wlasciweDane = true; break;
+				default: std::cout << "Opcja o id: " << decyzja << " nie istnieje! Podaj właściwą opcję!" << std::endl;
+				}
+			}	
+		
+		}
+		else if (autorImie.empty())
+		{
+
+			std::cout << "Podaj imie autora: ";
+			std::getline(std::cin, autorImie);
+			std::cout << "Czy " << autorImie << " to na pewno właściwe imie autora?\n[1] - Tak" << std::setw(20) << "[2] - Nie" << std::endl;
+			wlasciweDane = false;
+			while (!wlasciweDane)
+			{
+				std::cin >> decyzja;
+				std::cin.ignore();
+				switch (decyzja)
+				{
+				case 1: ksiazka.setAutorImie(autorImie); autor.setImie(autorImie); wlasciweDane = true; break;
+				case 2: autorImie = "";  wlasciweDane = true; break;
+				default: std::cout << "Opcja o id: " << decyzja << " nie istnieje! Podaj właściwą opcję!" << std::endl;
+				}
+			}
+		}
+		else if (autorNazwisko.empty())
+		{
+
+			std::cout << "Podaj nazwisko autora: ";
+			std::getline(std::cin, autorNazwisko);
+			std::cout << "Czy " << autorNazwisko << " to na pewno właściwe nazwisko autora?\n[1] - Tak" << std::setw(20) << "[2] - Nie" << std::endl;
+			wlasciweDane = false;
+			while (!wlasciweDane)
+			{
+				std::cin >> decyzja;
+				std::cin.ignore();
+				switch (decyzja)
+				{
+				case 1: ksiazka.setAutorNazwisko(autorNazwisko); autor.setNazwisko(autorNazwisko); wlasciweDane = true; break;
+				case 2: autorNazwisko = "";  wlasciweDane = true; break;
+				default: std::cout << "Opcja o id: " << decyzja << " nie istnieje! Podaj właściwą opcję!" << std::endl;
+				}
+			}
+		}
+		else if (rokWydania.empty())
+		{
+
+			std::cout << "Podaj rok wydania: ";
+			std::getline(std::cin, rokWydania);
+			std::cout << "Czy " << rokWydania << " to na pewno właściwy rok wydania?\n[1] - Tak" << std::setw(20) << "[2] - Nie" << std::endl;
+			wlasciweDane = false;
+			while (!wlasciweDane)
+			{
+				std::cin >> decyzja;
+				std::cin.ignore();
+				switch (decyzja)
+				{
+				case 1: ksiazka.setRokWydania(rokWydania); wlasciweDane = true; break;
+				case 2: rokWydania = "";  wlasciweDane = true; break;
+				default: std::cout << "Opcja o id: " << decyzja << " nie istnieje! Podaj właściwą opcję!" << std::endl;
+				}
+			}
+		}
+		else if (iloscStron==-1)
+		{
+
+			std::cout << "Podaj ilosc stron: ";
+			std::cin >> iloscStron;
+			std::cin.ignore();
+			std::cout << "Czy " << iloscStron << " to na pewno właściwy rok wydania?\n[1] - Tak" << std::setw(20) << "[2] - Nie" << std::endl;
+			wlasciweDane = false;
+			while (!wlasciweDane)
+			{
+				std::cin >> decyzja;
+				std::cin.ignore();
+				switch (decyzja)
+				{
+				case 1: ksiazka.setIloscStron(iloscStron); wlasciweDane = true; break;
+				case 2: iloscStron = -1;  wlasciweDane = true; break;
+				default: std::cout << "Opcja o id: " << decyzja << " nie istnieje! Podaj właściwą opcję!" << std::endl;
+				}
+			}
+		}
+		else if (iloscEgzemplarzy == -1)
+		{
+
+			std::cout << "Podaj ilosc egzemplarzy: ";
+			std::cin >> iloscEgzemplarzy;
+			std::cin.ignore();
+			std::cout << "Czy " << iloscEgzemplarzy << " to na pewno właściwy rok wydania?\n[1] - Tak" << std::setw(20) << "[2] - Nie" << std::endl;
+			wlasciweDane = false;
+			while (!wlasciweDane)
+			{
+				std::cin >> decyzja;
+				std::cin.ignore();
+				switch (decyzja)
+				{
+				case 1: ksiazka.setIloscEgzemplarzy(iloscEgzemplarzy); wlasciweDane = true; break;
+				case 2: iloscEgzemplarzy = -1;  wlasciweDane = true; break;
+				default: std::cout << "Opcja o id: " << decyzja << " nie istnieje! Podaj właściwą opcję!" << std::endl;
+				}
+			}
+		}
+		else
+		{
+			ksiazka.setID();
+			zbior.addKsiazka(ksiazka, autor);
+			std::cout << "Dodano pozycję!" << std::endl;
+			system("pause");
+			userInterfacePracownikZalogowany();
+		}
+	}
+}
+
+void usunPozycje()
+{
+	Zbior zbior;
+	Ksiazka ksiazka;
+	int idKaiazki;
+	std::cout << "[Zwrot]\nPodaj ID Książki: ";
+	std::cin >> idKaiazki;
+	std::cin.ignore();
+	ksiazka = zbior.getKsiazka(idKaiazki);
+	if (ksiazka.getTytul().empty())
+	{
+		std::cout << "Nie znaleziono!!!" << std::endl;
+		system("pause");
+		userInterfacePracownikZalogowany();
+	}
+	zbior.deleteKsiazka(idKaiazki);
+	userInterfacePracownikZalogowany();
+}
+
 void userInterfacePracownikZalogowany()
 {
 	system("CLS");
 	std::cout << "**<< Biblioteka >>**" << std::endl << std::endl << std::endl;
 	std::cout << "Opcje :\n";
-	std::cout << "[1] - " << std::setw(33) << "[2] -  " << std::endl;
-	std::cout << "[3] - " << std::setw(38) << "[4] -  " << std::endl;
-	std::cout << "[5] - Zobacz swoje dane" << std::setw(24) << "[6] - Wyloguj się " << std::endl;
+	std::cout << "[1] - Zwróć" << std::setw(33) << "[2] - Dodaj pozycję " << std::endl;
+	std::cout << "[3] - Usuń pozycję" << std::setw(38)<<"[4] - Przeglądaj zbiór"<<std::endl;
+	std::cout << "[5] - Zobacz swoje dane" << std::setw(38)<< "[6] - Wyloguj się " << std::endl;
 	int decide;
 	std::cin >> decide;
 	switch (decide)
 	{
 	case 1:
-
+		Zwroc();
 		break;
 	case 2:
-
+		dodajPozycje();
 		break;
 	case 3:
-
+		usunPozycje();
 		break;
 	case 4:
-
+		wyswietlZbiorPracownik();
 		break;
 	case 5:
 		wyswietlDanePracownika();
@@ -1267,5 +1519,45 @@ void userInterfacePracownikZalogowany()
 		std::cout << "Opcja o id: " << decide << " nie istnieje! Podaj właściwą opcję!" << std::endl;
 		system("pause");
 		userInterfacePracownikZalogowany();
+	}
+}
+
+
+void wyswietlZbiorPracownik()
+{
+	KartaBiblioteczna kartaBiblioteczna;
+	KatalogUzytkownikow katalog;
+	Ksiazka ksiazka;
+	unsigned int IDksiazki;
+	int poczatek = 1;
+	int koniec = 10;
+	Zbior zbior;
+	while (true)
+	{
+		system("CLS");
+		std::cout << "**<< Biblioteka >>**" << std::endl << std::endl << std::endl;
+		std::cout << "Pozycje:\n";
+		zbior.WypiszTytuly(poczatek, koniec);
+		std::cout << std::endl << std::endl << "[1] - Następna strona" << std::setw(29) << "[2] - Poprzednia strona" << std::setw(21)  << "[3] - Powrót" << std::endl;
+		int decide;
+		std::cin >> decide;
+		std::cin.ignore();
+		switch (decide)
+		{
+		case 1:
+			poczatek += 10;
+			koniec += 10;
+			break;
+		case 2:
+			poczatek -= 10;
+			koniec -= 10;
+			break;
+		case 3:
+			userInterfacePracownikZalogowany();
+			break;
+		default:
+			std::cout << "Opcja o id: " << decide << " nie istnieje! Spróbuj ponownie!" << std::endl;
+			system("pause");
+		}
 	}
 }

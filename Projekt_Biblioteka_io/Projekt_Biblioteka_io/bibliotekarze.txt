@@ -1,1 +1,2 @@
-2|Szymon|Nowak|Szymon@Nowak.pl|Rostafińskiego 2, 38-600 Kraków|12-03-2003|407000675|27585738544|1
+2|Szymon|Nowak|Szymon@gmail.pl|Rostafińskiego 2, 38-600 Kraków|12-03-2003|407000675|27585738544|1
+4|Szymon|Nowak|Szymon@Nowak.pl|Polna 22C, 23-230 Kolowszyn|11-11-1991|334334344|12326424566|1
