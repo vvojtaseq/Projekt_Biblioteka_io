@@ -1,7 +1,7 @@
 #include "Includy.h"
 #include "IncludyKlasy.h"
 
-#define HASLOPRACOWNIKOW = 88987
+static const int HASLOPRACOWNIKOW = 88987;
 int ID = 0;
 
 void userInterface()
@@ -479,7 +479,7 @@ void userInterfaceZalogujSie()
 		else
 		{
 			KatalogUzytkownikow katalog;
-			if (katalog.Autoryzacja(email, haslo))
+			if (katalog.Autoryzacja(email, haslo) && katalog.getPowerLevel(ID)==0)
 			{
 				ID = katalog.getID(email);
 				std::cout << "Logowanie..." << std::endl;
@@ -696,10 +696,15 @@ void userInterfacePracownik()
 	switch (decide)
 	{
 	case 1:
-
+		userInterfacePracownikZalogujSie();
 		break;
 	case 2:
-
+		int kod;
+		std::cout << "Podaj kod autoryzacyjny: ";
+		std::cin >> kod;
+		std::cin.ignore();
+		if (kod == HASLOPRACOWNIKOW) userInterfacePracownikZarejestrujSie();
+		else userInterfacePracownik();
 		break;
 	case 3:
 		userInterface();
@@ -711,7 +716,7 @@ void userInterfacePracownik()
 	}
 }
 
-void userInterfacePracownikZarejestrujSię()
+void userInterfacePracownikZarejestrujSie()
 {
 	Bibliotekarz bibliotekarz;
 	bool wlasciweDane;
@@ -984,4 +989,228 @@ void userInterfacePracownikZarejestrujSię()
 	}
 	userInterfacePracownik();
 }
+void userInterfacePracownikZalogujSie()
+{
+	std::string haslo;
+	std::string email;
+	int counter = 0;
+	while (true)
+	{
+		system("CLS");
+		std::cout << "**<< Biblioteka >>**" << std::endl << std::endl << std::endl;
+		if (email.empty())
+		{
+			std::cout << "Podaj e-mail: ";
+			std::getline(std::cin, email);
+		}
+		else if (haslo.empty())
+		{
+			std::cout << "Podaj hasło: ";
+			std::getline(std::cin, haslo);
+		}
+		else
+		{
+			KatalogUzytkownikow katalog;
+			if (katalog.Autoryzacja(email, haslo) && katalog.getPowerLevel(ID) == 1)
+			{
+				ID = katalog.getID(email);
+				std::cout << "Logowanie..." << std::endl;
+				system("pause");
+				userInterfacePracownikZalogowany();
+			}
+			else
+			{
+				counter++;
+				if (counter < 3)
+				{
+					std::cout << "Hasło, bądź e-mail są nie poprawne, spróbuj ponownie..." << std::endl;
+					system("pause");
+					email = "";
+					haslo = "";
+				}
+				else
+				{
+					counter = 0;
+					WielokrotnePodanieZlegoHaslaPracownika();
+					email = "";
+					haslo = "";
+				}
+
+
+			}
+		}
+
+	}
+}
+
+void WielokrotnePodanieZlegoHaslaPracownika()
+{
+	int decide;
+	while (true)
+	{
+		system("CLS");
+		std::cout << "**<< Biblioteka >>**" << std::endl << std::endl << std::endl;
+		std::cout << "Wielokrotnie podałeś błędne dane logowania! Nie pamiętasz hasła?\n[1] - Tak" << std::setw(20) << "[2] - Nie" << std::endl;
+		std::cin >> decide;
+		std::cin.ignore();
+		switch (decide)
+		{
+		case 1: ZmianaHaslaPracownika(); break;
+		case 2: break; break;
+		default:
+			std::cout << "Opcja o id: " << decide << " nie istnieje! Spróbuj ponownie!" << std::endl;
+			system("pause");
+		}
+	}
+}
+
+void ZmianaHaslaPracownika()
+{
+	KatalogUzytkownikow katalog;
+	bool zweryfikowany = false;
+	std::string adres_email;
+	std::string dataUrodzenia;
+	std::string haslo;
+	std::string powtórz_haslo;
+	while (true)
+	{
+		system("CLS");
+		std::cout << "**<< Biblioteka >>**" << std::endl << std::endl << std::endl;
+		std::cout << "[Zmiana Hasla]" << std::endl;
+		if (adres_email.empty())
+		{
+			std::cout << "Podaj e-mail: ";
+			std::getline(std::cin, adres_email);
+			ID = katalog.getID(adres_email);
+			if (ID <= 0)
+			{
+				std::cout << "Podanego adresu e-mail nie ma w bazie!\nCzy chcesz się zarejstrować?\n[1] - Tak" << std::setw(20) << "[2] - Nie" << std::endl;
+				while (true)
+				{
+					int decide;
+					std::cin >> decide;
+					std::cin.ignore();
+					switch (decide)
+					{
+					case 1:
+						userInterfacePracownikZarejestrujSie();
+						break;
+					case 2: break;
+						break;
+					default:
+						std::cout << "Opcja o id: " << decide << " nie istnieje! Spróbuj ponownie!" << std::endl;
+						system("pause");
+					}
+				}
+			}
+		}
+		else if (!zweryfikowany)
+		{
+
+			std::cout << "Podaj datę urodzenia: ";
+			std::getline(std::cin, dataUrodzenia);
+			if (sprawdzPoprawnoscDatyUrodzenia(dataUrodzenia) == false)
+			{
+				std::cout << "Data urodzenia, którą podałeś jest niepoprawna!" << std::endl;
+				system("pause");
+				dataUrodzenia = "";
+			}
+			else
+			{
+				std::string dataUrodzeniaPlik = katalog.getDataUrodzenia(ID);
+				if (dataUrodzenia == dataUrodzeniaPlik)
+				{
+					zweryfikowany = true;
+				}
+				else
+				{
+					std::cout << "Nie zgadza się!" << std::endl;
+					system("pause");
+				}
+
+			}
+		}
+		else
+		{
+			std::cout << "Utwórz hasło: ";
+			std::getline(std::cin, haslo);
+			if (sprawdzPoprawnoscHasla(haslo) == false)
+			{
+				std::cout << "Haslo, którą podałeś jest niepoprawne! Użyj minimum 8 znaków, co najmniej jednej małej litery i dużej litery oraz liczby!" << std::endl;
+				system("pause");
+				haslo = "";
+			}
+			else
+			{
+				std::cout << "Powtórz hasło: ";
+				std::getline(std::cin, powtórz_haslo);
+				if (haslo == powtórz_haslo)
+				{
+					katalog.editHaslo(haslo, ID);
+					break;
+				}
+				else
+				{
+					std::cout << "Nie zgadza się! Jeszcze raz..." << std::endl;
+					system("pause");
+					haslo = "";
+				}
+			}
+		}
+	}
+	userInterfacePracownikZalogujSie();
+}
+void wyswietlDanePracownika()
+{
+	KatalogUzytkownikow katalog;
+	Osoba użytkownik = katalog.getWszystkieDane(ID, "czytelnicy.txt");
+	system("CLS");
+	std::cout << "**<< Biblioteka >>**" << std::endl << std::endl << std::endl;
+	std::cout << "Imie: " << użytkownik.getImie() << std::endl;
+	std::cout << "Nazwisko: " << użytkownik.getNazwisko() << std::endl;
+	std::cout << "Status: Pracownik" << std::endl;
+	std::cout << "E-mail: " << użytkownik.getEmail() << std::endl;
+	std::cout << "Adres: " << użytkownik.getAdres() << std::endl;
+	std::cout << "Tel.: " << użytkownik.getTelefon() << std::endl;
+	std::cout << "PESEL: " << użytkownik.getPESEL() << std::endl;
+	system("pause");
+	userInterfacePracownikZalogowany();
+}
+void userInterfacePracownikZalogowany()
+{
+	system("CLS");
+	std::cout << "**<< Biblioteka >>**" << std::endl << std::endl << std::endl;
+	std::cout << "Opcje :\n";
+	std::cout << "[1] - " << std::setw(33) << "[2] -  " << std::endl;
+	std::cout << "[3] - " << std::setw(38) << "[4] -  " << std::endl;
+	std::cout << "[5] - Zobacz swoje dane" << std::setw(24) << "[6] - Wyloguj się " << std::endl;
+	int decide;
+	std::cin >> decide;
+	switch (decide)
+	{
+	case 1:
+
+		break;
+	case 2:
+
+		break;
+	case 3:
+
+		break;
+	case 4:
+
+		break;
+	case 5:
+		wyswietlDanePracownika();
+		break;
+	case 6:
+		std::cout << "Wylogowywanie..." << std::endl;
+		system("pause");
+		userInterface();
+		break;
+	default:
+		std::cout << "Opcja o id: " << decide << " nie istnieje! Podaj właściwą opcję!" << std::endl;
+		system("pause");
+		userInterfacePracownikZalogowany();
+	}
 }
