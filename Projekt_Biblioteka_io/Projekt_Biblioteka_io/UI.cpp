@@ -645,6 +645,13 @@ void wyswietlDaneUżytkownika()
 	userInterfaceUzytkownikZalogowany();
 }
 
+void wyswietlZbior()
+{
+	int poczatek = 1;
+	int koniec = 10;
+	
+}
+
 void userInterfaceUzytkownikZalogowany()
 {
 	system("CLS");
